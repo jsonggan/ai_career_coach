@@ -56,7 +56,7 @@ export default function NavigationItem({
               >
                 {item.subtitle}
               </span>
-              <span className="text-blue-500 mt-1 text-xs">{item.role}</span>
+              {/* <span className="text-blue-500 mt-1 text-xs">{item.role}</span> */}
             </div>
           )}
         </div>

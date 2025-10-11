@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import NavigationItem from "@/components/navigation-item";
 import { cookies } from "next/headers";
 import { SidebarToggle } from "./sidebar-toggle";
+import { ModeSelector } from "./mode-selector";
 import { ToastContainer } from "react-toastify";
 
 import "primeicons/primeicons.css";
@@ -15,50 +16,93 @@ import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const navItems = [
+// Navigation items for both modes
+const commonNavItems = [
   {
-    icon: "pi pi-home",
-    title: "Command Center",
-    subtitle: "Overview and statistics",
-    role: "HR Admin",
-    href: "/dashboard",
+    icon: "pi pi-chart-line",
+    title: "Skill Competency",
+    subtitle: "Track your skills & progress",
+    role: "All",
+    href: "/skills",
   },
   {
-    icon: "pi pi-file-edit",
-    title: "Self Assessment",
-    subtitle: "Complete your evaluation",
-    role: "Employee",
-    href: "/self-assessment",
+    icon: "pi pi-upload",
+    title: "Upload Portfolio",
+    subtitle: "Certificates, courses & projects",
+    role: "All",
+    href: "/portfolio",
+  },
+];
+
+// Navigation items specific to students
+const studentNavItems = [
+  {
+    icon: "pi pi-book",
+    title: "Courses & Major",
+    subtitle: "Academic planning & tracking",
+    role: "Student",
+    href: "/courses",
   },
   {
-    icon: "pi pi-comments",
-    title: "Peer Assessment",
-    subtitle: "360° colleague evaluation",
-    role: "Peer",
-    href: "/peer-assessment",
+    icon: "pi pi-map",
+    title: "Academic Track",
+    subtitle: "Plan your learning path",
+    role: "Student",
+    href: "/track",
   },
   {
     icon: "pi pi-users",
-    title: "Supervisor Review",
-    subtitle: "Evaluate unit members",
-    role: "Manager",
-    href: "/supervisor-review",
+    title: "Academic Community",
+    subtitle: "Get advice on professors & courses",
+    role: "Student",
+    href: "/academic-community",
+  },
+];
+
+// Navigation items specific to working professionals
+const professionalNavItems = [
+  {
+    icon: "pi pi-star",
+    title: "Rank & Tier",
+    subtitle: "Current position & level",
+    role: "Professional",
+    href: "/rank",
   },
   {
-    icon: "pi pi-sparkles",
-    title: "Roles",
-    subtitle: "Find the best candidates",
-    role: "HR Admin",
-    href: "/roles",
+    icon: "pi pi-arrow-up",
+    title: "Career Advancement",
+    subtitle: "How to get promoted",
+    role: "Professional",
+    href: "/advancement",
+  },
+  {
+    icon: "pi pi-comments",
+    title: "Career Community",
+    subtitle: "Professional advice & networking",
+    role: "Professional",
+    href: "/career-community",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "TalentForge",
-  description: "Unlock your talent",
+  title: "AI Career Coach",
+  description: "Your intelligent career development companion",
 };
 
-function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
+function Navigation({ isCollapsed, userMode }: { isCollapsed: boolean; userMode: 'student' | 'working-professional' }) {
+  // Get navigation items based on user mode
+  const getNavItems = () => {
+    const baseItems = [...commonNavItems];
+    
+    if (userMode === 'student') {
+      return [...baseItems, ...studentNavItems];
+    } else {
+      return [...baseItems, ...professionalNavItems];
+    }
+  };
+
+  const navItems = getNavItems();
+
   return (
     <nav
       className={clsx(
@@ -68,25 +112,32 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
     >
       <div className="flex flex-row items-center gap-2 pt-4">
         <Image
-          alt="TalentForge"
-          className="cursor-pointer flex-shrink-0"
+          alt="AI Career Coach"
+          className="cursor-pointer flex-shrink-0 p-1"
           src="/logo.png"
           width={32}
           height={32}
         />
         {!isCollapsed && (
           <div className="flex flex-col flex-1 min-w-0">
-            <h3 className="text-lg font-semibold">Defence Personnel</h3>
-            <p className="text-sm text-gray-500">Assessment Management</p>
+            <h3 className="text-lg font-semibold">AI Career Coach</h3>
+            <p className="text-sm text-gray-500">Your Development Partner</p>
           </div>
         )}
         <SidebarToggle isCollapsed={isCollapsed} />
       </div>
 
       <div className="border-b border-gray-200 mt-4 mb-2"></div>
+      
+      {/* Mode Selector */}
+      <div className="mb-4">
+        <ModeSelector currentMode={userMode} isCollapsed={isCollapsed} />
+      </div>
+
+      <div className="border-b border-gray-200 mb-2"></div>
 
       <ul
-        className="list-none p-0 m-0 flex flex-col gap-2"
+        className="list-none p-0 m-0 flex flex-col gap-4"
         style={{ listStyle: "none" }}
       >
         {navItems.map((item) => (
@@ -106,7 +157,7 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
             "flex items-center mb-4 hover:bg-gray-50 cursor-pointer px-4 py-2 rounded-md transition-all",
             isCollapsed ? "justify-center" : "flex-row gap-2"
           )}
-          title={isCollapsed ? "COL Edward Lim" : ""}
+          title={isCollapsed ? "Your Profile" : ""}
         >
           <Image
             src="/avatar.png"
@@ -117,9 +168,9 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
           />
           {!isCollapsed && (
             <div className="flex flex-col min-w-0">
-              <h3 className="text-md">COL Edward Lim</h3>
+              <h3 className="text-md">Your Profile</h3>
               <p className="text-xs text-gray-500">
-                Joint Task Force Commander
+                {userMode === 'student' ? 'Student Profile' : 'Professional Profile'}
               </p>
             </div>
           )}
@@ -137,6 +188,9 @@ export default function RootLayout({
   // Read sidebar state from cookie
   const cookieStore = cookies();
   const isCollapsed = cookieStore.get("sidebar-collapsed")?.value === "true";
+  
+  // Read user mode from cookie, default to student
+  const userMode = (cookieStore.get("user-mode")?.value as 'student' | 'working-professional') || 'student';
 
   return (
     <Providers>
@@ -150,7 +204,7 @@ export default function RootLayout({
             "h-screen w-screen flex overflow-hidden"
           )}
         >
-          <Navigation isCollapsed={isCollapsed} />
+          <Navigation isCollapsed={isCollapsed} userMode={userMode} />
           <main className="flex-1 bg-gray-50 flex flex-col items-center h-screen pb-8 min-h-0 min-w-0 overflow-y-auto">
             {children}
             {/* <TeemoChat /> */}
