@@ -103,9 +103,9 @@ export function RoleInformationStep({
 
   return (
     <>
-      <div className="flex items-start gap-2 p-3 bg-blue-50 rounded-lg">
-        <i className="pi pi-info-circle text-blue-600 mt-0.5 flex-shrink-0" />
-        <div className="text-sm text-blue-800">
+      <div className="flex items-start gap-2 p-3 bg-primary-50 rounded-lg">
+        <i className="pi pi-info-circle text-primary-600 mt-0.5 flex-shrink-0" />
+        <div className="text-sm text-primary-800">
           <p className="font-medium mb-1">
             Tips for creating effective role descriptions:
           </p>
@@ -136,7 +136,7 @@ export function RoleInformationStep({
           placeholder="e.g., Joint Task Force Commander, Operations Planner (J3), Intelligence Analyst (J2)"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
         />
       </div>
 
@@ -154,7 +154,7 @@ export function RoleInformationStep({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={5}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
         />
       </div>
 
@@ -172,7 +172,7 @@ export function RoleInformationStep({
             id="experience"
             value={yearsOfExperience}
             onChange={(e) => setYearsOfExperience(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="">Select experience level</option>
             <option value="0-2">0-2 years (Entry Level)</option>
@@ -194,7 +194,7 @@ export function RoleInformationStep({
             id="department"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="">Select department</option>
             {departmentOptions.map((dept) => (
@@ -221,7 +221,7 @@ export function RoleInformationStep({
                 !yearsOfExperience ||
                 isGeneratingSkills
               }
-              className="flex items-center gap-2 px-3 py-1.5 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-3 py-1.5 text-sm bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
               {isGeneratingSkills ? (
                 <>
@@ -248,7 +248,7 @@ export function RoleInformationStep({
                 key={skill}
                 className={`p-3 rounded-lg border cursor-pointer transition-all ${
                   selectedSkills.includes(skill)
-                    ? "border-blue-500 bg-blue-50"
+                    ? "border-primary-500 bg-primary-50"
                     : "border-gray-200 hover:border-gray-300"
                 }`}
                 onClick={() => handleSkillToggle(skill)}
@@ -258,7 +258,7 @@ export function RoleInformationStep({
                     {skill}
                   </span>
                   {selectedSkills.includes(skill) && (
-                    <i className="pi pi-check text-blue-600" />
+                    <i className="pi pi-check text-primary-600" />
                   )}
                 </div>
               </div>
@@ -292,11 +292,11 @@ export function RoleInformationStep({
               value={customSkill}
               onChange={(e) => setCustomSkill(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleAddCustomSkill()}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
             <button
               onClick={handleAddCustomSkill}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
             >
               Add
             </button>

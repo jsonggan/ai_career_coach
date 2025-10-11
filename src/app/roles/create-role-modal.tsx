@@ -444,7 +444,7 @@ export function CreateRoleModal({
                             <div
                               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                                 step <= currentStep
-                                  ? "bg-blue-600 text-white"
+                                  ? "bg-primary-600 text-white"
                                   : "bg-gray-200 text-gray-600"
                               }`}
                             >
@@ -453,7 +453,7 @@ export function CreateRoleModal({
                             <span
                               className={`text-xs mt-1 text-center ${
                                 step <= currentStep
-                                  ? "text-blue-600 font-medium"
+                                  ? "text-primary-600 font-medium"
                                   : "text-gray-500"
                               }`}
                             >
@@ -464,7 +464,7 @@ export function CreateRoleModal({
                             <div
                               className={`w-16 mx-2 h-0.5 mb-5 ${
                                 step < currentStep
-                                  ? "bg-blue-600"
+                                  ? "bg-primary-600"
                                   : "bg-gray-200"
                               }`}
                             />
@@ -588,7 +588,7 @@ export function CreateRoleModal({
                             !yearsOfExperience)) ||
                         (currentStep === 3 && isCreating)
                           ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                          : "bg-blue-600 text-white hover:bg-blue-700"
+                          : "bg-primary-600 text-white hover:bg-primary-700"
                       }`}
                     >
                       {currentStep === 3 && isCreating ? (

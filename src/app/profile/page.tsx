@@ -13,9 +13,9 @@ export default function UserProfile() {
     avatar: "/avatar.png",
     manager: "BG Matt Johnson",
     currentSkills: [
-      { name: "Mission Planning", color: "bg-blue-100 text-blue-800" },
-      { name: "Joint Operations", color: "bg-blue-100 text-blue-800" },
-      { name: "Command & Control", color: "bg-blue-100 text-blue-800" },
+      { name: "Mission Planning", color: "bg-primary-100 text-primary-800" },
+      { name: "Joint Operations", color: "bg-primary-100 text-primary-800" },
+      { name: "Command & Control", color: "bg-primary-100 text-primary-800" },
       { name: "Leadership", color: "bg-red-100 text-red-800" },
     ],
     additionalSkillsCount: 3,
@@ -261,7 +261,7 @@ export default function UserProfile() {
       case "Expiring Soon":
         return "bg-yellow-100 text-yellow-800 border-yellow-200";
       case "Permanent":
-        return "bg-blue-100 text-blue-800 border-blue-200";
+        return "bg-primary-100 text-primary-800 border-primary-200";
       case "Expired":
         return "bg-red-100 text-red-800 border-red-200";
       default:
@@ -479,7 +479,7 @@ export default function UserProfile() {
       aria-valuemax={100}
     >
       <div
-        className="h-2 rounded-full bg-blue-600"
+        className="h-2 rounded-full bg-primary-600"
         style={{ width: `${Math.max(0, Math.min(100, value))}%` }}
       />
     </div>
@@ -569,7 +569,7 @@ export default function UserProfile() {
           <div className="p-6 flex items-center justify-between border-b border-gray-100">
             <h3 className="text-2xl font-bold">Defence Skill Development</h3>
             {/* <button
-              className="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-white px-4 py-2 text-blue-600 hover:bg-blue-50"
+              className="inline-flex items-center gap-2 rounded-lg border border-primary-200 bg-white px-4 py-2 text-primary-600 hover:bg-primary-50"
               onClick={() => onSuccess?.("skills")}
               type="button"
             >
@@ -579,7 +579,7 @@ export default function UserProfile() {
           <div className="p-6 space-y-6">
             <div className="space-y-4">
               <div className="flex justify-between text-sm">
-                <span className="text-blue-600 font-medium">Current Level</span>
+                <span className="text-primary-600 font-medium">Current Level</span>
                 <span className="text-green-600 font-medium">Next Level</span>
                 <span className="text-gray-500">Advanced Skills</span>
               </div>
@@ -640,7 +640,7 @@ export default function UserProfile() {
               <select
                 value={selectedGrowthArea}
                 onChange={(e) => setSelectedGrowthArea(e.target.value)}
-                className="w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 py-2 text-left text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 py-2 text-left text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="" disabled>
                   Select Defence Career Path
@@ -673,7 +673,7 @@ export default function UserProfile() {
                 {userData.growthSkills.map((skill, index) => (
                   <Badge
                     key={index}
-                    className="bg-blue-50 text-blue-700 border border-blue-200"
+                    className="bg-primary-50 text-primary-700 border border-primary-200"
                   >
                     {skill}
                   </Badge>
@@ -707,7 +707,7 @@ export default function UserProfile() {
               <div className="flex justify-end pt-4">
                 <button
                   onClick={() => onSuccess?.("courses")}
-                  className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-2 text-white hover:bg-primary-700"
                   type="button"
                 >
                   View Training Programs
@@ -722,7 +722,7 @@ export default function UserProfile() {
           <div className="p-6 flex items-center justify-between border-b border-gray-100">
             <h3 className="text-2xl font-bold">Training Journal</h3>
             {/* <button
-              className="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-white px-4 py-2 text-blue-600 hover:bg-blue-50"
+              className="inline-flex items-center gap-2 rounded-lg border border-primary-200 bg-white px-4 py-2 text-primary-600 hover:bg-primary-50"
               type="button"
             >
               View Training Record
@@ -743,7 +743,7 @@ export default function UserProfile() {
                       <span className="text-sm text-gray-600">
                         {entry.platform}
                       </span>
-                      <Badge className="text-xs bg-blue-50 text-blue-700 border border-blue-200">
+                      <Badge className="text-xs bg-primary-50 text-primary-700 border border-primary-200">
                         {entry.category}
                       </Badge>
                     </div>
@@ -784,7 +784,7 @@ export default function UserProfile() {
               Active
             </span>
             <button
-              className="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-white px-4 py-2 text-blue-600 hover:bg-blue-50"
+              className="inline-flex items-center gap-2 rounded-lg border border-primary-200 bg-white px-4 py-2 text-primary-600 hover:bg-primary-50"
               type="button"
             >
               Add Certificate
@@ -799,7 +799,7 @@ export default function UserProfile() {
               onClick={() => setCertificationsTab("completed")}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 certificationsTab === "completed"
-                  ? "border-blue-500 text-blue-600 bg-blue-50"
+                  ? "border-primary-500 text-primary-600 bg-primary-50"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50"
               }`}
             >
@@ -809,7 +809,7 @@ export default function UserProfile() {
               onClick={() => setCertificationsTab("recommended")}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 certificationsTab === "recommended"
-                  ? "border-blue-500 text-blue-600 bg-blue-50"
+                  ? "border-primary-500 text-primary-600 bg-primary-50"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50"
               }`}
             >
@@ -871,7 +871,7 @@ export default function UserProfile() {
                   </div>
 
                   <div className="flex justify-end mt-4 pt-3 border-t border-gray-100">
-                    <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                    <button className="text-primary-600 hover:text-primary-800 text-sm font-medium">
                       View Certificate
                     </button>
                   </div>

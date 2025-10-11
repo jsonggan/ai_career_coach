@@ -92,7 +92,7 @@ export function CandidateSearchStep({
               {searchProgress.progress && (
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div
-                    className="bg-blue-600 h-2 rounded-full transition-all duration-500"
+                    className="bg-primary-600 h-2 rounded-full transition-all duration-500"
                     style={{
                       width: `${(searchProgress.progress.current / searchProgress.progress.total) * 100}%`,
                     }}
@@ -102,7 +102,7 @@ export function CandidateSearchStep({
 
               <div className="flex items-center gap-2">
                 {isSearchingCandidates && (
-                  <i className="pi pi-spin pi-spinner text-blue-600 text-sm" />
+                  <i className="pi pi-spin pi-spinner text-primary-600 text-sm" />
                 )}
                 <span className="text-sm text-gray-700">
                   {searchProgress.message}
@@ -165,7 +165,7 @@ export function CandidateSearchStep({
                 href={`/roles/${newRoleId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
               >
                 <i className="pi pi-external-link text-sm" />
                 View Role & Candidates
@@ -199,9 +199,9 @@ export function CandidateSearchStep({
         )}
 
         {/* Search Process Info */}
-        <div className="bg-blue-50 rounded-lg p-4">
+        <div className="bg-primary-50 rounded-lg p-4">
           <div className="flex items-start gap-3">
-            <i className="pi pi-info-circle text-blue-600 text-sm mt-0.5 flex-shrink-0" />
+            <i className="pi pi-info-circle text-primary-600 text-sm mt-0.5 flex-shrink-0" />
             <div className="text-sm text-blue-800">
               <p className="font-medium mb-2">
                 What&apos;s happening behind the scenes:

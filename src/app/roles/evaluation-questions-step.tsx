@@ -66,7 +66,7 @@ export function EvaluationQuestionsStep({
         {isGeneratingQuestions && (
           <div className="flex items-center justify-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
             <div className="text-center">
-              <i className="pi pi-spin pi-spinner text-2xl text-blue-600 mb-4" />
+              <i className="pi pi-spin pi-spinner text-2xl text-primary-600 mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">
                 Generating Questions
               </h3>
@@ -88,7 +88,7 @@ export function EvaluationQuestionsStep({
                 </h4>
                 <button
                   onClick={addCandidateQuestion}
-                  className="flex items-center gap-2 px-3 py-1.5 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-3 py-1.5 text-sm bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
                 >
                   <i className="pi pi-plus text-xs" />
                   Add Question
@@ -104,7 +104,7 @@ export function EvaluationQuestionsStep({
                           updateCandidateQuestion(index, e.target.value)
                         }
                         placeholder="Enter evaluation question..."
-                        className="flex-1 text-sm text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                        className="flex-1 text-sm text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
                         rows={2}
                       />
                       <button
@@ -128,7 +128,7 @@ export function EvaluationQuestionsStep({
                 </h4>
                 <button
                   onClick={addRoleQuestion}
-                  className="flex items-center gap-2 px-3 py-1.5 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-3 py-1.5 text-sm bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
                 >
                   <i className="pi pi-plus text-xs" />
                   Add Question
@@ -144,7 +144,7 @@ export function EvaluationQuestionsStep({
                           updateRoleQuestion(index, e.target.value)
                         }
                         placeholder="Enter role-related question..."
-                        className="flex-1 text-sm text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                        className="flex-1 text-sm text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
                         rows={2}
                       />
                       <button

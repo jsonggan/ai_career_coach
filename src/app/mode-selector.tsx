@@ -53,7 +53,7 @@ export function ModeSelector({ currentMode, isCollapsed }: ModeSelectorProps) {
           title={currentModeData.label}
           disabled={isPending}
         >
-          <i className={clsx(currentModeData.icon, "text-blue-600")} />
+          <i className={clsx(currentModeData.icon, "text-primary-600")} />
         </button>
         
         {isOpen && (
@@ -69,10 +69,10 @@ export function ModeSelector({ currentMode, isCollapsed }: ModeSelectorProps) {
                   onClick={() => handleModeChange(mode.key)}
                   className={clsx(
                     "w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors flex items-center gap-3 first:rounded-t-md last:rounded-b-md",
-                    currentMode === mode.key && "bg-blue-50 text-blue-700"
+                    currentMode === mode.key && "bg-primary-50 text-primary-700"
                   )}
                 >
-                  <i className={clsx(mode.icon, currentMode === mode.key ? "text-blue-600" : "text-gray-400")} />
+                  <i className={clsx(mode.icon, currentMode === mode.key ? "text-primary-600" : "text-gray-400")} />
                   <div className="flex flex-col">
                     <span className="font-medium text-sm">{mode.label}</span>
                     <span className="text-xs text-gray-500">{mode.description}</span>
@@ -97,7 +97,7 @@ export function ModeSelector({ currentMode, isCollapsed }: ModeSelectorProps) {
         disabled={isPending}
       >
         <div className="flex items-center gap-3">
-          <i className={clsx(currentModeData.icon, "text-blue-600")} />
+          <i className={clsx(currentModeData.icon, "text-primary-600")} />
           <div className="flex flex-col text-left">
             <span className="font-medium text-sm">{currentModeData.label}</span>
             <span className="text-xs text-gray-500">{currentModeData.description}</span>
@@ -122,16 +122,16 @@ export function ModeSelector({ currentMode, isCollapsed }: ModeSelectorProps) {
                 onClick={() => handleModeChange(mode.key)}
                 className={clsx(
                   "w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors flex items-center gap-3 first:rounded-t-md last:rounded-b-md",
-                  currentMode === mode.key && "bg-blue-50 text-blue-700"
+                  currentMode === mode.key && "bg-primary-50 text-primary-700"
                 )}
               >
-                <i className={clsx(mode.icon, currentMode === mode.key ? "text-blue-600" : "text-gray-400")} />
+                <i className={clsx(mode.icon, currentMode === mode.key ? "text-primary-600" : "text-gray-400")} />
                 <div className="flex flex-col">
                   <span className="font-medium text-sm">{mode.label}</span>
                   <span className="text-xs text-gray-500">{mode.description}</span>
                 </div>
                 {currentMode === mode.key && (
-                  <i className="pi pi-check text-blue-600 text-xs ml-auto" />
+                  <i className="pi pi-check text-primary-600 text-xs ml-auto" />
                 )}
               </button>
             ))}
