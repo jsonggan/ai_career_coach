@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html,
+main {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.chat-markdown > h1,
+.chat-markdown > h2,
+.chat-markdown > h3,
+.chat-markdown > h4,
+.chat-markdown > h5,
+.chat-markdown > h6,
+.chat-markdown > p,
+.chat-markdown > span,
+.chat-markdown > div,
+.chat-markdown > pre {
+  margin-top: 0px;
+  color: var(--text-color);
+}
+
+.chat-markdown p,
+.chat-markdown span,
+.chat-markdown li {
+  font-size: 0.875rem !important;
+  color: var(--text-color);
+}
+
+.chat-markdown ul,
+.chat-markdown ol {
+  padding-left: 1.5rem;
+}
+
+.chat-markdown table {
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+  border-color: var(--surface-200) !important;
+  display: block !important;
+  width: max-content !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: auto !important;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.chat-markdown tbody,
+.chat-markdown td,
+.chat-markdown tfoot,
+.chat-markdown th,
+.chat-markdown thead,
+.chat-markdown tr {
+  border-color: inherit !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+  width: 100% !important;
+}
+
+.chat-markdown td {
+  padding: 8px;
+}
+
+.chat-markdown th {
+  min-width: 200px;
+  padding: 8px;
+  background-color: var(--surface-100);
+}
+
+.chat-markdown .katex-html {
+  width: 100% !important;
+  overflow: auto !important;
+  padding-bottom: 12px;
+}
+
+.user-chat-markdown p {
+  margin: 0px;
+}

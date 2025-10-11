@@ -1,0 +1,65 @@
+.inputTextarea {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.chatButton {
+  width: 39px !important;
+  height: 39px !important;
+  right: 3px;
+  bottom: 4.5px;
+}
+
+.chatControls {
+  padding-left: 40px;
+}
+
+.chatTools {
+  margin-left: 40px;
+}
+
+.citationButton {
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 4px;
+}
+
+.attachmentButton {
+  width: 39px !important;
+  height: 39px !important;
+  left: 3px;
+  bottom: 4.5px;
+}
+
+.teemoChatContainer {
+  width: 360px;
+  height: 70vh;
+  margin-bottom: 7rem;
+}
+
+.assistantMessage {
+  margin-top: 10px;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 16px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f03355;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  animation: l1 2s infinite cubic-bezier(0.3, 1, 0, 1);
+  margin-top: 3px;
+}
+@keyframes l1 {
+  33% {
+    border-radius: 0;
+    background: #514b82;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  66% {
+    border-radius: 0;
+    background: #ffa516;
+    clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
+  }
+}

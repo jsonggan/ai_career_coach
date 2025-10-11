@@ -1,0 +1,246 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User
+model User {
+  userId        String      @id @default(uuid()) @map("user_id") @db.Uuid
+  name          String
+  systemRole    SystemRole  @map("system_role")
+  jobRole       String      @map("job_role")
+  rank          String?     @map("rank")
+  skillSet      String[]   @map("skill_set") @db.Text
+  managerUserId String?     @map("manager_user_id") @db.Uuid
+  department String? 
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  // Self relation
+  manager User? @relation("UserManager", fields: [managerUserId], references: [userId])
+  team    User[] @relation("UserManager")
+
+  // Relations
+  selfAssessments     SelfAssessment[]
+  peerFeedbacks       PeerFeedback[]        @relation("PeerFeedbackUser")
+  commentedFeedback   PeerFeedback[]        @relation("PeerFeedbackCommenter")
+  managerEvaluations  ManagerEvaluation[]
+  documents           UserDocument[]
+  userNewRoles        UserNewRole[]
+
+  @@map("user")
+}
+
+// Self Assessment (self_assessment)
+model SelfAssessment {
+  selfAssessmentId   Int      @id @default(autoincrement()) @map("self_assessment_id")
+  userId             String   @map("user_id") @db.Uuid
+  goalAchieved       String?  @map("goal_achieved") @db.Text
+  keyStrength        String?  @map("key_strength") @db.Text
+  keyStrengthAi      String?  @map("key_strength_ai") @db.Text
+  areaForImprovement String?  @map("area_for_improvement") @db.Text
+  overallSelfRating  Int?     @map("overall_self_rating")
+  additionalComment  String?  @map("additional_comment") @db.Text
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  @@map("self_assessment")
+}
+
+// Peer Feedback (peer_feedback)
+model PeerFeedback {
+  peerFeedbackId              Int      @id @default(autoincrement()) @map("peer_feedback_id")
+  userId                      String   @map("user_id") @db.Uuid
+  commenterUserId             String   @map("commenter_user_id") @db.Uuid
+  rating                      Int?
+  commentOnStrength           String?  @map("comment_on_strength") @db.Text
+  suggestionForImprovement    String?  @map("suggestion_for_improvement") @db.Text
+  suggestionForImprovementAi  String?  @map("suggestion_for_improvement_ai") @db.Text
+  finalComment                String?  @map("final_comment") @db.Text
+  createdAt                   DateTime @default(now()) @map("created_at")
+  updatedAt                   DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  user      User @relation("PeerFeedbackUser", fields: [userId], references: [userId], onDelete: Cascade)
+  commenter User @relation("PeerFeedbackCommenter", fields: [commenterUserId], references: [userId], onDelete: Cascade)
+
+  @@map("peer_feedback")
+}
+
+// Manager Evaluation (manager_evaluation)
+model ManagerEvaluation {
+  managerEvaluationId       Int      @id @default(autoincrement()) @map("manager_evaluation_id")
+  userId                    String   @map("user_id") @db.Uuid
+  performanceRating         Int?     @map("performance_rating")
+  commentOnGoalAchieved     String?  @map("comment_on_goal_achieved") @db.Text
+  commentOnGoalAchievedAi   String?  @map("comment_on_goal_achieved_ai") @db.Text
+  commentOnStrength         String?  @map("comment_on_strength") @db.Text
+  suggestionForImprovement  String?  @map("suggestion_for_improvement") @db.Text
+  suggestionForImprovementAi String? @map("suggestion_for_improvement_ai") @db.Text
+  finalComment              String?  @map("final_comment") @db.Text
+  createdAt                 DateTime @default(now()) @map("created_at")
+  updatedAt                 DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  @@map("manager_evaluation")
+}
+
+// User documents (user_document)
+model UserDocument {
+  userDocumentId   String   @id @default(uuid()) @map("user_document_id") @db.Uuid
+  filename         String
+  content          Bytes
+  extractedContent String   @map("extracted_content") @db.Text
+  userId           String   @map("user_id") @db.Uuid
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  // Optional: keep if present in DB (not in ERD)
+  mimeType         String?  @map("mime_type")
+
+  // Relations
+  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  @@map("user_document")
+}
+
+// New role catalog (new_role)
+model NewRole {
+  newRoleId               Int        @id @default(autoincrement()) @map("new_role_id")
+  roleName                String     @map("role_name")
+  descriptionAi           String     @map("description_ai") @db.Text
+  descriptionPrompt       String     @map("description_prompt") @db.Text
+  yearOfExperience        String     @map("year_of_experience") @db.Text
+  department              String?    @map("department")
+  skill                   String[]  @map("skill") @db.Text
+  createdAt               DateTime   @default(now()) @map("created_at")
+  updatedAt               DateTime   @updatedAt @map("updated_at")
+
+  // Relations
+  userNewRoles        UserNewRole[]
+  roleRelatedQuestions RoleRelatedQuestion[]
+  candidateEvaluations CandidateEvaluation[]
+
+  @@map("new_role")
+}
+
+// Role-related questions (role_related_question)
+model RoleRelatedQuestion {
+  roleRelatedQuestionId Int      @id @default(autoincrement()) @map("role_related_question_id")
+  roleRelatedQuestion   String   @map("role_related_question") @db.Text
+  newRoleId             Int      @map("new_role_id")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  newRole NewRole @relation(fields: [newRoleId], references: [newRoleId], onDelete: Cascade)
+  answers UserNewRoleRoleRelatedQuestion[]
+
+  @@map("role_related_question")
+}
+
+// Candidate evaluation prompts (candidate_evaluation)
+model CandidateEvaluation {
+  candidateEvaluationId Int      @id @default(autoincrement()) @map("candidate_evaluation_id")
+  candidateEvaluation   String   @map("candidate_evaluation") @db.Text
+  newRoleId             Int      @map("new_role_id")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  newRole NewRole @relation(fields: [newRoleId], references: [newRoleId], onDelete: Cascade)
+  answers UserNewRoleCandidateEvaluation[]
+
+  @@map("candidate_evaluation")
+}
+
+// User requests for new roles (user_new_role)
+model UserNewRole {
+  userNewRoleId            Int      @id @default(autoincrement()) @map("user_new_role_id")
+  newRoleId                Int      @map("new_role_id")
+  userId                   String   @map("user_id") @db.Uuid
+
+  // ERD metrics & fields
+  overallRating            Int      @map("overall_rating")
+  aiSummary                String   @map("ai_summary") @db.Text
+  reviewerComment          String   @map("reviewer_comment") @db.Text
+  reviewerCommentId        String?   @map("reviewer_comment_id") @db.Uuid
+  impactCommunication      Int      @map("impact_communication")
+  skillRecency             Int      @map("skill_recency")
+  yearsOfRelevantExperience Int     @map("years_of_relevant_experience")
+  totalExperience          Int      @map("total_experience")
+  status                   String   @map("status")
+  createdAt                DateTime @default(now()) @map("created_at")
+  updatedAt                DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  user     User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  newRole  NewRole  @relation(fields: [newRoleId], references: [newRoleId], onDelete: Cascade)
+
+  roleRelatedQuestionAnswers UserNewRoleRoleRelatedQuestion[]
+  candidateEvaluationAnswers UserNewRoleCandidateEvaluation[]
+
+  @@map("user_new_role")
+}
+
+// Answers to role-related questions (user_new_role_role_related_question)
+model UserNewRoleRoleRelatedQuestion {
+  userNewRoleRoleRelatedQuestionId Int      @id @default(autoincrement()) @map("user_new_role_role_related_question_id")
+  roleRelatedQuestionAnswer        String   @map("role_related_question_answer") @db.Text
+  userNewRoleId                    Int      @map("user_new_role_id")
+  isInResume                 Boolean  @map("is_in_resume")
+  roleRelatedQuestionId            Int      @map("role_related_question_id")
+  createdAt                        DateTime @default(now()) @map("created_at")
+  updatedAt                        DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  userNewRole         UserNewRole         @relation(fields: [userNewRoleId], references: [userNewRoleId], onDelete: Cascade)
+  roleRelatedQuestion RoleRelatedQuestion @relation(fields: [roleRelatedQuestionId], references: [roleRelatedQuestionId], onDelete: Cascade)
+
+  @@index([userNewRoleId])
+  @@index([roleRelatedQuestionId])
+  @@map("user_new_role_role_related_question")
+}
+
+// Answers to candidate evaluations (user_new_role_candidate_evaluation)
+model UserNewRoleCandidateEvaluation {
+  userNewRoleCandidateEvaluationId Int      @id @default(autoincrement()) @map("user_new_role_candidate_evaluation_id")
+  candidateEvaluationAnswer        String   @map("candidate_evaluation_answer") @db.Text
+  userNewRoleId                    Int      @map("user_new_role_id")
+  candidateEvaluationId            Int      @map("candidate_evaluation_id")
+  isInResume                 Boolean  @map("is_in_resume")
+  createdAt                        DateTime @default(now()) @map("created_at")
+  updatedAt                        DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  userNewRole        UserNewRole        @relation(fields: [userNewRoleId], references: [userNewRoleId], onDelete: Cascade)
+  candidateEvaluation CandidateEvaluation @relation(fields: [candidateEvaluationId], references: [candidateEvaluationId], onDelete: Cascade)
+
+  @@index([userNewRoleId])
+  @@index([candidateEvaluationId])
+  @@map("user_new_role_candidate_evaluation")
+}
+
+// ======================== Enums ========================
+
+enum SystemRole {
+  MANAGER  @map("Manager")
+  HR_ADMIN @map("HR Admin")
+  EMPLOYEE @map("Employee")
+
+  @@map("system_role")
+}

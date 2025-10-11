@@ -1,0 +1,20 @@
+{
+  "name": "generate-data",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Synthetic data generator for users, self-assessments, and resumes (PDF)",
+  "scripts": {
+    "start": "node index.js",
+    "generate": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.56.0",
+    "papaparse": "^5.4.1",
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^23.4.1",
+    "uuid": "^9.0.1"
+  }
+}
+
