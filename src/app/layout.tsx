@@ -20,7 +20,7 @@ const inter = Inter({ subsets: ["latin"] });
 const studentNavItems = [
   {
     icon: "pi pi-book",
-    title: "Courses & Major",
+    title: "Courses, Major & Career",
     subtitle: "Academic planning & tracking",
     role: "Student",
     href: "/student/academy-track",
