@@ -6,7 +6,6 @@ import { Inter } from "next/font/google";
 import NavigationItem from "@/components/navigation-item";
 import { cookies } from "next/headers";
 import { SidebarToggle } from "./sidebar-toggle";
-import { ModeSelector } from "./mode-selector";
 import { ToastContainer } from "react-toastify";
 
 import "primeicons/primeicons.css";
@@ -16,7 +15,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Navigation items for students
 const studentNavItems = [
   {
     icon: "pi pi-book",
@@ -62,60 +60,12 @@ const studentNavItems = [
   },
 ];
 
-// Navigation items for working professionals
-const professionalNavItems = [
-  {
-    icon: "pi pi-upload",
-    title: "Upload Portfolio",
-    subtitle: "Certificates, courses & projects",
-    role: "Professional",
-    href: "/professional/upload-portfolio",
-  },
-  {
-    icon: "pi pi-users",
-    title: "Peer Review",
-    subtitle: "Review and get reviewed by peers",
-    role: "Professional",
-    href: "/professional/peer-review",
-  },
-  {
-    icon: "pi pi-user-edit",
-    title: "Manager Review",
-    subtitle: "Performance reviews from managers",
-    role: "Professional",
-    href: "/professional/manager-review",
-  },
-  {
-    icon: "pi pi-arrow-up",
-    title: "Career Advancement",
-    subtitle: "How to get promoted",
-    role: "Professional",
-    href: "/professional/career-advancement",
-  },
-  {
-    icon: "pi pi-chart-line",
-    title: "Skill Competency",
-    subtitle: "Track your skills & progress",
-    role: "Professional",
-    href: "/professional/skill-competency",
-  },
-  {
-    icon: "pi pi-comments",
-    title: "Community",
-    subtitle: "Professional advice & networking",
-    role: "Professional",
-    href: "/professional/community",
-  },
-];
-
 export const metadata: Metadata = {
   title: "AI Career Coach",
   description: "Your intelligent career development companion",
 };
 
-function Navigation({ isCollapsed, userMode }: { isCollapsed: boolean; userMode: 'student' | 'working-professional' }) {
-  // Get navigation items based on user mode
-  const navItems = userMode === 'student' ? studentNavItems : professionalNavItems;
+function Navigation({ isCollapsed }: { isCollapsed: boolean; }) {
 
   return (
     <nav
@@ -142,19 +92,12 @@ function Navigation({ isCollapsed, userMode }: { isCollapsed: boolean; userMode:
       </div>
 
       <div className="border-b border-gray-200 mt-4 mb-2"></div>
-      
-      {/* Mode Selector */}
-      <div className="mb-4">
-        <ModeSelector currentMode={userMode} isCollapsed={isCollapsed} />
-      </div>
-
-      <div className="border-b border-gray-200 mb-2"></div>
 
       <ul
         className="list-none p-0 m-0 flex flex-col gap-4"
         style={{ listStyle: "none" }}
       >
-        {navItems.map((item) => (
+        {studentNavItems.map((item) => (
           <NavigationItem
             key={item.title}
             item={item}
@@ -184,7 +127,7 @@ function Navigation({ isCollapsed, userMode }: { isCollapsed: boolean; userMode:
             <div className="flex flex-col min-w-0">
               <h3 className="text-md">Your Profile</h3>
               <p className="text-xs text-gray-500">
-                {userMode === 'student' ? 'Student Profile' : 'Professional Profile'}
+                Student Profile
               </p>
             </div>
           )}
@@ -202,9 +145,6 @@ export default function RootLayout({
   // Read sidebar state from cookie
   const cookieStore = cookies();
   const isCollapsed = cookieStore.get("sidebar-collapsed")?.value === "true";
-  
-  // Read user mode from cookie, default to student
-  const userMode = (cookieStore.get("user-mode")?.value as 'student' | 'working-professional') || 'student';
 
   return (
     <Providers>
@@ -218,7 +158,7 @@ export default function RootLayout({
             "h-screen w-screen flex overflow-hidden"
           )}
         >
-          <Navigation isCollapsed={isCollapsed} userMode={userMode} />
+          <Navigation isCollapsed={isCollapsed}/>
           <main className="flex-1 bg-gray-50 flex flex-col items-center h-screen pb-8 min-h-0 min-w-0 overflow-y-auto">
             {children}
             {/* <TeemoChat /> */}
