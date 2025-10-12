@@ -1,6 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+// Define types for the course data
+interface Course {
+  courseCode: string;
+  courseName: string;
+  description: string;
+  credits: number;
+  level: number;
+  prerequisites: string[];
+  term: string;
+  year: number;
+  category: string;
+  department: string;
+}
+
+interface UserCourse {
+  courseCode: string;
+  term: string;
+  year: number;
+  status: string;
+  grade: string | null;
+}
+
+interface AcademyTrackClientProps {
+  coursesData: Course[];
+  userCourseHistory: UserCourse[];
+}
 
 // Specialisation tracks based on SUTD CSD program
 const specialisationTracks = [
@@ -118,12 +145,40 @@ const careerPaths = [
   }
 ];
 
-export default function AcademyTrackClient() {
+export default function AcademyTrackClient({ coursesData, userCourseHistory }: AcademyTrackClientProps) {
   const [selectedTracks, setSelectedTracks] = useState<string[]>([]);
   const [selectedCareers, setSelectedCareers] = useState<string[]>([]);
   const [customCareer, setCustomCareer] = useState<string>("");
   const [studentComments, setStudentComments] = useState<string>("");
   const [showAIHelp, setShowAIHelp] = useState<string>("");
+  
+  // Course-related state
+  const [previousCourses, setPreviousCourses] = useState<any[]>([]);
+  const [availableCourses, setAvailableCourses] = useState<any[]>([]);
+  const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
+  const [currentTerm] = useState("Spring");
+  const [currentYear] = useState(2025);
+
+  // Load course data on component mount
+  useEffect(() => {
+    // Load previous courses (using sample data for now)
+    const prevCourses = userCourseHistory.map(userCourse => {
+      const courseDetails = coursesData.find(c => c.courseCode === userCourse.courseCode);
+      return {
+        ...courseDetails,
+        ...userCourse
+      };
+    });
+    setPreviousCourses(prevCourses);
+
+    // Load available courses for current term
+    const available = coursesData.filter(course => 
+      course.term === currentTerm && 
+      course.year === currentYear &&
+      !userCourseHistory.some(uc => uc.courseCode === course.courseCode)
+    );
+    setAvailableCourses(available);
+  }, [currentTerm, currentYear, coursesData, userCourseHistory]);
 
   const handleTrackSelection = (trackId: string) => {
     if (selectedTracks.includes(trackId)) {
@@ -141,6 +196,46 @@ export default function AcademyTrackClient() {
     }
   };
 
+  const handleCourseSelection = (courseCode: string) => {
+    if (selectedCourses.includes(courseCode)) {
+      setSelectedCourses(selectedCourses.filter(code => code !== courseCode));
+    } else {
+      setSelectedCourses([...selectedCourses, courseCode]);
+    }
+  };
+
+  const canEnrollInCourse = (course: any) => {
+    if (!course.prerequisites || course.prerequisites.length === 0) {
+      return true;
+    }
+    
+    const completedCourseCodes = previousCourses
+      .filter(c => c.status === 'COMPLETED')
+      .map(c => c.courseCode);
+    
+    return course.prerequisites.every((prereq: string) => 
+      completedCourseCodes.includes(prereq)
+    );
+  };
+
+  const getGradeColor = (grade: string | null) => {
+    if (!grade) return "text-gray-500";
+    if (grade.startsWith('A')) return "text-green-600";
+    if (grade.startsWith('B')) return "text-blue-600";
+    if (grade.startsWith('C')) return "text-yellow-600";
+    return "text-red-600";
+  };
+
+  const getCourseStatusColor = (status: string) => {
+    switch (status) {
+      case 'COMPLETED': return "bg-green-100 text-green-800";
+      case 'IN_PROGRESS': return "bg-blue-100 text-blue-800";
+      case 'ENROLLED': return "bg-purple-100 text-purple-800";
+      case 'DROPPED': return "bg-red-100 text-red-800";
+      default: return "bg-gray-100 text-gray-800";
+    }
+  };
+
   const handleSave = () => {
     // TODO: Implement save functionality
     console.log({
@@ -148,7 +243,10 @@ export default function AcademyTrackClient() {
       specialisationTracks: selectedTracks,
       careerPaths: selectedCareers,
       customCareer: customCareer,
-      comments: studentComments
+      comments: studentComments,
+      selectedCourses: selectedCourses,
+      currentTerm: currentTerm,
+      currentYear: currentYear
     });
     alert("Your academic plan has been saved!");
   };
@@ -320,6 +418,156 @@ export default function AcademyTrackClient() {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Course History and Selection */}
+        <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">Academic Progress & Course Selection</h2>
+          
+          {/* Previous Courses */}
+          <div className="mb-8">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">📚 Previous Courses</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {previousCourses.map((course, index) => (
+                <div key={index} className="border border-gray-200 rounded-lg p-4">
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{course.courseCode}</h4>
+                      <p className="text-sm text-gray-600">{course.courseName}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getCourseStatusColor(course.status)}`}>
+                        {course.status.replace('_', ' ')}
+                      </span>
+                      {course.grade && (
+                        <p className={`text-sm font-semibold mt-1 ${getGradeColor(course.grade)}`}>
+                          Grade: {course.grade}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <span>{course.term} {course.year}</span>
+                    <span>{course.credits} credits</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {previousCourses.length === 0 && (
+              <div className="text-center py-8 text-gray-500">
+                <p>No previous courses recorded.</p>
+              </div>
+            )}
+          </div>
+
+          {/* Current Term Course Selection */}
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-medium text-gray-900">
+                🎓 Course Selection for {currentTerm} {currentYear}
+              </h3>
+              <div className="text-sm text-gray-600">
+                Selected: {selectedCourses.length} courses
+              </div>
+            </div>
+            
+            <p className="text-gray-600 mb-4">
+              Select the courses you want to enroll in for the current term. Prerequisites are automatically checked.
+            </p>
+
+            <div className="grid grid-cols-1 gap-4">
+              {availableCourses.map((course) => {
+                const canEnroll = canEnrollInCourse(course);
+                const isSelected = selectedCourses.includes(course.courseCode);
+                
+                return (
+                  <div
+                    key={course.courseCode}
+                    onClick={() => canEnroll && handleCourseSelection(course.courseCode)}
+                    className={`border-2 rounded-lg p-4 transition-all ${
+                      isSelected
+                        ? "border-blue-500 bg-blue-50"
+                        : canEnroll
+                        ? "border-gray-200 hover:border-gray-300 cursor-pointer"
+                        : "border-gray-100 bg-gray-50"
+                    } ${!canEnroll ? "opacity-60 cursor-not-allowed" : ""}`}
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h4 className="font-semibold text-gray-900">{course.courseCode}</h4>
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            course.category === 'Core' ? 'bg-red-100 text-red-800' :
+                            course.category === 'Specialization' ? 'bg-purple-100 text-purple-800' :
+                            'bg-gray-100 text-gray-800'
+                          }`}>
+                            {course.category}
+                          </span>
+                          <span className="text-xs text-gray-500">{course.credits} credits</span>
+                        </div>
+                        <h5 className="font-medium text-gray-800 mb-1">{course.courseName}</h5>
+                        <p className="text-sm text-gray-600 mb-2">{course.description}</p>
+                        
+                        {course.prerequisites && course.prerequisites.length > 0 && (
+                          <div className="text-xs text-gray-500">
+                            <span className="font-medium">Prerequisites: </span>
+                            {course.prerequisites.join(', ')}
+                            {!canEnroll && (
+                              <span className="text-red-500 ml-2">⚠️ Missing prerequisites</span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="flex items-center gap-2">
+                        {isSelected && canEnroll && (
+                          <div className="text-blue-500">✓</div>
+                        )}
+                        {!canEnroll && (
+                          <div className="text-red-500">🔒</div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {availableCourses.length === 0 && (
+              <div className="text-center py-8 text-gray-500">
+                <p>No courses available for {currentTerm} {currentYear}.</p>
+              </div>
+            )}
+
+            {selectedCourses.length > 0 && (
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <h4 className="font-medium text-blue-900 mb-2">Selected Courses Summary</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                  {selectedCourses.map(courseCode => {
+                    const course = availableCourses.find(c => c.courseCode === courseCode);
+                    return course ? (
+                      <div key={courseCode} className="flex justify-between text-blue-800">
+                        <span>{course.courseCode} - {course.courseName}</span>
+                        <span>{course.credits} credits</span>
+                      </div>
+                    ) : null;
+                  })}
+                </div>
+                <div className="mt-2 pt-2 border-t border-blue-200">
+                  <div className="flex justify-between font-medium text-blue-900">
+                    <span>Total Credits:</span>
+                    <span>
+                      {selectedCourses.reduce((total, courseCode) => {
+                        const course = availableCourses.find(c => c.courseCode === courseCode);
+                        return total + (course ? course.credits : 0);
+                      }, 0)} credits
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Student Comments */}
