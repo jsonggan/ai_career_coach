@@ -16,71 +16,95 @@ import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Navigation items for both modes
-const commonNavItems = [
-  {
-    icon: "pi pi-chart-line",
-    title: "Skill Competency",
-    subtitle: "Track your skills & progress",
-    role: "All",
-    href: "/skills",
-  },
-  {
-    icon: "pi pi-upload",
-    title: "Upload Portfolio",
-    subtitle: "Certificates, courses & projects",
-    role: "All",
-    href: "/portfolio",
-  },
-];
-
-// Navigation items specific to students
+// Navigation items for students
 const studentNavItems = [
   {
     icon: "pi pi-book",
     title: "Courses & Major",
     subtitle: "Academic planning & tracking",
     role: "Student",
-    href: "/courses",
+    href: "/student/academy-track",
   },
   {
-    icon: "pi pi-map",
-    title: "Academic Track",
-    subtitle: "Plan your learning path",
+    icon: "pi pi-upload",
+    title: "Upload Portfolio",
+    subtitle: "Certificates, courses & projects",
     role: "Student",
-    href: "/track",
+    href: "/student/upload-portfolio",
   },
   {
     icon: "pi pi-users",
-    title: "Academic Community",
+    title: "Peer Review",
+    subtitle: "Review and get reviewed by peers",
+    role: "Student",
+    href: "/student/peer-review",
+  },
+  {
+    icon: "pi pi-chart-line",
+    title: "Skill Competency",
+    subtitle: "Track your skills & progress",
+    role: "Student",
+    href: "/student/skill-competency",
+  },
+  {
+    icon: "pi pi-calendar",
+    title: "Study Plan",
+    subtitle: "Plan and organize your study schedule",
+    role: "Student",
+    href: "/student/study-plan",
+  },
+  {
+    icon: "pi pi-comments",
+    title: "Community",
     subtitle: "Get advice on professors & courses",
     role: "Student",
-    href: "/academic-community",
+    href: "/student/community",
   },
 ];
 
-// Navigation items specific to working professionals
+// Navigation items for working professionals
 const professionalNavItems = [
   {
-    icon: "pi pi-star",
-    title: "Rank & Tier",
-    subtitle: "Current position & level",
+    icon: "pi pi-upload",
+    title: "Upload Portfolio",
+    subtitle: "Certificates, courses & projects",
     role: "Professional",
-    href: "/rank",
+    href: "/professional/upload-portfolio",
+  },
+  {
+    icon: "pi pi-users",
+    title: "Peer Review",
+    subtitle: "Review and get reviewed by peers",
+    role: "Professional",
+    href: "/professional/peer-review",
+  },
+  {
+    icon: "pi pi-user-edit",
+    title: "Manager Review",
+    subtitle: "Performance reviews from managers",
+    role: "Professional",
+    href: "/professional/manager-review",
   },
   {
     icon: "pi pi-arrow-up",
     title: "Career Advancement",
     subtitle: "How to get promoted",
     role: "Professional",
-    href: "/advancement",
+    href: "/professional/career-advancement",
+  },
+  {
+    icon: "pi pi-chart-line",
+    title: "Skill Competency",
+    subtitle: "Track your skills & progress",
+    role: "Professional",
+    href: "/professional/skill-competency",
   },
   {
     icon: "pi pi-comments",
-    title: "Career Community",
+    title: "Community",
     subtitle: "Professional advice & networking",
     role: "Professional",
-    href: "/career-community",
+    href: "/professional/community",
   },
 ];
 
@@ -91,17 +115,7 @@ export const metadata: Metadata = {
 
 function Navigation({ isCollapsed, userMode }: { isCollapsed: boolean; userMode: 'student' | 'working-professional' }) {
   // Get navigation items based on user mode
-  const getNavItems = () => {
-    const baseItems = [...commonNavItems];
-    
-    if (userMode === 'student') {
-      return [...baseItems, ...studentNavItems];
-    } else {
-      return [...baseItems, ...professionalNavItems];
-    }
-  };
-
-  const navItems = getNavItems();
+  const navItems = userMode === 'student' ? studentNavItems : professionalNavItems;
 
   return (
     <nav
