@@ -63,18 +63,21 @@ export default function SkillCompetencyClient() {
             <div className="space-y-8">
               <CurrentSkillsView showHardSkillsOnly={true} />
               <AISkillSuggestions />
+              <CourseRecommendations />
+              <ProjectIdeaGenerator />
             </div>
           )}
 
           {activeTab === "soft-skills" && (
-            <SoftSkillsSection />
+            <div className="space-y-8">
+              <SoftSkillsSection />
+              <CourseRecommendations />
+            </div>
           )}
 
           {activeTab === "recommendations" && (
             <div className="space-y-8">
               <AISkillSuggestions />
-              <CourseRecommendations />
-              <ProjectIdeaGenerator />
             </div>
           )}
         </div>

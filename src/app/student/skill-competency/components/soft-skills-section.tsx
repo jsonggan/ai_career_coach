@@ -145,7 +145,7 @@ export default function SoftSkillsSection() {
         <div className="mb-6">
           <h2 className="text-xl font-semibold text-gray-900 mb-2">Soft Skills Assessment</h2>
           <p className="text-gray-600">
-            Your soft skills evaluated through self-assessment, peer reviews, and manager feedback.
+            Your soft skills evaluated through peer reviews.
           </p>
         </div>
 
@@ -251,31 +251,6 @@ export default function SoftSkillsSection() {
                   </div>
                 </div>
 
-                {/* Peer Reviews */}
-                {reviews.length > 0 && (
-                  <div className="mt-6">
-                    <h4 className="font-medium text-gray-900 mb-4">Recent Peer Reviews</h4>
-                    <div className="space-y-4">
-                      {reviews.map((review) => (
-                        <div key={review.id} className="bg-gray-50 rounded-lg p-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center space-x-2">
-                              <span className="font-medium text-sm text-gray-900">
-                                {review.isAnonymous ? "Anonymous" : review.reviewerName}
-                              </span>
-                              <div className="flex items-center space-x-1">
-                                {renderStars(review.rating)}
-                                <span className="text-xs text-gray-500">({review.rating})</span>
-                              </div>
-                            </div>
-                            <span className="text-xs text-gray-500">{review.date}</span>
-                          </div>
-                          <p className="text-sm text-gray-700">{review.comment}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })()}
@@ -287,7 +262,6 @@ export default function SoftSkillsSection() {
         <h3 className="font-medium text-blue-900 mb-3">Next Steps</h3>
         <div className="space-y-2 text-sm text-blue-800">
           <p>• Request peer reviews for skills you want to improve</p>
-          <p>• Set up regular check-ins with your manager for feedback</p>
           <p>• Join soft skills development workshops</p>
           <p>• Practice skills in real-world scenarios</p>
         </div>

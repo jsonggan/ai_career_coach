@@ -170,9 +170,9 @@ export default function AISkillSuggestions() {
                   <span>📈 High demand</span>
                   <span>🎯 Career relevant</span>
                 </div>
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
-                  Learn More
-                </button>
+                <div className="text-sm text-gray-600">
+                  Priority: {gap.importance}
+                </div>
               </div>
             </div>
           ))}
@@ -188,10 +188,11 @@ export default function AISkillSuggestions() {
             </div>
           </div>
           <div>
-            <h4 className="font-medium text-blue-900 mb-1">AI Insight</h4>
+            <h4 className="font-medium text-blue-900 mb-1">Market Analysis</h4>
             <p className="text-blue-800 text-sm">
-              Based on your current skill set and the selected career path, focusing on Machine Learning and Cloud Computing 
-              would give you the highest ROI. These skills are in high demand and complement your existing technical foundation.
+              Based on current job market trends and your selected career path, Machine Learning and Cloud Computing 
+              show the highest demand growth. These skills appear in 78% and 85% of relevant job postings respectively. 
+              Focus on these high-impact areas to maximize your career opportunities.
             </p>
           </div>
         </div>
