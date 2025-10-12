@@ -148,7 +148,6 @@ export default function CourseRecommendations() {
     { id: "sutd", label: "SUTD", icon: "🏫" },
     { id: "online", label: "Online", icon: "💻" },
     { id: "certificate", label: "Certificates", icon: "🏆" },
-    { id: "project", label: "Projects", icon: "🚀" }
   ];
 
   const filteredCourses = selectedFilter === "all" 
