@@ -15,7 +15,6 @@ export default function SkillCompetencyClient() {
     { id: "overview", label: "Overview", icon: "📊" },
     { id: "hard-skills", label: "Hard Skills", icon: "💻" },
     { id: "soft-skills", label: "Soft Skills", icon: "🤝" },
-    { id: "recommendations", label: "Recommendations", icon: "💡" },
   ];
 
   return (
@@ -71,13 +70,6 @@ export default function SkillCompetencyClient() {
           {activeTab === "soft-skills" && (
             <div className="space-y-8">
               <SoftSkillsSection />
-              <CourseRecommendations />
-            </div>
-          )}
-
-          {activeTab === "recommendations" && (
-            <div className="space-y-8">
-              <AISkillSuggestions />
             </div>
           )}
         </div>
