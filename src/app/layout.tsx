@@ -61,8 +61,8 @@ const studentNavItems = [
 ];
 
 export const metadata: Metadata = {
-  title: "AI Career Coach",
-  description: "Your intelligent career development companion",
+  title: "Pathly",
+  description: "AI Career Coach",
 };
 
 function Navigation({ isCollapsed }: { isCollapsed: boolean; }) {
@@ -84,8 +84,8 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean; }) {
         />
         {!isCollapsed && (
           <div className="flex flex-col flex-1 min-w-0">
-            <h3 className="text-lg font-semibold">AI Career Coach</h3>
-            <p className="text-sm text-gray-500">Your Development Partner</p>
+            <h3 className="text-lg font-semibold">Pathly</h3>
+            <p className="text-sm text-gray-500">AI Career Coach</p>
           </div>
         )}
         <SidebarToggle isCollapsed={isCollapsed} />
@@ -114,7 +114,7 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean; }) {
             "flex items-center mb-4 hover:bg-gray-50 cursor-pointer px-4 py-2 rounded-md transition-all",
             isCollapsed ? "justify-center" : "flex-row gap-2"
           )}
-          title={isCollapsed ? "Your Profile" : ""}
+          title={isCollapsed ? "Andrew Ng" : ""}
         >
           <Image
             src="/avatar.png"
@@ -125,7 +125,7 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean; }) {
           />
           {!isCollapsed && (
             <div className="flex flex-col min-w-0">
-              <h3 className="text-md">Your Profile</h3>
+              <h3 className="text-md">Andrew Ng</h3>
               <p className="text-xs text-gray-500">
                 Student Profile
               </p>
