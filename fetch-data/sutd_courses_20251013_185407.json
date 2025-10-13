@@ -1,0 +1,844 @@
+[
+  {
+    "course_code": "50.006",
+    "course_name": "User Interface Design and Implementation",
+    "professor": "Kenny Choo",
+    "description": "The course will introduce the field of Human-Computer Interaction (HCI), Interaction Design and Usability in the context of today’s diverse interactive products. The course will cover usability principles, design guidelines and heuristics, user-centred design, usability engineering, user experience and evaluation techniques, and will include a series of mini design exercises and design-implementation projects. Students who successfully complete the course will be well-equipped with the concepts and language to argue and discuss how well a system’s front-end (e.g. a website, a mobile app, a museum kiosk, etc.) is designed and be able to design usable, easy-to-use, intuitive, attractive user-interfaces informed by the concepts and knowledge learned during the course.",
+    "full_description": "The course will introduce the field of Human-Computer Interaction (HCI), Interaction Design and Usability in the context of today’s diverse interactive products. The course will cover usability principles, design guidelines and heuristics, user-centred design, usability engineering, user experience and evaluation techniques, and will include a series of mini design exercises and design-implementation projects. Students who successfully complete the course will be well-equipped with the concepts and language to argue and discuss how well a system’s front-end (e.g. a website, a mobile app, a museum kiosk, etc.) is designed and be able to design usable, easy-to-use, intuitive, attractive user-interfaces informed by the concepts and knowledge learned during the course. Learning objectives Understand the concept of usability, design principles, guidelines, heuristics and other fundamentals of Human-Computer Interaction. Analyse a set of requirements in terms of its user-interface implications. Develop a usage scenario for a given set of user requirements and available technologies. Construct a user-interaction strategy for a given problem. Sketch a series of user-interfaces for a given use scenario. Implement a designed user-interface to demonstrate its functionality and usability. Employ a set of usability engineering methods to refine a designed user-interface. Evaluate a user-interface using suitable evaluation methodology. Measurable outcomes Apply design principles, guidelines and heuristics to create a user-interaction strategy that solves a real-world problem. Design a usable and compelling user-interface given a set of requirements and available technologies. Communicate effectively the designed user-interface to relevant stakeholders using design rationale and a sketching/presentation tool in an informed, reasonable and persuasive way. Conduct an evaluation of a user-interface by employing a series of evaluation methods available in usability engineering. Topics covered User classification and user centred design Information visualisation and interactivity Usability principles and guidelines, UI prototyping tools Anthropomorphism and framing the interaction strategies; metaphor Personal and social impact of technology and experience design; ethical issues of interaction design Usability evaluation techniques",
+    "prerequisites": "Prerequisite courses needed",
+    "credits": 12,
+    "term": "Term",
+    "course_type": "elective",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/50-006-user-interface-design-and-implementation",
+    "has_detail_page_data": true,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "listing_page",
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.001",
+    "course_name": "Information Systems & Programming",
+    "professor": "Norman Lee",
+    "description": "This course is an introduction to the design and programming of information systems and is taught using the Java programming language, building on students’ foundation of python from previous courses. Topics include object oriented programming, data structures, object-oriented design principles, mobile system and programming, design pattern and use of software libraries. Students learn how to build software that is flexible and maintainable with changing requirements. The course includes a project to build an Android app to apply the concepts learnt.",
+    "full_description": "This course is an introduction to the design and programming of information systems and is taught using the Java programming language, building on students’ foundation of python from previous courses. Topics include object oriented programming, data structures, object-oriented design principles, mobile system and programming, design pattern and use of software libraries. Students learn how to build software that is flexible and maintainable with changing requirements. The course includes a project to build an Android app to apply the concepts learnt. Learning objectives  Identify and describe the requirements for an information system.  Use object-oriented methodology to produce a modular and testable design.  Work as part of a team to produce a working system on time.  Measurable outcomes  Apply the key concepts of Object Oriented Programming [exams].  Use object-oriented design principles in designing software systems. [projects, homework, exams].  Identify classes, members of a class and the relationships among them needed for a specific problem [projects, homework, exams].  Implement and test basic algorithms and data structures [projects, homework, exams).  Apply basic principles of user-interface design [projects].  Develop skills in systematic testing and debugging [projects].  Work together in a team [projects].  Topics covered  Programming with Java using Android Studio, Static Checking  Basic Object-Oriented Programming (OOP) principles: Abstraction, Encapsulation, Inheritance, Polymorphism  Classes, Abstract Class, Interface  Exceptions  Recursion  Object-Oriented Design Principles : SOLID, Loose Coupling  Object-Oriented Design Patterns: Strategy, Observer, Template Method, Singleton, Builder, Factory  Basic Concurrency concepts: threads, race condition, synchronized keyword  Mobile programming with Android",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/50-001-information-systems-programming/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": false,
+    "data_sources": [
+      "curriculum_page"
+    ]
+  },
+  {
+    "course_code": "50.002",
+    "course_name": "Computation Structures",
+    "professor": "Natalie Agus",
+    "description": "This course introduces architecture of digital systems, emphasising structural principles common to a wide range of technologies. Topics include Multilevel implementation strategies; definition of new primitives (e.g., gates, instructions, procedures, and processes) and their mechanisation using lower-level elements. Analysis of potential concurrency; precedence constraints and performance measures; pipelined and multidimensional systems; instruction set design issues; architectural support for contemporary software structures.",
+    "full_description": "This course introduces architecture of digital systems, emphasising structural principles common to a wide range of technologies. Topics include Multilevel implementation strategies; definition of new primitives (e.g., gates, instructions, procedures, and processes) and their mechanisation using lower-level elements. Analysis of potential concurrency; precedence constraints and performance measures; pipelined and multidimensional systems; instruction set design issues; architectural support for contemporary software structures. CMOSLearning objectives   State the role of abstraction in the design of large digital systems, and explain the major software and hardware abstractions in contemporary computer systems.   Design simple hardware systems based on a variety of digital abstractions such as ROMs, logic arrays and state machines.   Synthesize digital systems from a library of representative components and test the designs under simulation.   Describe the operation of a moderately complex digital system — a simple RISC-based computer — down to the gate level, and be able to specify, implement and debug its components.   Appreciate the technical skills necessary to be a capable digital systems engineer.   Explain the fundamentals of modern operating systems.   Measurable outcomes   Identify flaws and limitations in simple systems implemented using the static discipline.   Identify flaws and limitations in simple systems implemented using clocked registers with asynchronous inputs.   Identify flaws and limitations in simple systems implemented using semaphores for process synchronization.   Characterize the logic function of combinational devices using CMOS, ROM or PLA technologies.   Explain synthesis issues for combinational devices using CMOS, ROM or PLA technologies from their functional specification.   Explain synthesis of acyclic circuits from combinational components.   Calculate performance characteristics of acyclic circuits with combinational components.   Explain and calculate performance characteristics of single-clock sequential circuits.   Implement a simple RISC-based CPU architecture.   Explain the underlaying theory of memory hierarchy.   Implement a device handler using interrupt and SVC.   Implement a synchronisation system for processes using semaphore.   Topics covered   Course overview and mechanics, Basics of Information   The Digital Abstraction, CMOS Technology   Basic Hardware Lab (Combine with EPD)   Logic Synthesis   Logic Simplification, Multiplexer, ROM   SW Lab1 (CMOS)   Sequential Logic   Finite State Machines and Synchronization   SW Lab 2 (Adder)   Computers and Programs   The Assembly Language   SW Lab 3 (ALU)   The C language, Stacks and Procedures   Stacks and Procedures (II)   Building the Beta   Building the Beta (II)   SW Lab 5 (Assembly Language)   Memory Hierarchy   Cache Issues   SW Lab 6 (Beta)   Virtual Memory   Virtual Machines   SW Lab 6 (Beta)   Device Handlers and Bus   Processes, Synchronization, and Deadlock, OS summary   SW Lab 8 (Tiny OS)",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/50-002-computation-structures/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": false,
+    "data_sources": [
+      "curriculum_page"
+    ]
+  },
+  {
+    "course_code": "50.004",
+    "course_name": "Algorithms",
+    "professor": "Ernest Chong",
+    "description": "This course is an introduction to algorithms and algorithmic thinking. The course covers common algorithms, algorithmic paradigms, and data structures that can be used to solve computational problems. Emphasis is placed on understanding why algorithms work, and how to analyse the complexity of algorithms. Students will learn the underlying thought process on how to design their own algorithms, including how to use suitable data structures and techniques such as dynamic programming to design algorithms that are efficient.",
+    "full_description": "This course is an introduction to algorithms and algorithmic thinking. The course covers common algorithms, algorithmic paradigms, and data structures that can be used to solve computational problems. Emphasis is placed on understanding why algorithms work, and how to analyse the complexity of algorithms. Students will learn the underlying thought process on how to design their own algorithms, including how to use suitable data structures and techniques such as dynamic programming to design algorithms that are efficient. Learning objectives    At the end of the term, students will be able to:        Analyse the running times of algorithms.    Demonstrate familiarity with major algorithms and data structures.    Use suitable data structures in algorithms to solve computational problems.    Identify major issues in the implementation of algorithms.    Solve algorithmic issues in the design of information systems.    Understand graphs as data structures, and implement graph traversals.    Apply Bellman-Ford algorithm and Dijkstra’s algorithm to compute shortest paths in graphs.    Design efficient algorithms using dynamic programming to solve computational problems.    Analyse NP-complete problems and apply polynomial-time reductions to problems.    Measurable outcomes    Compute the asymptotic complexity of algorithms.    Analyse and apply properties of data structures.    Design algorithms that build upon basic operations on data structures.    Apply and/or modify existing algorithms to solve computational problems.    Compute hash tables and perform re-hashing.    Implement graph-based algorithms on provided graphs.    Design efficient algorithms using dynamic programming.    Analyse NP-complete problems and apply polynomial-time reductions to problems.    Topics covered    Complexity, Asymptotic notation    Document distance    Peak finding, divide-and-conquer    Sorting algorithms, master theorem    Heaps, priority queues, analysis of heap algorithms    Binary search trees (BSTs), BST operations, AVL trees    Arrays vs linked lists, hashing, designing good hash functions, re-hashing    Graphs as data structures, breadth-first search, depth-first search, topological sort    Single source shortest path problem, Bellman-Ford algorithm, Dijkstra’s algorithm    Dynamic Programming (DP), designing DP algorithms    DP problems: rod-cutting problem, knapsack problem, text justification problem, matrix chain parenthesization    P vs NP, decision problems, polynomial-time reduction, NP-hardness    Examples of NP-complete problems (inc. multiple graph-related NP-complete problems)    More graph-theoretic terminology, 3-SAT problem",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/50-004-algorithms/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": false,
+    "data_sources": [
+      "curriculum_page"
+    ]
+  },
+  {
+    "course_code": "50.003",
+    "course_name": "Elements of Software Construction",
+    "professor": "Kenny Lu",
+    "description": "This course is an introduction to the fundamental principles and techniques of software construction that have greatest impact on practice. Topics include capturing the essence of a problem by recognizing and inventing suitable abstractions; key paradigms, including basic concepts of software design and their expression using notations from Unified Modeling Language (UML); software testing, automated software test generation, automated software security testing via blackbox, greybox and whitebox fuzzing approaches, detection and removal of software code smells, software coding standards to avoid security loopholes, concurrent programming, including programming with threads and processes, understanding concurrency problems like deadlock and data race. This course includes exercises in software design, implementation, testing and reasoning.",
+    "full_description": "This course is an introduction to the fundamental principles and techniques of software construction that have greatest impact on practice. Topics include capturing the essence of a problem by recognizing and inventing suitable abstractions; key paradigms, including basic concepts of software design and their expression using notations from Unified Modeling Language (UML); software testing, automated software test generation, automated software security testing via blackbox, greybox and whitebox fuzzing approaches, detection and removal of software code smells, software coding standards to avoid security loopholes, concurrent programming, including programming with threads and processes, understanding concurrency problems like deadlock and data race. This course includes exercises in software design, implementation, testing and reasoning. Learning Objectives  Design medium-scale software system from scratch: formulating and analyzing the problem to be solved; writing formal software requirements, exploring and formulating system designs; and using extensive and systematic testing and reasoning to ensure quality. Apply key software engineering ideas, including invariants, decoupling, and data abstraction. Apply key software engineering ideas, including software design, specification, abstraction, verification and correctness. Apply widely used design concepts and notations (UML diagrams) and patterns in exploring and articulating problems and designs. Learning effective techniques on ensuring quality of large-scale software systems. Apply concepts of systematic software testing to discover bugs (including security vulnerabilities) in large-scale software systems. Apply concepts to reason about the security loopholes in software systems. Learning secure software coding standards. Learning key concepts in developing concurrent programs. Learning key concepts in reasoning and testing concurrent programs. Measurable Outcomes Build medium-scale software prototype (LO 1-5). Design solution to questions related to the requirement prior to software development. (LO1, LO2 and LO4). Design blackbox, whitebox and diabolic software tests for validating software prototype. (LO6). Design critical part of the software by reasoning about its security. (LO8). Design small/medium-scale concurrent programs. (LO9). Design techniques to reason about the correctness of the concurrent programs (LO10). Design software prototype with the objective of its maintainability and security. (LO5, LO7). Design sofware testing methodologies to automatically discover potential security vulnerabilities, such as program crashes (LO6). Topics Covered Software Development Process Software Design and UML Automated Software Testing: Test Execution and Test Oracle Software Test Design: Blackbox, Whitebox and Fault-based. Web App Testing Software Test Generation and Fuzzing: Blackbox, Greybox and Whitebox Software Secure Coding Patterns for Java Software Code Smells and Refactoring Introduction to Concurrency and Sockets Basics of Threads Thread Safety and Synchronization Composing Thread-safe Objects Building Blocks Tasks and Thread Pools Concurrency Pitfalls and Testing Performance and Patterns; Non-blocking Algorithms",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/50-003-elements-of-software-construction/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": false,
+    "data_sources": [
+      "curriculum_page"
+    ]
+  },
+  {
+    "course_code": "50.005",
+    "course_name": "Computer System Engineering",
+    "professor": "David Yau",
+    "description": "Topics on the engineering of computing and networking systems: design challenges; techniques for controlling complexity; operating systems and networking systems: performance; strong modularity; client-server; naming; security and privacy, atomicity and coordination of concurrent activities; user and end-to-end applications. Case studies of working systems and readings from the current literature provide comparisons and contrasts. Students will complete two design/implementation projects.",
+    "full_description": "Topics on the engineering of computing and networking systems: design challenges; techniques for controlling complexity; operating systems and networking systems: performance; strong modularity; client-server; naming; security and privacy, atomicity and coordination of concurrent activities; user and end-to-end applications. Case studies of working systems and readings from the current literature provide comparisons and contrasts. Students will complete two design/implementation projects. Learning Objectives At the end of the term, students will be able to:  Explain sources of complexity in computer system design, e.g. incommensurate scaling and emergent properties. Exploit systems design principles to cope with the complexity, e.g., modularity, hierarchy, layering, indirection. Command software tools to measure performance and understand how actual computing and network systems work. Explain the design and implementation of real-world computing and networking (i.e., Internet) systems, e.g., DNS, HTTP, OpenSSL. Develop programming skills to develop OS and networking tools and software. Measurable Outcomes Use software tools to understand, measure, and design modern computing systems. Implement concurrent and network programs in Java. Explain the conceptual underpinnings of modern computing system design; apply relevant principles and techniques in conceptual problem solving. Topics Covered Key challenges and basic principles in the design of large-scale computing systems Process management and multithreaded programming Process scheduling, synchronization, deadlock Memory management, file system, and I/O system End-to-end network performance (e.g., loss, throughput, and delay) and impact on network applications Network security: applied cryptography; key certification; confidentiality, integrity, authentication, and availability; types of network attacks; design of secure network protocols Network naming and addressing; DNS as a scalable and distributed infrastructure for name resolution in the Internet Client-server network programming; HTTP and the World Wide Web",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/50-005-computer-system-engineering/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": false,
+    "data_sources": [
+      "curriculum_page"
+    ]
+  },
+  {
+    "course_code": "50.021",
+    "course_name": "Artificial Intelligence",
+    "professor": "Lim Kwan Hui",
+    "description": "Artificial intelligence (AI) is a rich field spanning formal systems for representing and processing symbolic information, computational models of human cognition, and a range of techniques for learning, planning and reasoning under uncertainty. In this course, students will gain an appreciation of what “artificial intelligence” means, and how it can be usefully applied to real-world problems. Students will learn the intricacies of state-space search and constraint programming. Through an in-depth treatment of knowledge representation via propositional and first-order logic, students will understand how expert knowledge can be fed into and be processed by modern computers. In addition, students will acquire skills in using planning algorithms to find solutions to optimization problems, and understand how to use probabilistic reasoning to draw inferences in uncertain environments.",
+    "full_description": "Artificial intelligence (AI) is a rich field spanning formal systems for representing and processing symbolic information, computational models of human cognition, and a range of techniques for learning, planning and reasoning under uncertainty. In this course, students will gain an appreciation of what “artificial intelligence” means, and how it can be usefully applied to real-world problems. Students will learn the intricacies of state-space search and constraint programming. Through an in-depth treatment of knowledge representation via propositional and first-order logic, students will understand how expert knowledge can be fed into and be processed by modern computers. In addition, students will acquire skills in using planning algorithms to find solutions to optimization problems, and understand how to use probabilistic reasoning to draw inferences in uncertain environments. Learning objectives By the end of the course, students will be able to:  Define the meaning of “artificial intelligence”. Name examples of AI that are successful in real-world problems. Describe the strengths and limitations of various state-space search algorithms, and choose the appropriate algorithm for a problem. Formulate and solve problems in the framework of constraint satisfaction problems. Formulate and solve planning problems. Use probabilistic modelling techniques to solve problems with noise, incomplete information, and uncertainty. Summarise the essential components of gradient-based optimization in supervised learning problems Explain the impact of stepsizes in gradient-based optimization Recognise the difference between batch and stochastic/mini-batch gradient descent and apply improved weight update methods such as momentum term, RMSProp and Adam. Be able to apply the training and running of trained neural networks in Pytorch Be able to investigate the impact of essential parameters such as stepsize, batchsize and training iterations when training a neural network Discuss the usage of different neural network structures such as fully connected, convolutional and pooling layers Be able to recall state of the art neural network components such as batch normalization layers and residual connections Be able to recall the basic ideas behind neural networks used for machine translation and sequence to sequence learning. Be able to construct input samples that are able to fool neural networks Explain the difference between training from scratch and finetuning, be able to run finetuning of neural networks. Measurable outcomes List current useful real-world applications of AI. Implement state-space search algorithms for a variety of problems. Solve constraint programming problems. Infer new information from provided knowledge. Use planning algorithms to find optimal solutions. Solve problems with noise and uncertainty using probabilistic techniques. Topics covered Introduction to Artificial Intelligence Search Adversarial Search Constraint Satisfaction Logic Planning",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-021-artificial-intelligence/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.012",
+    "course_name": "Networks",
+    "professor": "Chen Binbin",
+    "description": "This course will introduce the principles and practice of computer networking, with emphasis on the Internet. Students will learn concepts, principles, protocols, and applications of computer networks, including packet switching, layered architectures, TCP/IP, physical layer, error control, window flow control, local area networks (Ethernet, Token Ring; FDDI), network layer, congestion control, quality of service, multicast, network programming interfaces, networked applications.",
+    "full_description": "This course will introduce the principles and practice of computer networking, with emphasis on the Internet. Students will learn concepts, principles, protocols, and applications of computer networks, including packet switching, layered architectures, TCP/IP, physical layer, error control, window flow control, local area networks (Ethernet, Token Ring; FDDI), network layer, congestion control, quality of service, multicast, network programming interfaces, networked applications. Learning objectives Explain fundamental network protocols. Describe the organisation of computer networks, and classify factors influencing computer network development and the reasons for having variety of different types of networks. Solve standard problems in interconnections between autonomous networks. Model the Internet structure and derive operational parameters. Design optimized network topology for given problem settings. Analyse and evaluate a provided network setup. Design and implement a server-client architecture based on sockets. Measurable outcomes Description of the essential features of different networking protocols, such as TCP, IP, DNS, and ARP. Conceptual design of a computer network based on a set of provided operational requirements. Application of routing algorithms to determine the shortest path in an network such as the internet, modelled as a weighted graph. Model and analysis of a network of autonomous systems. Analysis of a real network setup and critique of the design decisions. Design and implementation of a client-server application program using sockets. Topics covered Computer Networks and the Internet Application Layer Transport Layer The Network Layer The Link Layer: Links, Access Networks, and LANs Embedded networks and bus systems Wireless Networks Mobile Networks Multimedia Networking and QoS Network Management Recent trends in networking (SDN, overlay networks)", 
+    "prerequisites": "50.005 Computer System EngineeringorA working knowledge of programming in Python and a strong foundation in computer systems",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-012-networks/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.033",
+    "course_name": "Foundations of Game Design and Development",
+    "professor": "Natalie Agus",
+    "description": "This is an introductory course about the basic of game creation. This course provides an overview of different aspects of game development. Student will get in touch with C# Programming (industry standard), starting with console application, then GUI games on various platform with graphics, dialog boxes, and user control. There are also basic overview of topics including game architecture, interface design, graphics for game, audio for game, prototyping and play testing. Students will be able to implement their creative gaming idea by using the latest gaming tools which are easy and readily usable.",
+    "full_description": "This is an introductory course about the basic of game creation. This course provides an overview of different aspects of game development. Student will get in touch with C# Programming (industry standard), starting with console application, then GUI games on various platform with graphics, dialog boxes, and user control. There are also basic overview of topics including game architecture, interface design, graphics for game, audio for game, prototyping and play testing. Students will be able to implement their creative gaming idea by using the latest gaming tools which are easy and readily usable. Learning Objectives Apply fundamental game design concepts, including mechanics, dynamics, and aesthetics, to create engaging and balanced games. Develop skills in rapid prototyping, playtesting, and iterative design to enhance gameplay and user experience. Gain proficiency in using game development tools and technologies, such as game engines and scripting languages, to build functional games. Demonstrate effective collaboration and project management techniques to work successfully in teams and complete game development projects. Develop the ability to critically analyze and evaluate games to understand the elements of successful game design and apply these insights to their own projects. Measurable Outcomes Students will produce simple games with novel ideas, demonstrating their understanding and application of game design principles. Students will create and refine game prototypes through multiple iterations, incorporating feedback from playtesting sessions. Students will use code libraries and game engines (Unity) to quickly create and deploy runnable game projects. Students will demonstrate successful teamwork and project management by completing a collaborative game development project within set deadlines. Students will perform critical analyses of existing games and present evaluations that identify key elements of successful game design, applying these insights to their own game projects. Topics Covered Formal elements of game Basics of game design: genres, core mechanics, player empathy, and feedback Story Telling, story elements, traditional story structure, nonlinear and collaborative storytelling Interactivity modes, balance, and economies Level design in video games Video game interface Behavioral design and exploration of player motivation Game polishing Unity basic: introductory knowledge, basic game feedback and asset management, utilising the Physics engine Intermediate Unity features: audio and scene managements, animation, input management Advanced Unity Programming: object persistence, state management, game architecture",
+    "prerequisites": "50.001 Information Systems & Programming50.004 Algorithms",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-033-foundations-of-game-design-and-development/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.020",
+    "course_name": "Network Security",
+    "professor": "Daisuke Mashima",
+    "description": "This course covers theory and practice of network security. Starting with general introduction of network security, this course focuses on Internet security. The first part addresses common security issues and countermeasures at each of the five layers from the TCP/IP protocol stack. Subsequently, Firewall and Intrusion Detection/ Prevention System are covered as two of the most common tools/technologies to protect a network. Finally, the course ends with special topics such as wireless network security, IoT security, etc.",
+    "full_description": "This course covers theory and practice of network security. Starting with general introduction of network security, this course focuses on Internet security. The first part addresses common security issues and countermeasures at each of the five layers from the TCP/IP protocol stack. Subsequently, Firewall and Intrusion Detection/ Prevention System are covered as two of the most common tools/technologies to protect a network. Finally, the course ends with special topics such as wireless network security, IoT security, etc. Learning Objectives Apply fundamental game design concepts, including mechanics, dynamics, and aesthetics, to create engaging and balanced games. Develop skills in rapid prototyping, playtesting, and iterative design to enhance gameplay and user experience. Gain proficiency in using game development tools and technologies, such as game engines and scripting languages, to build functional games. Demonstrate effective collaboration and project managemeLearning Objectives Explain common attacks and countermeasures in a networked system, particularly on the commonly used network protocols. Model, analyse and apply effective countermeasures for secure networked systems. Apply layered defense technologies to a secure network design. Design and optimise network design for given problem settings. Evaluate the security of an existing network design. Measurable Outcomes By the end of the course, students will be able to:  Description of the fundamental concepts of network security, through proper threat modeling and security goal definition in a design project. Application of security countermeasures to design a secure networked system. Applications of security countermeasures to mitigate common attacks by demonstrating security level improvement of a vulnerable networked system. Application of layered defense technologies/tools and practical considerations for securing a complex network in a design project. Security assessment and optimisation of a given networked system through an experimental project. Demonstration of common attacks fro common network protocols, through successful packet sniffing and editing in a laboratory environment. Topics Covered Network protocol and the OSI model Packet sniffing and spoofing TCP protocol and attacks DNS protocol and attacks Public key infrastructure and TLS protocol Firewall and intrusion detection systems VPN Web security Wireless security Security economynt techniques to work successfully in teams and complete game development projects. Develop the ability to critically analyze and evaluate games to understand the elements of successful game design and apply these insights to their own projects. Measurable Outcomes Students will produce simple games with novel ideas, demonstrating their understanding and application of game design principles. Students will create and refine game prototypes through multiple iterations, incorporating feedback from playtesting sessions. Students will use code libraries and game engines (Unity) to quickly create and deploy runnable game projects. Students will demonstrate successful teamwork and project management by completing a collaborative game development project within set deadlines. Students will perform critical analyses of existing games and present evaluations that identify key elements of successful game design, applying these insights to their own game projects. Topics Covered Formal elements of game Basics of game design: genres, core mechanics, player empathy, and feedback Story Telling, story elements, traditional story structure, nonlinear and collaborative storytelling Interactivity modes, balance, and economies Level design in video games Video game interface Behavioral design and exploration of player motivation Game polishing Unity basic: introductory knowledge, basic game feedback and asset management, utilising the Physics engine Intermediate Unity features: audio and scene managements, animation, input management Advanced Unity Programming: object persistence, state management, game architecture",
+    "prerequisites": "50.042 Foundations of Cybersecurity ",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-020-network-security/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.035",
+    "course_name": "Computer Vision",
+    "professor": "Cheung Ngai-Man",
+    "description": "This is an advanced undergraduate level course on the concepts, algorithms and system design in computer vision. The particular focus in this course is on the underlying computational/mathematical principles, and data-driven and neural networks (aka “deep learning”) approaches. The course introduces different computer vision tasks such as image/video classification, localization, detection, among others, and discusses different computational algorithms for these tasks, including recently proposed deep learning methods: convolutional neural networks (CNN), recurrent neural networks (RNN), long short-term memory (LSTM), Generative Adversarial Networks (GAN), etc. Students will learn to design, implement, train and debug their own systems and neural networks, and gain understanding of, and the skills to use, cutting-edge technologies in computer vision. A semester-long, 1-D design project requires students to design, implement, and train multi-million parameter neural networks to address real-world computer vision problems.",
+    "full_description": "This is an advanced undergraduate level course on the concepts, algorithms and system design in computer vision. The particular focus in this course is on the underlying computational/mathematical principles, and data-driven and neural networks (aka “deep learning”) approaches. The course introduces different computer vision tasks such as image/video classification, localization, detection, among others, and discusses different computational algorithms for these tasks, including recently proposed deep learning methods: convolutional neural networks (CNN), recurrent neural networks (RNN), long short-term memory (LSTM), Generative Adversarial Networks (GAN), etc. Students will learn to design, implement, train and debug their own systems and neural networks, and gain understanding of, and the skills to use, cutting-edge technologies in computer vision. A semester-long, 1-D design project requires students to design, implement, and train multi-million parameter neural networks to address real-world computer vision problems. Learning Objectives List useful real-world applications of computer vision Apply and design computer vision systems and algorithms Evaluate appropriate computer vision algorithms for a variety of problems Measurable Outcomes Design image convolution and filtering using OpenCV [LO 1,2] Design image recognition system using data driven approach and linear classification [LO 2] Design convolutional neural networks using TensorFlow [LO 2] Develop the training of convolutional neural networks using back-propagation and stochastic gradient descent [LO 2] Design image recognition system using convolutional neural networks [LO 1,2,3] Develop the training of convolutional neural networks using GPU programming [LO 2] Design convolutional neural networks using dropout and batch normalization [LO 2] Design image segmentation systems using convolutional neural networks [LO 1,2,3] Design object detection and localization systems using convolutional neural networks [LO 1,2,3] Design video activity recognition systems using recurrent neural networks [LO 1,2,3] Develop the training of LSTM using TensorFlow [LO 2] Topics Covered Image, Filtering, Convolution Image Histogram Image classification, data-driven approach, knn Linear Classifier Gradient Descent Deep Learning Convolutional Neural Network CNN Architectures Back Propagation Regularization Object detection and segmentation Advanced gradient descent Generative Adversarial Networks (GAN) Improved GAN and Applications",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-035-computer-vision/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.038",
+    "course_name": "Computational Data Science",
+    "professor": "Dorien Herremans",
+    "description": "This course provides students the necessary background and experience in data science technology and concepts. Students will gain experience with tackling a complete data science project, from data gathering and pre-processing to data analysis through machine learning tools. Students will learn to apply fundamental concepts in machine learning to data storage and distributed processing as a foundation for their project.",
+    "full_description": "This course provides students the necessary background and experience in data science technology and concepts. Students will gain experience with tackling a complete data science project, from data gathering and pre-processing to data analysis through machine learning tools. Students will learn to apply fundamental concepts in machine learning to data storage and distributed processing as a foundation for their project. Learning objectives Be aware of the main goals of data science, its main application domains and current challenges. Apply tools to build basic models for solving typical data analytics problems. Visualise the structure of big data in order to uncover hidden patterns. Design and implement distributed database systems for managing heterogeneous data. Perform basic operations on a moderately complex distributed computation system, such as Spark. Explain the fundamentals of statistical machine learning and deep learning. Appreciate the technical skills necessary to be a capable data scientist. Measurable outcomes Identify important concepts and current challenges in data science. Design feature representations for image, text and time series data. Analyse data and build simple models in tools such as Weka, Python and Tableau. Implement distributed computation model using Spark. Evaluate the performance of different models using empirical benchmarks. Mathematically explain common machine learning models such as SVMs, logistic regression systems and neutral networks. Implement machine learning algorithms using software such as R, C++ and PyTorch. Manage big data using Hadoop and MapReduce. Topics covered Intro DS and Hadoop Features + Text Visualisation Regression and Time Series Classification Into to Deep Learning Word2vec Digital Media (CNN) RNN Negative Sampling, Attention Mechanism, 1D Convolution and Pre-trained Feature Extraction",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-038-computational-data-science/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.017",
+    "course_name": "Graphics and Visualisation",
+    "professor": "Peng Song",
+    "description": "Introduction to computer graphics algorithms, software and hardware. Topics include ray tracing, the graphics pipeline, transformations, texture mapping, shadows, sampling, global illumination, splines, animation, colour, fundamentals of virtual and augmented reality (VR and AR).",
+    "full_description": "Introduction to computer graphics algorithms, software and hardware. Topics include ray tracing, the graphics pipeline, transformations, texture mapping, shadows, sampling, global illumination, splines, animation, colour, fundamentals of virtual and augmented reality (VR and AR). Introduction to computer graphics algorithms, software and hardware. Topics include ray tracing, the graphics pipeline, transformations, texture mapping, shadows, sampling, global illumination, splines, animation, colour, fundamentals of virtual and augmented reality (VR and AR).     In this course, we will concentrate on 3D, not 2D illustration or image processing. You will learn:  Fundamentals of computer graphics algorithms Basics of real-time rendering and graphics hardware Basic OpenGL C/C++ programming experience How to write efficient programs Algorithms that can help in Machine Learning (e.g. KDTree)  Learning objectives Understand the fundamentals of computer graphics algorithms  Implement graphics algorithms for a variety of applications: video games, movies, CAD, etc. Understand the different requirements of different applications. Understand the basics of real-time rendering and graphics hardware. Use C/C++ and OpenGL programming to build 3D graphics applications. Measurable outcomes Understand key topics related to computer graphics:  Coordinate transformations Bezier curves and splines Representation and interpolation of rotations Computer animation Particle systems Collision detection Ray Tracing Rasterization and Shading Texture mapping Global illumination approaches Topics covered Bezier Curve Curve and Surface Coordinates & Transformations Hierarchical Modelling Animation Basics Particle Systems Cloth Simulation & Mass Spring Ray Casting Ray Tracing Ray Tracing Acceleration Shading Texture Mapping Antialiasing Global Illumination Displays and Fabrication Rasterization Graphics Hardware Latest Research in Graphics",
+    "prerequisites": "50.003 Elements of Software Constructionor knowledge of the following.C/C++: All assignments are in C/C++Calculus, Linear Algebra: Solving equations, derivatives, integral; vectors, matrices, basis, solving systems of equations.",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-017-graphics-and-visualisation/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.037",
+    "course_name": "Blockchain Technology",
+    "professor": "TBD",
+    "description": "Decentralized blockchain-based systems, such as Bitcoin and Ethereum, are successful beyond all expectations. Although still in their infancy, they promise to revolutionize how we think of financial, information, and other infrastructures. This course covers the technical aspects of public distributed ledgers, blockchain systems, cryptocurrencies, and smart contracts. Students will learn how these systems are built, how to interact with them, how to design and build secure distributed applications.",
+    "full_description": "Decentralized blockchain-based systems, such as Bitcoin and Ethereum, are successful beyond all expectations. Although still in their infancy, they promise to revolutionize how we think of financial, information, and other infrastructures. This course covers the technical aspects of public distributed ledgers, blockchain systems, cryptocurrencies, and smart contracts. Students will learn how these systems are built, how to interact with them, how to design and build secure distributed applications. Learning objectives By the end of the course, students will be able to  Understand how blockchain systems (mainly Bitcoin and Ethereum) work, To securely interact with them, Design, build, and deploy smart contracts and distributed applications, Integrate ideas from blockchain technology into their own projects. Measurable outcomes Explain design principles of Bitcoin and Ethereum. Explain Nakamoto consensus. Explain the Simplified Payment Verification protocol. List and describe differences between proof-of-work and proof-of-stake consensus. Interact with a blockchain system by sending and reading transactions. Design, build, and deploy a distributed application. Evaluate security, privacy, and efficiency of a given blockchain system. Topics covered Intro to Cryptographic Tools Distributed Systems and Consensus Bitcoin Basics Bitcoin Mechanisms Ethereum Smart Contracts Anonymity and Privacy of Blockchain Miscellaneous topics of Blockchain",
+    "prerequisites": "The course assumes a basic familiarity with computer programming and knowledge of the Python language.",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-037-blockchain-technology/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.007",
+    "course_name": "Machine Learning",
+    "professor": "Lu Wei",
+    "description": "Machine learning is the study of algorithms that improve their performance at some task with experience. In this course, students will learn how machine learning has led to many innovative real-world applications. The students will also gain an in-depth understanding of a broad range of machine learning algorithms from basic to state-of-the-art, such as: naïve Bayes, logistic regression, neural networks, clustering, probabilistic graphical models, reinforcement learning and SVMs.",
+    "full_description": "Machine learning is the study of algorithms that improve their performance at some task with experience. In this course, students will learn how machine learning has led to many innovative real-world applications. The students will also gain an in-depth understanding of a broad range of machine learning algorithms from basic to state-of-the-art, such as: naïve Bayes, logistic regression, neural networks, clustering, probabilistic graphical models, reinforcement learning and SVMs. Learning objectives At the end of the term, students will be able to:  Recognise the characteristics of machine learning that make it useful to real-world problems. Explain the basic underlying concepts for supervised discriminative and generative learning. Explain the concepts of cross-validation and regularisation, be able to use them for estimation of algorithm parameters. Characterise machine learning algorithms as supervised, semi-supervised, and unsupervised. Have heard of a few machine learning toolboxes. Use support vector machines. Use regularised regression algorithms. Explain the concept behind neural networks for learning non-linear functions. Apply unsupervised algorithms for clustering. Explain the foundation of generative models. Implement the inference and learning algorithms for the hidden Markov model. Explain the learning algorithm for hidden Markov model with latent variables. Explain algorithms for learning Bayesian networks. Explain reinforcement learning algorithms. Measurable outcomes List useful real-world applications of machine learning. Implement and apply machine learning algorithms. Choose appropriate algorithms for a variety of problems. Topics covered Introduction Perceptron Linear Regression Logistic Regression Support Vector Machines Kernel Methods Neural Networks and Deep Learning Clustering Generative Models Mixture Models and Expectation Maximization Hidden Markov Model Bayesian networks Reinforcement Learning",
+    "prerequisites": "50.001 Information Systems & Programming50.004 Algorithms; orA working knowledge of programming in Python or Java and a strong foundation in probability and statistics, and optimisation (topics such as dynamic programming)",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 5",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-007-machine-learning/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  }
+  {
+    "course_code": "50.039",
+    "course_name": "Theory and Practice of Deep Learning",
+    "professor": "Matthieu De Mari",
+    "description": "The primary aim of this course is to equip students with a comprehensive understanding of the mathematical foundations and practical implementations of deep learning for various modalities like vision, text, reinforcement learning, and multimodal combinations. Deep learning, in the context of this course, pertains to the training and application of neural networks as prediction models for various scenarios. The course intends to train students from the ground up, starting from Linear Regression models, to advanced architectures similar to Large Language Models/ChatGPT. In that sense, the course provides an extensive description of the different research directions in Deep Learning and includes practical coding aspects, touching upon essential areas such as data loading, training, parameter tuning, and performance evaluation.",
+    "full_description": "The primary aim of this course is to equip students with a comprehensive understanding of the mathematical foundations and practical implementations of deep learning for various modalities like vision, text, reinforcement learning, and multimodal combinations. Deep learning, in the context of this course, pertains to the training and application of neural networks as prediction models for various scenarios. The course intends to train students from the ground up, starting from Linear Regression models, to advanced architectures similar to Large Language Models/ChatGPT. In that sense, the course provides an extensive description of the different research directions in Deep Learning and includes practical coding aspects, touching upon essential areas such as data loading, training, parameter tuning, and performance evaluation. Learning Objectives Upon successful completion of this course, students will be able to:  Grasp the concept of learning from data, generalization, and overfitting. Explain the decision boundary of a linear neuron in the context of a general vector space. Understand the application of backpropagation. Understand the different predictors and suitable loss functions for different prediction problems. Understand the fundamentals of convolutional neural networks, and their uses for simple computer vision tasks. Explain data augmentation methods. Understand the fundamentals of recurrent neural networks, and their uses for sequential data, such as time series or text. Gain insights into Natural Language Processing (NLP), transformers, and their role in language understanding and generation. Understand the implementation and use of the PyTorch framework for data loading, training, and performance evaluation of deep neural networks. Construct custom datasets for images, sequential data, and multi-modal data. Understand the concept of adversarial machine learning, and how to make a neural network robust to adversarial attacks. Understand the fundamentals of graph convolutional neural networks and how they can be used to process graph datasets. Understand the functioning of a generative AI models, such as the generative adversarial neural network models and simple diffusion models. Understand and apply advanced concepts like Explainable AI (XAI) and reinforcement learning (RL). Understand the functioning and applications of multi-modal neural networks such as LLMs and ChatGPT. Measurable Outcomes By the end of this course, students will be able to:  Evaluate the suitability of deep learning models and loss functions for different prediction task types. Compute the terms used in backpropagation for a given neural network topology. Differentiate when to use different types of neural network layers (e.g. fully connected layers, convolutional layers, etc.) for a given model. Create code for custom datasets for image and text data. Create code for neural networks for vision and sequence classification. Analyze the degree of overfitting by comparing different pairs of train/test loss curves. Implement data augmentation methods and transfer learning in code and evaluate their impact on performance. Produce sample code for simple transformers, graph convolutional neural networks, and generative deep neural networks and explain some possible use cases for each. Create code for simple Reinforcement Learning applications and see how they relate to Deep Learning. Understand how advanced models, such as LLMs and ChatGPT, reuse and combine all the notions introduced in this course. Topics Covered This course will cover a range of topics including, but not limited to:  Introduction to Deep Learning, linking to the contents of the Machine Learning course Supervised learning with neural networks Understanding the neural networks architecture Optimizing and training a neural network Convolutional neural networks for Computer Vision Recurrent neural networks for sequential data, and Natural Language Programming Data Augmentation Transfer Learning Adversarial Machine Learning on Neural Networks Graph Convolutional Neural Networks for graph datasets Generative Neural Networks, such as AutoEncoders, Generative Adversarial Networks and Diffusion models Explainable AI Fundamentals of reinforcement learning and their uses in Deep Learning",
+    "prerequisites": "Prerequisite courses needed",
+    "credits": 12,
+    "term": "Term",
+    "course_type": "elective",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-039-theory-and-practice-of-deep-learning/",
+    "has_detail_page_data": true,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "listing_page",
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.045",
+    "course_name": "Information Retrieval",
+    "professor": "TBD",
+    "description": "Automatic methods of Information Retrieval (IR) have gained greater significance in recent years due to the dramatic increase in the amount of data available on the Web. The data is often present in multiple forms (such as text, image, video) and hence it is necessary that the IR techniques being deployed on the web are able to perform various operations such as search and retrieval across all these different data formats. In this course, the study of IR will be focused on the methodologies of indexing, processing, and querying of primary textual data and will be extended to video and image data in the latter part of the course.",
+    "full_description": "Automatic methods of Information Retrieval (IR) have gained greater significance in recent years due to the dramatic increase in the amount of data available on the Web. The data is often present in multiple forms (such as text, image, video) and hence it is necessary that the IR techniques being deployed on the web are able to perform various operations such as search and retrieval across all these different data formats. In this course, the study of IR will be focused on the methodologies of indexing, processing, and querying of primary textual data and will be extended to video and image data in the latter part of the course. Learning objectives Gain knowledge about the basic concepts and techniques of IR. Understand the basic functionality and underlying algorithms of an IR system. Understand modern neural networks and deep learning-based techniques that are used in today’s IR systems. Learn about several applications of e.g., question answering, image, and video retrieval. Learn how to develop a basic IR system from scratch and evaluate the system. Learn clarification, clustering, topic modelling which are the core modules in an IR system. Measurable outcomes Identifying important concepts of Information Retrieval. Learn vector space modelling, modern deep learning techniques for IR and evaluation methods. Finally, utilize this knowledge to complete the project. Evaluate the performance of different IR models using empirical benchmarks. Implement different IR applications such as Question Answering, Image and Video Retrieval systems. Able to use libraries such as Sklearn, Keras for data processing and IR model creation. Mathematically explain common neural network-based models, word2vec and Glove distributed word representations for IR system building. Topics covered Boolean retrieval and VSM Word Embeddings Probabilistic IR and Relevance Feedback, BM-25 Introduction to Neural Networks Text Processing and Classification using Neural Networks. Language Modelling — Transformers, BERT, RoBERTa IR using Language Modelling Question Answering Personalisation Image Retrieval Large Language Models. Language Models for Information Retrieval e.g., how do we leverage ChatGPT for Information Retrieval Question Answering and its utilisation in Information Retrieval",
+    "prerequisites": "50.007 Machine Learningor50.021 Artificial Intelligenceor50.038 Computational Data Scienceor50.039 Theory and Practice of Deep Learning",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-045-information-retrieval/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.050",
+    "course_name": "Discrete Mathematics and Algorithm Design",
+    "professor": "Ernest Chong",
+    "description": "An in-depth understanding of Computer Science requires strong mathematical foundations. In this course, students will learn the foundations of discrete mathematics and other mathematical areas, with an emphasis on understanding the underlying mathematics for algorithms beyond those covered in 50.004 Algorithms. Through this course, students will appreciate the wide applicability of mathematics for algorithms in artificial intelligence, communications, computer graphics, cybersecurity, data analytics, robotics, etc. Topics include: Counting methods, logic and proof methods, graph theory (incl. graph colorings, matchings, Ramsey theory), graph algorithms (e.g. Fleury’s algorithm, Kosaraju’s algorithm, Kruskal’s algorithm, Prim’s algorithm), number theory (e.g. modular arithmetic, Euclidean algorithm), coding theory (e.g. Huffman coding, Hamming codes), convex geometry (e.g. polytopes, Voronoi diagrams), computational geometry (e.g. Fortune’s algorithm, Gilbert-Johnson-Keerthi algorithm).",
+    "full_description": "An in-depth understanding of Computer Science requires strong mathematical foundations. In this course, students will learn the foundations of discrete mathematics and other mathematical areas, with an emphasis on understanding the underlying mathematics for algorithms beyond those covered in 50.004 Algorithms. Through this course, students will appreciate the wide applicability of mathematics for algorithms in artificial intelligence, communications, computer graphics, cybersecurity, data analytics, robotics, etc. Topics include: Counting methods, logic and proof methods, graph theory (incl. graph colorings, matchings, Ramsey theory), graph algorithms (e.g. Fleury’s algorithm, Kosaraju’s algorithm, Kruskal’s algorithm, Prim’s algorithm), number theory (e.g. modular arithmetic, Euclidean algorithm), coding theory (e.g. Huffman coding, Hamming codes), convex geometry (e.g. polytopes, Voronoi diagrams), computational geometry (e.g. Fortune’s algorithm, Gilbert-Johnson-Keerthi algorithm). Learning Objectives At the end of the term, students will be able to:  Understand basic concepts in set theory and logic. Apply counting methods and proof methods in solving problems. Demonstrate familiarity with graph-theoretic terminology and concepts. Analyze structural properties in graphs. Understand the applications of graph algorithms. Solve problems using Kruskal’s algorithm and Prim’s algorithm. Understand Sperner’s lemma and its applications. Understand basic concepts in elementary number theory. Apply Huffman coding to data compression. Understand the geometry of error correction codes. Demonstrate familiarity with data encoding/decoding using Hamming codes. Understand basic geometric concepts in convex geometry and computational geometry. Understand Voronoi diagrams and Fortune’s algorithm. Understand the Gilbert-Johnson-Keerthi (GJK) algorithm. Measurable Outcomes Solve counting problems via multiple counting methods. Write mathematical proofs that incorporate various proof methods. Compute matchings in graphs. Design simple graph algorithms. Design algorithms for fair resource division using Sperner’s lemma. Compute minimal spanning trees using Kruskal’s algorithm and Prim’s algorithm. Solve congruence equations. Apply encoding/decoding techniques to data. Analyze the correctness of algorithms using mathematical concepts. Topics Covered Sets, set relations, bijections, cardinality and (un-)countability of sets, propositional logic, predicates and quantifiers, counting methods, permutations & combinations, inclusion-exclusion principle Binomial coefficients and identities, proof methods, induction, well-ordering principle, invariance, extremal principle Graph colorings, planar graphs, Euler’s formula, four-color theorem, pigeonhole principle, Ramsey theory Graph representations, graph isomorphism, graph invariants, bipartite graphs, graph matchings Graph connectivity, Eulerian paths and cycles, Fleury’s algorithm, Kosaraju’s algorithm, Sperner’s lemma Trees, minimal spanning trees, Kruskal’s algorithm, Prim’s algorithm Modular arithmetic, divisibility and primes, Diophantine equations, Euclidean algorithm, solving congruences, Fermat’s little theorem, RSA algorithm Integer representations, machine representations of numbers, binary numbers, Hamming metric, introduction to coding theory, Huffman coding Hamming codes, perfect codes, geometry of error correction codes Geometry of Euclidean spaces, convex hulls, affine geometry, half-spaces, hyperplanes, simplices, polytopes, geometry of simplex algorithm Voronoi diagrams, Fortune’s algorithm Cones, conic hulls, Minkowski sums, GJK algorithm",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-050-discrete-mathematics-and-algorithm-design/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.040",
+    "course_name": "Natural Language Processing",
+    "professor": "Zhang Wenxuan",
+    "description": "Natural Language Processing (NLP) is an important area within the general field of Artificial Intelligence (AI). Modern NLP models focus on using machine learning algorithms for solving various text processing problems. This course covers fundamental topics within the domain of NLP, including word representations, language modelling, sequence-to-sequence models, attention, and transformer architectures. Students will also explore advanced methods in the modern paradigm of large language models (LLMs), such as pre-training, fine-tuning, and efficient adaptation strategies. The course emphasizes both fundamental algorithms and state-of-the-art techniques. Students will gain hands-on experience in implementing fundamental algorithms and experimenting with advanced deep learning–based NLP techniques, culminating in projects that explore real-world applications of LLMs.",
+    "full_description": "Natural Language Processing (NLP) is an important area within the general field of Artificial Intelligence (AI). Modern NLP models focus on using machine learning algorithms for solving various text processing problems. This course covers fundamental topics within the domain of NLP, including word representations, language modelling, sequence-to-sequence models, attention, and transformer architectures. Students will also explore advanced methods in the modern paradigm of large language models (LLMs), such as pre-training, fine-tuning, and efficient adaptation strategies. The course emphasizes both fundamental algorithms and state-of-the-art techniques. Students will gain hands-on experience in implementing fundamental algorithms and experimenting with advanced deep learning–based NLP techniques, culminating in projects that explore real-world applications of LLMs. Learning objectives By the end of the course, students will be able to  Explain the fundamental tasks within NLP Explain possible algorithms as solutions to NLP tasks Implement the algorithms used for various NLP tasks Design novel algorithms for solving new NLP tasks, and use existing NLP technologies for solving real problems Measurable outcomes Explain the major tasks within NLP that involve supervised structured prediction Explain the major tasks within NLP that involve unsupervised learning Apply the relevant models that need to be used for each task Apply the major guiding principles when choosing a model for a specific task within NLP Decide when to and when not to use neural network based or deep learning methods for a specific task within NLP Design and implement fundamental algorithms used for various NLP tasks Analyse the time complexity involved for a specific NLP algorithm Evaluate the performance of an NLP model based on certain evaluation metrics on standard datasets Topics covered Introduction to NLP Tasks Recap on Machine Learning & Neural Networks Word Vectors Language Models & RNNs Seq2Seq Models & Attention Transformer Models Pre-training Post-training (SFT/RLHF) Efficient Adaptation (Prompting/LoRA) Benchmarking & Evaluation LLM Agents Advanced Topics (e.g., multilinguality)",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-040-natural-language-processing/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.047",
+    "course_name": "Mobile Robotics",
+    "professor": "Malika Meghani",
+    "description": "The mobile robotics course is an introductory course on intelligent robots and systems. It is a course at the intersection of machine learning, artificial intelligence, computer vision and control theory. The course will introduce fundamentals of developing systems which can sense, plan and act in the world based on various topics from the aforementioned domains. The emphasis will be on algorithm design, probabilistic reasoning, decision making under uncertainty and learning to improve behaviours using data.",
+    "full_description": "The mobile robotics course is an introductory course on intelligent robots and systems. It is a course at the intersection of machine learning, artificial intelligence, computer vision and control theory. The course will introduce fundamentals of developing systems which can sense, plan and act in the world based on various topics from the aforementioned domains. The emphasis will be on algorithm design, probabilistic reasoning, decision making under uncertainty and learning to improve behaviours using data. Learning Objectives Introduction: Basics of Linux, Robot Operating System, 3D Gazebo simulator, RViz robot visualizer. Feedback Control and Planning: how can we compute the commands that can bring a robotic system from its current state to a desired state? Mapping: how can we combine noisy measurements from sensors with the robot’s pose to build a map of the environment? State Estimation and Localization: the state of the robot is not always directly measurable/observable. How can we determine the relative weights of multiple sensor measurements in order to form an accurate estimate of the (hidden) state? Geometry of Computer Vision: how can modelling pixel projections on an RGB camera help us infer the 3D structure of the world? How can we triangulate points seen from two cameras? How can we estimate the camera’s pose (and therefore the robot’s) while it is moving in the environment? Measurable Outcomes Learn and implement algorithms through lectures and tutorial sessions. Learn and implement state-of-the-art software development tools through lectures and tutorial sessions. Develop and practice hands-on learning from lectures and tutorial sessions to solve real-world problems on virtual and physical robotic platforms. Develop critical thinking and problem-solving skills through instructed lectures and tutorial sessions. Topics Covered Sensors and Actuators Kinematics Dynamics Modelling and Control Planning Map Representations and Map Alignment Occupancy Grid Mapping with Known Robot Poses Bayesian Estimation Kalman Filter Particle Fiter Robot Vision Visual Odemetry and Visual SLAM Planning under Uncertainty",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-047-mobile-robotics/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.044",
+    "course_name": "System Security",
+    "professor": "Daisuke Mashima",
+    "description": "This course covers the security of users, individual computer systems, including personal computers, smart cards and embedded platforms. The course starts with considerations of common security flaws in a computer system, security of widely used computer platforms and user authentication. Then, topics such as physical‐layer attacks and tamper resistant hardware are discussed. Finally, the course ends with a set of selected security topics like biometrics, computer forensics, and Bitcoin.",
+    "full_description": "This course covers the security of users, individual computer systems, including personal computers, smart cards and embedded platforms. The course starts with considerations of common security flaws in a computer system, security of widely used computer platforms and user authentication. Then, topics such as physical‐layer attacks and tamper resistant hardware are discussed. Finally, the course ends with a set of selected security topics like biometrics, computer forensics, and Bitcoin. Learning Objectives Define security objectives for a given computer system based on problem setting and requirements Explain how computer systems are compromised Learn how to defend against common attacks to various computer systems Apply basic security design principles to a secure computer system design and implementation Measurable Outcomes Identify the security objectives of a computer system by defining and assessing the security level of an existing computer system properly and comprehensively, through a design project Demonstrate ability to apply and analyse common attacks on various computer systems, through successfully compromising a computer system in a laboratory environment Analyze and apply defensive technology and software to defend various computer systems, by demonstrating security level improvement of existing vulnerable computer systems Demonstrate mastery of applying system security design principles and best practices by interpreting the process of securing a computer system in a design project Topics Covered Introduction Memory safety attacks Defenses for memory safety Authentication Privilege Separation Isolation Hardware Security Mobile Security Web Security Secure Channels Secure Messaging",
+    "prerequisites": "50.042 Foundations of Cybersecurity",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-044-system-security/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.043",
+    "course_name": "Database Systems",
+    "professor": "TBD",
+    "description": "Database systems manage data which is at the heart of modern computing applications. We are in the era of big data, in which data is generated from many sources, in high velocity and with great variety. This poses numerous challenges in using and improving database technologies. Big data systems designed to support analytics are maturing and are becoming increasingly important to many applications. This course covers the fundamentals of traditional databases, such as Oracle and MySQL, and core ideas of recent big data systems. Students will learn important problems in data management that these systems are designed to solve. They will experience with building applications on top of traditional databases, namely SQLite, and state‐of‐the‐art big data platforms, namely MongoDB and Apache Spark. These systems will be running both locally and on the Amazon cloud (Amazon Web Service). The students will be able to determine for themselves the advantages and disadvantages of different systems.",
+    "full_description": "Database systems manage data which is at the heart of modern computing applications. We are in the era of big data, in which data is generated from many sources, in high velocity and with great variety. This poses numerous challenges in using and improving database technologies. Big data systems designed to support analytics are maturing and are becoming increasingly important to many applications. This course covers the fundamentals of traditional databases, such as Oracle and MySQL, and core ideas of recent big data systems. Students will learn important problems in data management that these systems are designed to solve. They will experience with building applications on top of traditional databases, namely SQLite, and state‐of‐the‐art big data platforms, namely MongoDB and Apache Spark. These systems will be running both locally and on the Amazon cloud (Amazon Web Service). The students will be able to determine for themselves the advantages and disadvantages of different systems. Learning objectives Design and implement a database application on top of a relational database management systems (RDBMS). Identify major components of database and big data systems. Estimate the costs of different database operations. Explain how state‐of‐the‐art big data systems differ to one another. Implement a cloud‐based big data application. Explain how database and big data systems fit together in real‐world applications. Use cloud‐based systems. Measurable outcomes Develop a database design for an application. List and explain major components of database and big data systems. Write complex SQL queries. Estimate cost of different database operations. Compare different classes of big data systems. Write MapReduce and Spark jobs. Explain how a database differs to a big data system. Design, implement, and deploy database and big data systems on AWS. Topics covered Database systems internal Relational model ER to Relational Model Relational Algebra SQL Functional Dependency DB normalization Data Storage Indexing Query evaluation Query optimization Transaction Management Big data systems architecture AWS HDFS Spark",
+    "prerequisites": "10.014 Computational Thinking for Design(For AY2020 to AY2024) or10.025 Computational Thinking for Design(For AY2025 and subsequent batches)50.004 Algorithms",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 5",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-043-database-systems/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.041",
+    "course_name": "Distributed Systems and Computing",
+    "professor": "TBD",
+    "description": "This course introduces fundamental concepts for designing and implementing large‐scale distributed systems. The course will not only focus on the design aspects of distributed systems, but will also focus on the fundamental principles to ensure the correctness in a distributed environment. We will apply the concepts via hands on assignments using GO programming language. The course will also deep dive into specific concepts of distributed systems e.g. designing distributed file systems (such as in Google File Systems) to accommodate arbitrarily many application‐level users. Finally, we will discuss concepts on recovering from faults (both normal and byzantine) in a distributed system.",
+    "full_description": "This course introduces fundamental concepts for designing and implementing large‐scale distributed systems. The course will not only focus on the design aspects of distributed systems, but will also focus on the fundamental principles to ensure the correctness in a distributed environment. We will apply the concepts via hands on assignments using GO programming language. The course will also deep dive into specific concepts of distributed systems e.g. designing distributed file systems (such as in Google File Systems) to accommodate arbitrarily many application‐level users. Finally, we will discuss concepts on recovering from faults (both normal and byzantine) in a distributed system. Learning Objectives Design and implement a distributed system from scratch. Apply key ideas to maintain the correctness in distributed systems. Learning techniques to design and develop massively parallel systems using GO programming language. Learning techniques to design and implement a distributed file system. Learning and applying techniques to recover from faults in distributed systems. Measurable Outcomes Build models of distributed systems [LO 1]. Prototype distributed software systems [LO 1,2,3,4,5]. Build distributed algorithms using industry-strength programming language [LO 3]. Build algorithms to analyse the correctness of distributed systems [LO 2]. Prototype software and systems to manage files and records in a distributed environment [LO 4]. Build algorithms to analyse and test possible faults in distributed systems [LO 1, 5]. Build techniques to recover from faults in distributed systems [LO 5]. Build techniques at the level of supervisory software to support distributed applications [LO 1,4,5]. Topics Covered Introduction, Clocks, Election Clocks and Election Distributed Mutual Exclusion Consistency Model Distributed File Systems Fault Tolerance 1 Fault Tolerance 2 Byzantine Faults",
+    "prerequisites": "50.004 Algorithmsorconsultation with the instructor",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 8",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-041-distributed-systems-and-computing/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.046",
+    "course_name": "Cloud Computing and Internet of Things",
+    "professor": "Park Jihong",
+    "description": "The Internet of Things and its integration with cloud computing are transforming our world in a fundamental way. This course teaches some of the essential IoT and cloud computing technologies from the ground up. Specific topics covered include IoT devices programming (ESP32), sensing technologies, IoT protocols (MQTT and CoAP), accessing and using cloud-based services, and the virtualization technologies behind cloud computing (virtual machines and containers). Students will learn how to design, develop, and deploy end-to-end cloud-based IoT applications, and to understand the fundamental technologies behind cloud computing.",
+    "full_description": "The Internet of Things and its integration with cloud computing are transforming our world in a fundamental way. This course teaches some of the essential IoT and cloud computing technologies from the ground up. Specific topics covered include IoT devices programming (ESP32), sensing technologies, IoT protocols (MQTT and CoAP), accessing and using cloud-based services, and the virtualization technologies behind cloud computing (virtual machines and containers). Students will learn how to design, develop, and deploy end-to-end cloud-based IoT applications, and to understand the fundamental technologies behind cloud computing. Learning Objectives To understand the related architecture designs and technologies of cloud computing To explain the overall architecture and key design principles of IoT systems, including both functional and non-functional aspects To design cloud-based IoT applications using proper cloud services To gain hands-on experience in key technologies for developing an IoT system, including sensor selection / interfacing, embedded system programming, use of suitable network protocols, and various cloud services (compute, storage, data analytics, management) To gain design experience in solving a real-world problem using IoT and cloud technologies To gain both the experience and confidence in learning a new IoT technology independently Measurable Outcomes List the functions of different IoT and cloud computing components Use various sensors, embedded device libraries, IoT protocols, and cloud services Develop skills in systematic testing and debugging Work in a team to formulate a real-world problem that can be solved using IoT and cloud technologies, including design objectives, challenges, and constraints Apply suitable IoT and cloud technologies to develop a proof-of-concept system, and present the solution in the class with explanation of its key design considerations Apply new cloud services or sensors if relevant to the project Topics Covered Sensors Embedded systems and RTOS Wireless networking for IoT Edge computing Accessing Cloud and using AWS services Virtual machine using KVM OpenStack Containers using Docker",
+    "prerequisites": "50.005 Computer System Engineering(recommended) or a strong foundation in computer systems",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-046-cloud-computing-and-internet-of-things/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.051",
+    "course_name": "Programming Language Concepts",
+    "professor": "Simon Perrault",
+    "description": "In this module, students will learn about data representation, programming and compilation. In the first part, we will learn how binary is used to encode values (data) and instructions (code). We will then learn how to create complex data types and how object oriented programming works behind the scenes. In the second part, we will work on the different aspects of compilation, including lexical and syntaxic analysis, parsing and programming language design. Students will complete four small projects (2 individual and 2 group assignments) about memory management in C, C++, and compilation (lexical and syntaxic analysis and parsing). By gaining this knowledge, students will be able to understand how programming languages are designed.",
+    "full_description": "In this module, students will learn about data representation, programming and compilation. In the first part, we will learn how binary is used to encode values (data) and instructions (code). We will then learn how to create complex data types and how object oriented programming works behind the scenes. In the second part, we will work on the different aspects of compilation, including lexical and syntaxic analysis, parsing and programming language design. Students will complete four small projects (2 individual and 2 group assignments) about memory management in C, C++, and compilation (lexical and syntaxic analysis and parsing). By gaining this knowledge, students will be able to understand how programming languages are designed. Learning objectives Program in C and C++ Design a compiler for an imperative programming language Understand how data/instructions are stored and represented in the computer’s memory Understand the link between imperative and object-oriented languages Understand the compilation process Measurable outcomes Understand how memory is used to store data and instructions on a computer Ability to program in C and C++ Understand the imperative programming paradigm Understand the compilation process Ability to learn any imperative programming language Recommended texts and readings SEI CERT C Coding Standard, Rules for Developing Safe, Reliable, and Secure Systems C Programming Language, (Kernighan & Ritchie) A Complete Guide to Programming in C++, (Kirch-Prinz & Prinz) Introduction to Compilers and Language Design (Thain, chapters 1-8) Topics covered Binary Operations Data Representation C programming C++ programming Memory management Compilation Pre-processing & lexical analysis Top-down and bottom-up parsing Semantic analysis",
+    "prerequisites": "Prerequisite courses needed",
+    "credits": 12,
+    "term": "Term",
+    "course_type": "elective",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/50-051-programming-language-concepts",
+    "has_detail_page_data": true,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "listing_page",
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.056",
+    "course_name": "Software Abstraction Functional Programming",
+    "professor": "Oka Kurniawan",
+    "description": "This course introduces students to functional programming and how to construct software abstractions. Students learn how to compose functions and perform computation in a functional way. Higher order function will be taught as a way to abstract computation. The course then introduces students on how they can abstract data in functional programming. The students will be brought into a discussion of state-based computation and how it is best done to allow better testing and concurrency. In the later part of the course, students will learn how they can apply many these concepts to create meta circular evaluator and implement lazy evaluations. The course introduces many concepts that inspires various programming languages and, throughout, the idea of software abstraction is emphasised.",
+    "full_description": "This course introduces students to functional programming and how to construct software abstractions. Students learn how to compose functions and perform computation in a functional way. Higher order function will be taught as a way to abstract computation. The course then introduces students on how they can abstract data in functional programming. The students will be brought into a discussion of state-based computation and how it is best done to allow better testing and concurrency. In the later part of the course, students will learn how they can apply many these concepts to create meta circular evaluator and implement lazy evaluations. The course introduces many concepts that inspires various programming languages and, throughout, the idea of software abstraction is emphasised. Learning objectives Learn functional programming concepts and principles Create abstractions for computation and data Discuss the effect of mutability in computation Implement state-based and stream-processing approach in a functional way Create metalinguistic abstraction Measurable outcomes By the end of this course, students should be able to:  Use higher order functions to create abstraction for computations Create abstraction to represent complex data Discuss the advantages and disadvantages of assignment operator in imperative programming Implement state-based model Implement stream-processing approach for computing sequences and iterations Create meta-circular evaluator Discuss the advantages of lazy evaluations and implement it Topics covered Introducing Functional Programming Abstraction Using Functions Data Abstraction Generic Operations for Data Abstraction Modelling State using Object Stream-based Approach for State Computation Metalinguistic Abstraction Lazy Evaluation",
+    "prerequisites": "10.014 Computational Thinking for Design(For AY2020 to AY2024) or10.025 Computational Thinking for Design(For AY2025 and subsequent batches)",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-056-software-abstraction-functional-programming/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.055",
+    "course_name": "Special Topic: Machine Learning Operations",
+    "professor": "Daniel Dahlmeier",
+    "description": "In this course, students will learn the concepts and practice of machine learning operations (“MLOps”). The course does not teach the fundamentals of machine learning. Instead it focuses on building machine learning products. Students will learn how to identify viable use cases for machine learning, how to develop, test, deploy and monitor machine applications, how to manage machine learning projects and how to identify legal, ethical and data protection risks. Students will get hands-on experience on the complete machine learning development process, from experiments to deployment through course assignments and projects. The focus will be on deep learning and generative AI.",
+    "full_description": "In this course, students will learn the concepts and practice of machine learning operations (“MLOps”). The course does not teach the fundamentals of machine learning. Instead it focuses on building machine learning products. Students will learn how to identify viable use cases for machine learning, how to develop, test, deploy and monitor machine applications, how to manage machine learning projects and how to identify legal, ethical and data protection risks. Students will get hands-on experience on the complete machine learning development process, from experiments to deployment through course assignments and projects. The focus will be on deep learning and generative AI. Learning Objectives Identify good machine learning use cases Conduct and manage machine learning experiments Prompt and finetune foundation model Deploy models to production Monitor and continuously improve models Manage machine learning projects Identify legal and ethical issues Measurable Outcomes Students can identify viable use cases Students can conduct and manage machine learning experiments Students know how to prompt and finetune foundation models Students understand machine learning architect and application stack Students can create pipelines and deploy models Students are able to conduct ethics, legal and data protection assessments Topics Covered Introduction Data Machine learning experiment management Foundation models Foundation model and engineering and fine-tuning Machine learning testing Deployment Monitoring and continuous improvement Project and change management Machine learning business case and commercials Legal and data protection AI ethics and regulation AI user ex",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 8",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-055-special-topic-machine-learning-operations/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.053",
+    "course_name": "Software Testing and Verification",
+    "professor": "TBD",
+    "description": "The course will introduce the fundamental concepts behind various automated testing algorithms and introduce basic concepts behind verification (specifically, model checking). The focus of the course will be more on the design of test algorithms than the usage of testing tools. At the end of the course, students are expected to gain knowledge on how to test arbitrarily complex systems. The course will provide a brief recap on the testing introduced earlier e.g., coverage-based testing and unit testing. Subsequently, it will dive deep into the systematic test generation strategies. The concluding week of the course will involve discussion of some selected and impactful recent research on software testing and draw an unusual synergy between the model checking (verification) and testing. The course will involve the development of a medium scale software project prototype from scratch (w/o libraries, w/o plugins) and the software prototype will be tested via the systematic testing mechanisms learned in the course. The software prototypes will be exchanged among different groups to mimic the testing culture in industry.",
+    "full_description": "The course will introduce the fundamental concepts behind various automated testing algorithms and introduce basic concepts behind verification (specifically, model checking). The focus of the course will be more on the design of test algorithms than the usage of testing tools. At the end of the course, students are expected to gain knowledge on how to test arbitrarily complex systems. The course will provide a brief recap on the testing introduced earlier e.g., coverage-based testing and unit testing. Subsequently, it will dive deep into the systematic test generation strategies. The concluding week of the course will involve discussion of some selected and impactful recent research on software testing and draw an unusual synergy between the model checking (verification) and testing. The course will involve the development of a medium scale software project prototype from scratch (w/o libraries, w/o plugins) and the software prototype will be tested via the systematic testing mechanisms learned in the course. The software prototypes will be exchanged among different groups to mimic the testing culture in industry. Learning Objectives Design and implement software test generation algorithm from scratch. Apply key ideas to design directed testing methodologies. Learning and applying techniques to systematically test the software security. Learning techniques to apply formal verification techniques on small to medium scale software. Learning techniques to test software systems without oracles. Learning techniques to test stateful software systems and ML-based software systems. Measurable Outcomes Build test generation techniques for complex software systems Prototype software testing algorithms to validate medium scale software systems Engineer test generation algorithms to direct towards faults and certain code Build models and properties of software systems for verification Build test generation algorithms for software systems without ground truth Build blackbox software testing techniques for validating protocols and data-driven systems Engineer software testing techniques to check regression errors",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 6",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-053-software-testing-and-verification/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.052",
+    "course_name": "Extended Reality",
+    "professor": "Peng Song",
+    "description": "Extended Reality (XR) encapsulates various immersive technologies that can merge the physical and virtual worlds, including virtual reality (VR), augmented reality (AR), and mixed reality (MR). This course is an introduction to the fundamental techniques and practical applications of Extended Reality. We will cover several topics: concepts in XR, human perception, immersion and presence, virtual world modelling, real-time simulation, input and output devices, 3D user interaction, design principles for XR, and case studies. These topics will be explored via a combination of lectures, individual assignments and a group project to develop an XR application. Students should be comfortable with programming for the front and back end. They should be familiar with Unity to complete the project and assignments.",
+    "full_description": "Extended Reality (XR) encapsulates various immersive technologies that can merge the physical and virtual worlds, including virtual reality (VR), augmented reality (AR), and mixed reality (MR). This course is an introduction to the fundamental techniques and practical applications of Extended Reality. We will cover several topics: concepts in XR, human perception, immersion and presence, virtual world modelling, real-time simulation, input and output devices, 3D user interaction, design principles for XR, and case studies. These topics will be explored via a combination of lectures, individual assignments and a group project to develop an XR application. Students should be comfortable with programming for the front and back end. They should be familiar with Unity to complete the project and assignments. Learning Objectives Define and explain the fundamental concepts in Extended Reality (VR / AR / MR). Establish and analyse requirements for building an XR system to achieve the goal of immersion and enriched experiences. Understand the fundamental hardware and software techniques in XR. Understand the user interaction and interface design principles for XR. Create and display digital content and design interaction for XR systems. Develop an XR prototype that addresses an interesting and/or important real problem that involves people. Analyze the technical feasibility of XR projects and identify the challenges. Measurable Outcomes By the end of this course, students should be able to:  Define and explain principles in design and realization of XR systems. Explain the advantages, disadvantages, and limitations of using VR, AR, or MR systems. Model and create virtual worlds for XR. Design user interface for interacting with the virtual worlds in XR. Choose suitable input and output devices for building an XR system. Develop an XR prototype that addresses an interesting and/or important real problem. Topics Covered XR concept Relation and difference between VR, AR and MR XR system Human perception Immersion in XR Virtual worlds 3D modeling and rendering Input devices Tracking Output devices Displaying Latency in VR AR Registration Interaction User Interface Design",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-052-extended-reality/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "50.054",
+    "course_name": "Compiler Design and Program Analysis",
+    "professor": "Kenny Lu",
+    "description": "This course aims to introduce a new programming paradigm to the learners, Functional programming and the suite of advanced language features and design patterns for software design and development. By building on top of these techniques, the course curates the process of designing a modern compiler, through syntax analysis, intermediate representation construction, semantic analysis and code generation. More specifically the course focuses on the application of program analysis in areas of software verification, program optimization and software security analysis.",
+    "full_description": "This course aims to introduce a new programming paradigm to the learners, Functional programming and the suite of advanced language features and design patterns for software design and development. By building on top of these techniques, the course curates the process of designing a modern compiler, through syntax analysis, intermediate representation construction, semantic analysis and code generation. More specifically the course focuses on the application of program analysis in areas of software verification, program optimization and software security analysis. Learning Objectives Implement software solutions using functional programming language and applying design patterns Define the essential components in a program compilation pipeline Design a compiler for an imperative programming language Optimise the generated machine codes by applying program analysis techniques Detect bugs and security flaws in software by applying program analysis techniques Measurable Outcomes Develop a parser for an imperative programming language with assignment, if-else and loop (AKA the source language) using Functional Programming Implement a type checker for the source language Develop a static analyser to eliminate dead codes Implement the register allocation algorithm in the target code generation module Develop a static analyser to identify potential security flaws in the source language Topics Covered Functional Programming Basics: expression, conditional, function and recursion Functional Programming: list, algebraic data types and pattern matching Functional Programming Advanced: generics, GADT, type classes Functional Programming Design patterns: Functor Functional Programming Design patterns: Applicative and Monad Syntax Analysis: lexing, top-down parsing Syntax Analysis: bottom-up parsing, parser combinator Intermediate Representation: pseudo assembly Intermediate Representation: static single assignment Semantic Analysis: dynamic semantics Semantic Analysis: static semantics, type checking, type inference Semantic Analysis: lattice, sign analysis Semantic Analysis: liveness analysis, information flow analysis Code Generation: instruction selection, register allocation Memory management Activation Record",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 7",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/istd/course/50-054-compiler-design-and-program-analysis/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.013",
+    "course_name": "Modelling and Analysis",
+    "professor": "Wong Wei Pin",
+    "description": "The main objective of this course is to provide students firm foundations of single variable calculus so that they can apply calculus to model, solve and analyse applied math problems. It aims to motivate students on the importance of calculus through a plethora of applications in engineering, physical and biological sciences, computer science, finance, economics, probability and statistics and other topics. On top of the basic concepts, techniques and applications of two branches of calculus – differentiation and integration, students will also learn to use simple software to implement numerical methods in calculus.",
+    "full_description": "The main objective of this course is to provide students firm foundations of single variable calculus so that they can apply calculus to model, solve and analyse applied math problems. It aims to motivate students on the importance of calculus through a plethora of applications in engineering, physical and biological sciences, computer science, finance, economics, probability and statistics and other topics. On top of the basic concepts, techniques and applications of two branches of calculus – differentiation and integration, students will also learn to use simple software to implement numerical methods in calculus. Learning objectives At the end of the term, students will be able to:  Explain the geometrical and physical meaning of derivatives. Compute derivatives using the rules of calculus. Apply derivatives and calculus theorems to sketch graphs, find maxima, minima and accurate numerical approximations in problems coming from engineering and science. Explain the Fundamental Theorem of Calculus. Compute exact integrals by integration techniques. Apply numerical integrations to approximate definite integrals. Use integral calculus to solve basic differential equations. Use integral calculus to solve for important quantities that can be modelled by Riemann sums, such as areas, volumes, arc lengths, center of mass, moment of inertia, etc. Analyse the solutions obtained by calculus based on the context. Apply Excel to implement numerical methods to solve problems coming from engineering and science.",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 1",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-013-modelling-and-analysis/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.015",
+    "course_name": "Physical World",
+    "professor": "Ching Chee Leong",
+    "description": "Emphasises on providing students with the ability to understand and explain the inner mechanism of the physical world based on the principles of mechanics and thermodynamics. It aims to help students appreciate the beauty of physics and enable them to apply key concepts learnt to evaluate and address physics-based problems to make a positive impact on the world. By using concepts established through simplified mathematical models, reverse engineering case studies and experiential learning through hands-on demonstrations, connections between physics concepts and theoretical models are reinforced with practice.",
+    "full_description": "Emphasises on providing students with the ability to understand and explain the inner mechanism of the physical world based on the principles of mechanics and thermodynamics. It aims to help students appreciate the beauty of physics and enable them to apply key concepts learnt to evaluate and address physics-based problems to make a positive impact on the world. By using concepts established through simplified mathematical models, reverse engineering case studies and experiential learning through hands-on demonstrations, connections between physics concepts and theoretical models are reinforced with practice. Learning objectives The course introduces the concepts in progressive and integrated manner:  Linear motion kinematics Newton’s 3 laws of motion and dynamics of system Circular motion kinematics and dynamics Rotational motion and torque on rigid body Work done, general concepts of energy and conservative force Center of mass, linear and angular momentum. Conservation laws of energy, linear momentum, and angular momentum General ideas about thermodynamics such as temperature, heat and heat cycle, entropy and simple engines",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 1",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-015-physical-world/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.025",
+    "course_name": "Computational Thinking for Design",
+    "professor": "TBD",
+    "description": "An introductory programming course targeted at novice programmers taught using the Python programming language. It will introduce students to programming skills that are essential for their studies in SUTD, regardless of pillar choice.",
+    "full_description": "An introductory programming course targeted at novice programmers taught using the Python programming language. It will introduce students to programming skills that are essential for their studies in SUTD, regardless of pillar choice. Learning objectives Acquire conceptual knowledge and skills for python programming Gain skills in programming the Raspberry pi microcontroller Apply computational thinking approaches to explore solutions to design and engineering problems",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 1",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-025-computational-thinking-for-design/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "03.007A",
+    "course_name": "Innovating with Design and AI-1",
+    "professor": "TBD",
+    "description": "Innovating with Design and AI (IDeA-1) introduces students to the early stages of human-centred innovation through the integration of design thinking and artificial intelligence techniques. Students will learn to conduct empathy-driven user research and formulate problem statements for a real-world challenge. Emphasizing creative ideation and divergent thinking, the course guides students in generating and evaluating novel ideas using both traditional methods and AI tools. At the end of the course, students will present a low-fidelity prototype to demonstrate their ability to translate insights into thoughtful design concepts—laying the foundation for more advanced prototyping and testing in the course IDeA-II in term 2.",
+    "full_description": "Innovating with Design and AI (IDeA-1) introduces students to the early stages of human-centred innovation through the integration of design thinking and artificial intelligence techniques. Students will learn to conduct empathy-driven user research and formulate problem statements for a real-world challenge. Emphasizing creative ideation and divergent thinking, the course guides students in generating and evaluating novel ideas using both traditional methods and AI tools. At the end of the course, students will present a low-fidelity prototype to demonstrate their ability to translate insights into thoughtful design concepts—laying the foundation for more advanced prototyping and testing in the course IDeA-II in term 2. Learning objectives By the end of the course, students will be able to:  Identify stakeholders and their relationships in a complex system Frame problem statements and opportunity areas Generate and evaluate diverse and creative solution ideas using traditional and AI-augmented techniques Plan and execute effective teamwork Formulate and produce effective communication with multi-media content Gain proficiency in using AI tools to accelerate design Measurable outcomes Students conduct and communicate user and contextual research Students craft and iterate “How Might We” statements based on user research insights Students submit distinct, creative concept directions Students demonstrate collaboration and contribution to group tasks Students create low-fidelity prototypes",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 1",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/03-007a-innovating-with-design-and-ai-1/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.018",
+    "course_name": "Modelling Space and Systems",
+    "professor": "Ng Wei Khim",
+    "description": "Provides the knowledge on how to model real life problems by casting them against a rigorous modelling framework on the topics of multivariable calculus and linear algebra. This course builds upon the Term 1 course, Modelling and Analysis, and will cover the following topics: differentiation and integration in multiple dimensions, optimization, line integrals, linear maps, eigenvalues and eigenvectors. By working in group projects and writing MATLAB codes, students will appreciate the various topics and connections between mathematics and physics, computer science, probability, statistics and other topics. In the second half of the course, students will cover linear algebra, which includes linear maps, idea of a basis, subspaces, eigenvalues, and eigenvectors. They will see how these topics tie in with modern day applications, and will also see some pitfalls for “standard algorithms” if they are applied blindly out of the box. Students will appreciate the various topics and connections between mathematics and physics, computer science, probability, statistics, and other topics.",
+    "full_description": "Provides the knowledge on how to model real life problems by casting them against a rigorous modelling framework on the topics of multivariable calculus and linear algebra. This course builds upon the Term 1 course, Modelling and Analysis, and will cover the following topics: differentiation and integration in multiple dimensions, optimization, line integrals, linear maps, eigenvalues and eigenvectors. By working in group projects and writing MATLAB codes, students will appreciate the various topics and connections between mathematics and physics, computer science, probability, statistics and other topics. In the second half of the course, students will cover linear algebra, which includes linear maps, idea of a basis, subspaces, eigenvalues, and eigenvectors. They will see how these topics tie in with modern day applications, and will also see some pitfalls for “standard algorithms” if they are applied blindly out of the box. Students will appreciate the various topics and connections between mathematics and physics, computer science, probability, statistics, and other topics. Learning objectives Examine functions of several variables via partial differentiation and directional derivatives. Compute integrals of functions of several variables and vector fields. Apply the concepts of row reduction, rank, matrix inverse, determinant, linear independence to find solutions to linear systems Ax=b exactly or approximately. Explain the geometric meaning of matrices, eigenvalues and eigenvectors.",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 2",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-018-modelling-space-and-systems/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.017",
+    "course_name": "Technological World",
+    "professor": "Shubhakar Kalya",
+    "description": "Provides students with a strong physics foundation for a holistic perspective of current and emerging technologies in modern society. The working principles of various products will be used to explain electromagnetism and its translation to circuit analysis and product design. Quantum mechanics is introduced to better appreciate emerging applications in quantum engineering. This course aims to cultivate strong scientific knowledge and engineering thinking capabilities in students, skills which are important for technological design and innovation.",
+    "full_description": "Provides students with a strong physics foundation for a holistic perspective of current and emerging technologies in modern society. The working principles of various products will be used to explain electromagnetism and its translation to circuit analysis and product design. Quantum mechanics is introduced to better appreciate emerging applications in quantum engineering. This course aims to cultivate strong scientific knowledge and engineering thinking capabilities in students, skills which are important for technological design and innovation. Learning objectives The course aims to cultivate students’ ability to:  Describe the working principle of various technologies based on the concept of electromagnetism and quantum physics. Compute resultant electric field and potential from charged objects with simple geometry using Coulomb’s Law, Gauss’ Law and the superposition principle. Compute resultant magnetic field generated by electric current sources with simple geometry using Biot-Savart Law, Ampere’s Law and the superposition principle. Apply Faraday’s Law to determine the magnitude and direction of an induced electric field and current. Apply Ohm’s Law and Kirchoff’s Law in simple circuit analysis, including resistive network, RC, RL, LC and RLC circuit. Describe the properties and the mathematical expression of an electromagnetic wave. Explain and apply the concept of wave-particle duality, interference, indeterminacy principle, quantum states, quantum operators, quantum measurements and some of their fundamental consequences. Describe current and possible future quantum technologies (computation, simulation, communication, precision measurement).",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 2",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-017-technological-world/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.016",
+    "course_name": "Science for a Sustainable World",
+    "professor": "Bong Eng Ying",
+    "description": "This course focuses on the importance of sustainable development by creating awareness of climate change and the human impact on the environment. Based on the Sustainable Development Goals (SDGs) from the United Nations, this course will address issues and challenges related to sustainability in four main areas: green materials, clean water, sustainable energy, and biodiversity. Emphasis is placed on the knowledge of science and engineering approaches towards achieving sustainable development. This course aims to enhance students’ critical thinking skills in analysing strategies based on scientific facts and current technologies.",
+    "full_description": "This course focuses on the importance of sustainable development by creating awareness of climate change and the human impact on the environment. Based on the Sustainable Development Goals (SDGs) from the United Nations, this course will address issues and challenges related to sustainability in four main areas: green materials, clean water, sustainable energy, and biodiversity. Emphasis is placed on the knowledge of science and engineering approaches towards achieving sustainable development. This course aims to enhance students’ critical thinking skills in analysing strategies based on scientific facts and current technologies. Learning objectives Recognise the human impact on the local and global environment and the need for sustainable development as well as its current challenges. Identify the physical and chemical properties of materials intended for sustainable product design, the product’s life cycle assessment and its impact on the environment. Explain the fundamental engineering, chemical and biological principles in wastewater treatment and its energy footprint. Understand the need for renewable energy for sustainable development, and the science behind emerging technologies of renewable energy sources. Evaluate how human activities impact the land and sea, and examine current methods for improving the declining state of biodiversity.",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 2",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-016-science-for-a-sustainable-world/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.026",
+    "course_name": "Design Computation",
+    "professor": "Bong Eng Ying",
+    "description": "This course provides an introduction to programming for students with little or no prior experience, with a special focus on design applications. It equips students with essential design computing skills that will support their studies across all pillars at SUTD. Students will explore both visual programming and Python programming and through hands-on exercises and projects, apply these skills to creative problem-solving and design exploration.",
+    "full_description": "This course provides an introduction to programming for students with little or no prior experience, with a special focus on design applications. It equips students with essential design computing skills that will support their studies across all pillars at SUTD. Students will explore both visual programming and Python programming and through hands-on exercises and projects, apply these skills to creative problem-solving and design exploration.",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 2",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-026-design-computation/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "03.007B",
+    "course_name": "Innovating with Design and AI-2",
+    "professor": "tbd",
+    "description": "Innovating with Design and AI (IDeA-2) builds upon the foundations established in IDeA-1, guiding students through the realisation and refinement of their design concepts.     Students will translate prior user research and ideation into functional design solutions that address real-world challenges. Emphasizing iterative development, the course introduces practical tools for rapid prototyping and integrates AI to support testing, evaluation, and feedback loops.     By the end of the course, students will deliver a functional prototype that demonstrates both technical feasibility and user-centred design—preparing them for advanced implementation and deployment in subsequent project-based courses.",
+    "full_description": "Innovating with Design and AI (IDeA-2) builds upon the foundations established in IDeA-1, guiding students through the realisation and refinement of their design concepts.     Students will translate prior user research and ideation into functional design solutions that address real-world challenges. Emphasizing iterative development, the course introduces practical tools for rapid prototyping and integrates AI to support testing, evaluation, and feedback loops.     By the end of the course, students will deliver a functional prototype that demonstrates both technical feasibility and user-centred design—preparing them for advanced implementation and deployment in subsequent project-based courses. Learning objectives By the end of the course, students will be able to:  Translate user insights into clear design requirements Define and conduct subsystem performance testing Refine and integrate subsystems into functional prototypes Plan and execute effective teamwork Formulate and produce effective communication with multi-media content Gain proficiency in using AI tools to accelerate design Measurable outcomes Students set clear and achievable design targets based on identified user needs Students align prototyping objectives with a structured testing plan Students integrate software, electrical, and mechanical subsystems into a high-fidelity functional design Students demonstrate collaboration Students advance 3D modelling skills to create a high-fidelity virtual site model Students demonstrate effective use of AI tools during ideation and prototyping",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 2",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/03-007b-innovating-with-design-and-ai-2/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.022",
+    "course_name": "Modelling Uncertainty",
+    "professor": "TBD",
+    "description": "Uncertainty appears everywhere in life, arising naturally in science, engineering, design, and humanities. Probability and statistics are two powerful and complementary ways to explain, forecast, and visualise uncertainty. Probability uses knowledge of a system’s behaviour to predict its future outcomes, while statistics analyses data from past outcomes to model a system’s behaviour. Probability and statistics are applied in virtually all industries that govern modern society; they are particularly important in disciplines including ﴾but not limited to﴿ finance, big data, artificial intelligence and machine learning. In this course, we will introduce the fundamentals of probability and statistics through real life problems and software. Students will complete projects related to applications such as climate adaptation, pharmaceutical testing, vaccine distribution, and product safety assurance.",
+    "full_description": "Uncertainty appears everywhere in life, arising naturally in science, engineering, design, and humanities. Probability and statistics are two powerful and complementary ways to explain, forecast, and visualise uncertainty. Probability uses knowledge of a system’s behaviour to predict its future outcomes, while statistics analyses data from past outcomes to model a system’s behaviour. Probability and statistics are applied in virtually all industries that govern modern society; they are particularly important in disciplines including ﴾but not limited to﴿ finance, big data, artificial intelligence and machine learning. In this course, we will introduce the fundamentals of probability and statistics through real life problems and software. Students will complete projects related to applications such as climate adaptation, pharmaceutical testing, vaccine distribution, and product safety assurance. Learning objectives At the end of the term, students will be able to:  Understand the basics of probability, such as laws of probability, independence, conditional probability, common distributions, random variables and common operations on them Develop and evaluate simple probabilistic models for a variety of situations  Apply the central limit theorem Examine data, and use tools to visualize data and uncover relationships Compute point estimates and construct confidence intervals from a data sample Perform hypothesis tests Build regression models and estimate their parameters",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 3",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-022-modelling-uncertainty/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.020",
+    "course_name": "Data Driven World",
+    "professor": "TBD",
+    "description": "Students will dive in into the world of computing and data. The course is a continuation of Computational Thinking for Design (Term 1) and is designed as a project-based course. It introduces students to data structures, algorithm, and introductory machine learning algorithm in a practical way. In the first half, students learn to analyse and design programs revolving around data and algorithms. In the second half, students learn how algorithms can learn from data to make smart predictions that empowers today’s Artificial Intelligence and Data Science applications. Students will undertake various mini-projects where they apply what they have learnt to develop web applications. The course requires both programming skills from Computational Thinking for Design as well as mathematical thinking from SUTD’s other freshmore courses.",
+    "full_description": "Students will dive in into the world of computing and data. The course is a continuation of Computational Thinking for Design (Term 1) and is designed as a project-based course. It introduces students to data structures, algorithm, and introductory machine learning algorithm in a practical way. In the first half, students learn to analyse and design programs revolving around data and algorithms. In the second half, students learn how algorithms can learn from data to make smart predictions that empowers today’s Artificial Intelligence and Data Science applications. Students will undertake various mini-projects where they apply what they have learnt to develop web applications. The course requires both programming skills from Computational Thinking for Design as well as mathematical thinking from SUTD’s other freshmore courses. Learning Objectives By the end of this course, students should be able to:  Analyse different algorithms’s complexity in terms of computation time using Python computational model Identify recursive structure in a problem and implement its solution in Python Explain UML diagrams and design software using basic UML diagrams Apply appropriate data structure and implement them using object oriented design  Implement algorithm to find coefficients for linear regression by minimizing its error Implement algorithm to classify categorical data using logistic regression for binary category and above Analyse and evaluate linear regression using mean square error and correlation coefficient Analyse and evaluate logistic regression using confusion matrix, its accuracy and recall",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 3",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-020-data-driven-world-elective/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  },
+  {
+    "course_code": "10.023",
+    "course_name": "Designing Energy Systems",
+    "professor": "TBD",
+    "description": "This course teaches physical and design concepts in energy related products and systems, such as lighting, mobile phones, and photovoltaic systems. Students will apply reverse engineering, redesigning, data analysis, modelling and simulations to these systems. In this course, students will be required to synthesize innovative solutions to real world problems.",
+    "full_description": "This course teaches physical and design concepts in energy related products and systems, such as lighting, mobile phones, and photovoltaic systems. Students will apply reverse engineering, redesigning, data analysis, modelling and simulations to these systems. In this course, students will be required to synthesize innovative solutions to real world problems. Learning objectives At the end of the course, students should be able to:  Use physical laws and quantitative analysis to evaluate limitations and performance of heat management and energy transformation systems Execute experimentation, reverse engineering, redesigning, and data analysis on energy-related products and energy systems Modify and design energy-related products and photovoltaics systems using design principles, simulations and data-driven approaches",
+    "prerequisites": "",
+    "credits": 0,
+    "term": "",
+    "course_type": "Unknown",
+    "terms_offered": "Term 3",
+    "learning_outcomes": "",
+    "assessment": "",
+    "detail_url": "https://www.sutd.edu.sg/course/10-023-designing-energy-systems-elective/",
+    "has_detail_page_data": false,
+    "scraped_from_detail_page": true,
+    "data_sources": [
+      "detail_page"
+    ]
+  }
+]
