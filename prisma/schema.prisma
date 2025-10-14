@@ -12,235 +12,294 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// User
-model User {
-  userId        String      @id @default(uuid()) @map("user_id") @db.Uuid
-  name          String
-  systemRole    SystemRole  @map("system_role")
-  jobRole       String      @map("job_role")
-  rank          String?     @map("rank")
-  skillSet      String[]   @map("skill_set") @db.Text
-  managerUserId String?     @map("manager_user_id") @db.Uuid
-  department String? 
-  createdAt     DateTime    @default(now()) @map("created_at")
-  updatedAt     DateTime    @updatedAt @map("updated_at")
-
-  // Self relation
-  manager User? @relation("UserManager", fields: [managerUserId], references: [userId])
-  team    User[] @relation("UserManager")
-
-  // Relations
-  selfAssessments     SelfAssessment[]
-  peerFeedbacks       PeerFeedback[]        @relation("PeerFeedbackUser")
-  commentedFeedback   PeerFeedback[]        @relation("PeerFeedbackCommenter")
-  managerEvaluations  ManagerEvaluation[]
-  documents           UserDocument[]
-  userNewRoles        UserNewRole[]
-
-  @@map("user")
+model ai_insights {
+  insight_id Int
+  user_id Int
+  generated_on DateTime
+  recommendation String
+  spec_additional_comment String
+  user users? @relation(fields: [user_id], references: [user_id])
+  @@id([insight_id])
 }
 
-// Self Assessment (self_assessment)
-model SelfAssessment {
-  selfAssessmentId   Int      @id @default(autoincrement()) @map("self_assessment_id")
-  userId             String   @map("user_id") @db.Uuid
-  goalAchieved       String?  @map("goal_achieved") @db.Text
-  keyStrength        String?  @map("key_strength") @db.Text
-  keyStrengthAi      String?  @map("key_strength_ai") @db.Text
-  areaForImprovement String?  @map("area_for_improvement") @db.Text
-  overallSelfRating  Int?     @map("overall_self_rating")
-  additionalComment  String?  @map("additional_comment") @db.Text
-  createdAt          DateTime @default(now()) @map("created_at")
-  updatedAt          DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
-
-  @@map("self_assessment")
+model career_paths {
+  career_id Int
+  career_title String
+  career_desc String
+  user_career_paths user_career_paths[]
+  @@id([career_id])
 }
 
-// Peer Feedback (peer_feedback)
-model PeerFeedback {
-  peerFeedbackId              Int      @id @default(autoincrement()) @map("peer_feedback_id")
-  userId                      String   @map("user_id") @db.Uuid
-  commenterUserId             String   @map("commenter_user_id") @db.Uuid
-  rating                      Int?
-  commentOnStrength           String?  @map("comment_on_strength") @db.Text
-  suggestionForImprovement    String?  @map("suggestion_for_improvement") @db.Text
-  suggestionForImprovementAi  String?  @map("suggestion_for_improvement_ai") @db.Text
-  finalComment                String?  @map("final_comment") @db.Text
-  createdAt                   DateTime @default(now()) @map("created_at")
-  updatedAt                   DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  user      User @relation("PeerFeedbackUser", fields: [userId], references: [userId], onDelete: Cascade)
-  commenter User @relation("PeerFeedbackCommenter", fields: [commenterUserId], references: [userId], onDelete: Cascade)
-
-  @@map("peer_feedback")
+model certificates {
+  cert_id Int
+  cert_name String
+  cert_provider String
+  cert_level String
+  cert_category String
+  user_certificates user_certificates[]
+  recommended_certificate recommended_certificate[]
+  study_plan_certificate study_plan_certificate[]
+  @@id([cert_id])
 }
 
-// Manager Evaluation (manager_evaluation)
-model ManagerEvaluation {
-  managerEvaluationId       Int      @id @default(autoincrement()) @map("manager_evaluation_id")
-  userId                    String   @map("user_id") @db.Uuid
-  performanceRating         Int?     @map("performance_rating")
-  commentOnGoalAchieved     String?  @map("comment_on_goal_achieved") @db.Text
-  commentOnGoalAchievedAi   String?  @map("comment_on_goal_achieved_ai") @db.Text
-  commentOnStrength         String?  @map("comment_on_strength") @db.Text
-  suggestionForImprovement  String?  @map("suggestion_for_improvement") @db.Text
-  suggestionForImprovementAi String? @map("suggestion_for_improvement_ai") @db.Text
-  finalComment              String?  @map("final_comment") @db.Text
-  createdAt                 DateTime @default(now()) @map("created_at")
-  updatedAt                 DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
-
-  @@map("manager_evaluation")
+model community_posts {
+  post_id Int
+  user_id Int
+  posted_on DateTime
+  post_content String
+  course_rating Int
+  user users? @relation("PostAuthor", fields: [user_id], references: [user_id])
+  @@id([post_id])
 }
 
-// User documents (user_document)
-model UserDocument {
-  userDocumentId   String   @id @default(uuid()) @map("user_document_id") @db.Uuid
-  filename         String
-  content          Bytes
-  extractedContent String   @map("extracted_content") @db.Text
-  userId           String   @map("user_id") @db.Uuid
-  createdAt        DateTime @default(now()) @map("created_at")
-  updatedAt        DateTime @updatedAt @map("updated_at")
-
-  // Optional: keep if present in DB (not in ERD)
-  mimeType         String?  @map("mime_type")
-
-  // Relations
-  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
-
-  @@map("user_document")
+model courses {
+  course_id Int
+  course_code String
+  course_name String
+  course_desc String
+  course_full_desc String
+  ai_tagged_skill String
+  user_courses user_courses[]
+  recommended_courses recommended_courses[]
+  study_plan_courses study_plan_courses[]
+  @@id([course_id])
 }
 
-// New role catalog (new_role)
-model NewRole {
-  newRoleId               Int        @id @default(autoincrement()) @map("new_role_id")
-  roleName                String     @map("role_name")
-  descriptionAi           String     @map("description_ai") @db.Text
-  descriptionPrompt       String     @map("description_prompt") @db.Text
-  yearOfExperience        String     @map("year_of_experience") @db.Text
-  department              String?    @map("department")
-  skill                   String[]  @map("skill") @db.Text
-  createdAt               DateTime   @default(now()) @map("created_at")
-  updatedAt               DateTime   @updatedAt @map("updated_at")
-
-  // Relations
-  userNewRoles        UserNewRole[]
-  roleRelatedQuestions RoleRelatedQuestion[]
-  candidateEvaluations CandidateEvaluation[]
-
-  @@map("new_role")
+model external_courses {
+  external_course_id Int
+  external_course_name String
+  external_provider String
+  external_course_desc String
+  external_ai_tagged_skill String
+  user_external_courses user_external_courses[]
+  recommended_external_courses recommended_external_courses[]
+  study_plan_external_courses study_plan_external_courses[]
+  @@id([external_course_id])
 }
 
-// Role-related questions (role_related_question)
-model RoleRelatedQuestion {
-  roleRelatedQuestionId Int      @id @default(autoincrement()) @map("role_related_question_id")
-  roleRelatedQuestion   String   @map("role_related_question") @db.Text
-  newRoleId             Int      @map("new_role_id")
-  createdAt             DateTime @default(now()) @map("created_at")
-  updatedAt             DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  newRole NewRole @relation(fields: [newRoleId], references: [newRoleId], onDelete: Cascade)
-  answers UserNewRoleRoleRelatedQuestion[]
-
-  @@map("role_related_question")
+model linkedin_benchmark {
+  id Int
+  skill_name String
+  avg_skill_score Float
+  percentile_75 Float
+  percentile_90 Float
+  sample_size Int
+  @@id([id])
 }
 
-// Candidate evaluation prompts (candidate_evaluation)
-model CandidateEvaluation {
-  candidateEvaluationId Int      @id @default(autoincrement()) @map("candidate_evaluation_id")
-  candidateEvaluation   String   @map("candidate_evaluation") @db.Text
-  newRoleId             Int      @map("new_role_id")
-  createdAt             DateTime @default(now()) @map("created_at")
-  updatedAt             DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  newRole NewRole @relation(fields: [newRoleId], references: [newRoleId], onDelete: Cascade)
-  answers UserNewRoleCandidateEvaluation[]
-
-  @@map("candidate_evaluation")
+model peer_reviews {
+  feedback String
+  rating Int
+  review_date DateTime
+  review_id Int
+  reviewer_id Int
+  reviewee_id Int
+  reviewer users? @relation(name: "PeerReviewsReviewer", fields: [reviewer_id], references: [user_id])
+  reviewee users? @relation(name: "PeerReviewsReviewee", fields: [reviewee_id], references: [user_id])
+  @@id([review_id])
 }
 
-// User requests for new roles (user_new_role)
-model UserNewRole {
-  userNewRoleId            Int      @id @default(autoincrement()) @map("user_new_role_id")
-  newRoleId                Int      @map("new_role_id")
-  userId                   String   @map("user_id") @db.Uuid
-
-  // ERD metrics & fields
-  overallRating            Int      @map("overall_rating")
-  aiSummary                String   @map("ai_summary") @db.Text
-  reviewerComment          String   @map("reviewer_comment") @db.Text
-  reviewerCommentId        String?   @map("reviewer_comment_id") @db.Uuid
-  impactCommunication      Int      @map("impact_communication")
-  skillRecency             Int      @map("skill_recency")
-  yearsOfRelevantExperience Int     @map("years_of_relevant_experience")
-  totalExperience          Int      @map("total_experience")
-  status                   String   @map("status")
-  createdAt                DateTime @default(now()) @map("created_at")
-  updatedAt                DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  user     User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
-  newRole  NewRole  @relation(fields: [newRoleId], references: [newRoleId], onDelete: Cascade)
-
-  roleRelatedQuestionAnswers UserNewRoleRoleRelatedQuestion[]
-  candidateEvaluationAnswers UserNewRoleCandidateEvaluation[]
-
-  @@map("user_new_role")
+model projects {
+  project_id Int
+  project_title String
+  project_desc String
+  difficulty_level String
+  estimated_time String
+  users users[]
+  recommended_projects recommended_projects[]
+  study_plan_projects study_plan_projects[]
+  @@id([project_id])
 }
 
-// Answers to role-related questions (user_new_role_role_related_question)
-model UserNewRoleRoleRelatedQuestion {
-  userNewRoleRoleRelatedQuestionId Int      @id @default(autoincrement()) @map("user_new_role_role_related_question_id")
-  roleRelatedQuestionAnswer        String   @map("role_related_question_answer") @db.Text
-  userNewRoleId                    Int      @map("user_new_role_id")
-  isInResume                 Boolean  @map("is_in_resume")
-  roleRelatedQuestionId            Int      @map("role_related_question_id")
-  createdAt                        DateTime @default(now()) @map("created_at")
-  updatedAt                        DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  userNewRole         UserNewRole         @relation(fields: [userNewRoleId], references: [userNewRoleId], onDelete: Cascade)
-  roleRelatedQuestion RoleRelatedQuestion @relation(fields: [roleRelatedQuestionId], references: [roleRelatedQuestionId], onDelete: Cascade)
-
-  @@index([userNewRoleId])
-  @@index([roleRelatedQuestionId])
-  @@map("user_new_role_role_related_question")
+model skill_competencies {
+  skill_id Int
+  skill_name String
+  skill_grade String
+  skill_category String
+  user_skill user_skill[]
+  @@id([skill_id])
 }
 
-// Answers to candidate evaluations (user_new_role_candidate_evaluation)
-model UserNewRoleCandidateEvaluation {
-  userNewRoleCandidateEvaluationId Int      @id @default(autoincrement()) @map("user_new_role_candidate_evaluation_id")
-  candidateEvaluationAnswer        String   @map("candidate_evaluation_answer") @db.Text
-  userNewRoleId                    Int      @map("user_new_role_id")
-  candidateEvaluationId            Int      @map("candidate_evaluation_id")
-  isInResume                 Boolean  @map("is_in_resume")
-  createdAt                        DateTime @default(now()) @map("created_at")
-  updatedAt                        DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  userNewRole        UserNewRole        @relation(fields: [userNewRoleId], references: [userNewRoleId], onDelete: Cascade)
-  candidateEvaluation CandidateEvaluation @relation(fields: [candidateEvaluationId], references: [candidateEvaluationId], onDelete: Cascade)
-
-  @@index([userNewRoleId])
-  @@index([candidateEvaluationId])
-  @@map("user_new_role_candidate_evaluation")
+model specialization {
+  spec_id Int
+  spec_name String
+  spec_desc String
+  users_specialization users_specialization[]
+  @@id([spec_id])
 }
 
-// ======================== Enums ========================
+model study_plan_certificate {
+  id Int
+  plan_id Int
+  cert_id Int
+  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
+  certificate certificates? @relation(fields: [cert_id], references: [cert_id])
+  @@id([id])
+}
 
-enum SystemRole {
-  MANAGER  @map("Manager")
-  HR_ADMIN @map("HR Admin")
-  EMPLOYEE @map("Employee")
+model study_plan_courses {
+  id Int
+  plan_id Int
+  course_id Int
+  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
+  course courses? @relation(fields: [course_id], references: [course_id])
+  @@id([id])
+}
 
-  @@map("system_role")
+model study_plan_external_courses {
+  id Int
+  plan_id Int
+  external_course_id Int
+  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
+  external_courses external_courses? @relation(fields: [external_course_id], references: [external_course_id])
+  @@id([id])
+}
+
+model study_plan_projects {
+  plan_id Int
+  project_id Int
+  id Int
+  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
+  project projects? @relation(fields: [project_id], references: [project_id])
+  @@id([plan_id])
+}
+
+model study_plans {
+  plan_id Int
+  user_id Int
+  plan_name String
+  plan_desc String
+  created_at DateTime
+  updated_at DateTime
+  user users? @relation(fields: [user_id], references: [user_id])
+  study_plan_courses study_plan_courses[]
+  study_plan_projects study_plan_projects[]
+  study_plan_certificate study_plan_certificate[]
+  study_plan_external_courses study_plan_external_courses[]
+  @@id([plan_id])
+}
+
+model user_career_paths {
+  user_id Int
+  career_id Int
+  career_path career_paths? @relation(fields: [career_id], references: [career_id])
+  user users? @relation(fields: [user_id], references: [user_id])
+  @@id([user_id])
+}
+
+model user_certificates {
+  user_cert_id Int
+  user_id Int
+  date_obtained DateTime @db.Date
+  cert_id Int
+  user users? @relation(fields: [user_id], references: [user_id])
+  certificate certificates? @relation(fields: [cert_id], references: [cert_id])
+  @@id([user_cert_id])
+}
+
+model user_courses {
+  id Int
+  user_id Int
+  course_id Int
+  enrollment_date DateTime @db.Date
+  completion_status String
+  user users? @relation(fields: [user_id], references: [user_id])
+  course courses? @relation(fields: [course_id], references: [course_id])
+  @@id([id])
+}
+
+model user_external_courses {
+  user_external_course_id Int
+  user_id Int
+  external_course_completion_date DateTime @db.Date
+  external_course_id Int
+  user users? @relation(fields: [user_id], references: [user_id])
+  external_courses external_courses? @relation(fields: [external_course_id], references: [external_course_id])
+  @@id([user_external_course_id])
+}
+
+model user_skill {
+  user_id Int
+  skill_id Int
+  proficiency_score Float
+  last_updated DateTime
+  data_source String
+  user users? @relation(fields: [user_id], references: [user_id])
+  skill skill_competencies? @relation(fields: [skill_id], references: [skill_id])
+  @@id([user_id, skill_id])
+}
+
+model users {
+  password_hash String
+  created_at DateTime
+  updated_at DateTime
+  user_id Int
+  user_name String
+  user_email String
+  user_certificates user_certificates[]
+  users_specialization users_specialization[]
+  user_career_paths user_career_paths[]
+  user_external_courses user_external_courses[]
+  reviewsAuthored peer_reviews[] @relation(name: "PeerReviewsReviewer")
+  reviewsReceived peer_reviews[] @relation(name: "PeerReviewsReviewee")
+  ai_insights ai_insights[]
+  study_plans study_plans[]
+  community_posts community_posts[] @relation("PostAuthor")
+  user_courses user_courses[]
+  user_skill user_skill[]
+  projects projects[]
+  recommended_certificate recommended_certificate[]
+  recommended_courses recommended_courses[]
+  recommended_external_courses recommended_external_courses[]
+  recommended_projects recommended_projects[]
+  @@id([user_id])
+}
+
+model users_specialization {
+  user_id Int
+  spec_id Int
+  added_date DateTime
+  user users? @relation(fields: [user_id], references: [user_id])
+  specialization specialization? @relation(fields: [spec_id], references: [spec_id])
+  @@id([user_id, spec_id])
+}
+
+model recommended_certificate {
+  id Int
+  user_id Int
+  cert_id Int
+  reason String
+  user users? @relation(fields: [user_id], references: [user_id])
+  certificate certificates? @relation(fields: [cert_id], references: [cert_id])
+  @@id([id])
+}
+
+model recommended_courses {
+  re_course_id Int
+  user_id Int
+  course_id Int
+  reason String
+  user users? @relation(fields: [user_id], references: [user_id])
+  course courses? @relation(fields: [course_id], references: [course_id])
+  @@id([re_course_id])
+}
+
+model recommended_external_courses {
+  id Int
+  user_id Int
+  external_course_id Int
+  reason String
+  user users? @relation(fields: [user_id], references: [user_id])
+  external_courses external_courses? @relation(fields: [external_course_id], references: [external_course_id])
+  @@id([id])
+}
+
+model recommended_projects {
+  id Int
+  user_id Int
+  project_id Int
+  reason String
+  user users? @relation(fields: [user_id], references: [user_id])
+  project projects? @relation(fields: [project_id], references: [project_id])
+  @@id([id])
 }

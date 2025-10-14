@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "source": "AWS Certification Official Website",
+    "scraped_date": "2025-10-13",
+    "total_certifications": 15,
+    "cost_range": "$100 - $300 USD",
+    "average_cost": "$213 USD",
+    "preparation_time_range": "140-1,380 hours",
+    "average_preparation_time": "840 hours",
+    "note": "Preparation times are randomized and may vary based on individual experience"
+  },
+  "certifications": {
+    "foundational": [
+      {
+        "id": 1,
+        "title": "AWS Certified Cloud Practitioner",
+        "level": "Foundational",
+        "description": "Validates foundational knowledge of AWS Cloud concepts, services, and terminology. Ideal for individuals new to cloud computing with no prior AWS experience.",
+        "cost_usd": 100,
+        "preparation_time_hours": 140,
+        "study_hours_per_week": "6-8 hours",
+        "prerequisites": "None",
+        "target_audience": "Beginners to cloud computing"
+      },
+      {
+        "id": 2,
+        "title": "AWS Certified AI Practitioner",
+        "level": "Foundational",
+        "description": "Demonstrates foundational AI and machine learning knowledge on AWS. Validates understanding of AI services and their business applications.",
+        "cost_usd": 100,
+        "preparation_time_hours": 378,
+        "study_hours_per_week": "7-9 hours",
+        "prerequisites": "Basic understanding of AI concepts",
+        "target_audience": "AI/ML beginners",
+        "status": "New/Beta"
+      }
+    ],
+    "associate": [
+      {
+        "id": 3,
+        "title": "AWS Certified Solutions Architect – Associate",
+        "level": "Associate",
+        "description": "Demonstrates the ability to design distributed systems on AWS. Validates skills in designing available, cost-efficient, fault-tolerant, and scalable distributed systems.",
+        "cost_usd": 150,
+        "preparation_time_hours": 504,
+        "study_hours_per_week": "10-12 hours",
+        "prerequisites": "1 year of experience designing distributed systems",
+        "target_audience": "Solutions architects, developers"
+      },
+      {
+        "id": 4,
+        "title": "AWS Certified Developer – Associate",
+        "level": "Associate",
+        "description": "Validates proficiency in developing, deploying, and debugging cloud-based applications using AWS. Tests knowledge of core AWS services, uses, and basic architecture best practices.",
+        "cost_usd": 150,
+        "preparation_time_hours": 432,
+        "study_hours_per_week": "8-10 hours",
+        "prerequisites": "1 year of experience developing applications on AWS",
+        "target_audience": "Software developers"
+      },
+      {
+        "id": 5,
+        "title": "AWS Certified CloudOps Engineer – Associate",
+        "level": "Associate",
+        "description": "Validates skills in deploying, managing, and operating workloads on AWS. Demonstrates expertise in AWS operational excellence and cloud infrastructure management.",
+        "cost_usd": 150,
+        "preparation_time_hours": 630,
+        "study_hours_per_week": "9-11 hours",
+        "prerequisites": "1 year of experience in AWS operations",
+        "target_audience": "System administrators, DevOps engineers",
+        "note": "formerly SysOps Administrator"
+      },
+      {
+        "id": 6,
+        "title": "AWS Certified Data Engineer – Associate",
+        "level": "Associate",
+        "description": "Showcases the ability to design data models, manage data lifecycles, and ensure data quality. Validates expertise in implementing data pipelines and analytics solutions.",
+        "cost_usd": 150,
+        "preparation_time_hours": 648,
+        "study_hours_per_week": "8-10 hours",
+        "prerequisites": "Experience with data engineering concepts",
+        "target_audience": "Data engineers, data analysts"
+      }
+    ],
+    "professional": [
+      {
+        "id": 7,
+        "title": "AWS Certified Solutions Architect – Professional",
+        "level": "Professional",
+        "description": "Validates advanced technical skills and experience in designing distributed applications and systems on AWS. Demonstrates expertise in complex, multi-tier architectures.",
+        "cost_usd": 300,
+        "preparation_time_hours": 1134,
+        "study_hours_per_week": "12-15 hours",
+        "prerequisites": "2+ years of hands-on experience designing and deploying cloud architecture on AWS",
+        "target_audience": "Senior architects, technical leads"
+      },
+      {
+        "id": 8,
+        "title": "AWS Certified DevOps Engineer – Professional",
+        "level": "Professional",
+        "description": "Demonstrates expertise in provisioning, operating, and managing distributed application systems on AWS. Validates advanced skills in continuous delivery and automation.",
+        "cost_usd": 300,
+        "preparation_time_hours": 1296,
+        "study_hours_per_week": "13-16 hours",
+        "prerequisites": "2+ years of experience in provisioning, operating, and managing AWS environments",
+        "target_audience": "Senior DevOps engineers, infrastructure architects"
+      }
+    ],
+    "specialty": [
+      {
+        "id": 9,
+        "title": "AWS Certified Advanced Networking – Specialty",
+        "level": "Specialty",
+        "description": "Validates expertise in designing and maintaining network architecture for the breadth of AWS services. Demonstrates complex networking skills for hybrid and multi-account environments.",
+        "cost_usd": 300,
+        "preparation_time_hours": 792,
+        "study_hours_per_week": "10-12 hours",
+        "prerequisites": "5 years of hands-on experience architecting and implementing network solutions",
+        "target_audience": "Network engineers, infrastructure architects"
+      },
+      {
+        "id": 10,
+        "title": "AWS Certified Security – Specialty",
+        "level": "Specialty",
+        "description": "Demonstrates knowledge of securing data and workloads in the AWS Cloud. Validates expertise in incident response, logging, and compliance frameworks.",
+        "cost_usd": 300,
+        "preparation_time_hours": 936,
+        "study_hours_per_week": "11-13 hours",
+        "prerequisites": "2+ years of hands-on experience securing AWS workloads",
+        "target_audience": "Security engineers, compliance specialists"
+      },
+      {
+        "id": 11,
+        "title": "AWS Certified Machine Learning – Specialty",
+        "level": "Specialty",
+        "description": "Validates the ability to design, implement, deploy, and maintain machine learning solutions on AWS. Demonstrates expertise in data engineering, exploratory data analysis, and model training.",
+        "cost_usd": 300,
+        "preparation_time_hours": 1014,
+        "study_hours_per_week": "12-14 hours",
+        "prerequisites": "1-2 years of experience developing, architecting, or running ML workloads on AWS",
+        "target_audience": "ML engineers, data scientists"
+      },
+      {
+        "id": 12,
+        "title": "AWS Certified Data Analytics – Specialty",
+        "level": "Specialty",
+        "description": "Demonstrates expertise in using AWS data lakes and analytics services to get insights from data. Validates skills in designing and maintaining analytics solutions.",
+        "cost_usd": 300,
+        "preparation_time_hours": 720,
+        "study_hours_per_week": "9-11 hours",
+        "prerequisites": "5 years of experience with data analytics technologies and 2 years with AWS",
+        "target_audience": "Data analysts, business intelligence developers"
+      },
+      {
+        "id": 13,
+        "title": "AWS Certified Database – Specialty",
+        "level": "Specialty",
+        "description": "Validates expertise in recommending, designing, and maintaining optimal AWS database solutions. Demonstrates knowledge of database migration, backup, and performance optimization.",
+        "cost_usd": 300,
+        "preparation_time_hours": 1080,
+        "study_hours_per_week": "10-12 hours",
+        "prerequisites": "5 years of experience with database technologies and 2 years with AWS",
+        "target_audience": "Database administrators, database architects"
+      },
+      {
+        "id": 14,
+        "title": "AWS Certified SAP on AWS – Specialty",
+        "level": "Specialty",
+        "description": "Demonstrates expertise in designing, implementing, migrating, and operating SAP workloads on AWS. Validates knowledge of SAP architecture and AWS infrastructure integration.",
+        "cost_usd": 300,
+        "preparation_time_hours": 1380,
+        "study_hours_per_week": "14-16 hours",
+        "prerequisites": "Experience with SAP solutions and AWS infrastructure",
+        "target_audience": "SAP consultants, enterprise architects"
+      },
+      {
+        "id": 15,
+        "title": "AWS Certified Alexa Skill Builder – Specialty",
+        "level": "Specialty",
+        "description": "Demonstrates expertise in building, testing, and publishing Amazon Alexa skills. Validates knowledge of voice user interface design and Alexa Skills Kit.",
+        "cost_usd": 300,
+        "preparation_time_hours": 576,
+        "study_hours_per_week": "7-9 hours",
+        "prerequisites": "Experience with voice application development",
+        "target_audience": "Voice app developers, UX designers"
+      }
+    ]
+  },
+  "certification_paths": {
+    "beginner_path": [1, 3, 4],
+    "devops_path": [1, 5, 8],
+    "data_path": [1, 6, 11, 12],
+    "security_path": [1, 3, 10],
+    "ml_ai_path": [2, 11],
+    "enterprise_path": [1, 3, 7, 14]
+  },
+  "cost_summary": {
+    "foundational_total": 200,
+    "associate_total": 600,
+    "professional_total": 600,
+    "specialty_total": 2100,
+    "grand_total": 3500
+  },
+  "sources": [
+    "https://aws.amazon.com/certification/",
+    "https://cloudinstitution.com/how-long-does-aws-certification-preparation-take/",
+    "https://www.3ritechnologies.com/how-long-does-it-take-to-complete-aws-certification/"
+  ]
+}
