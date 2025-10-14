@@ -45,3 +45,6 @@ next-env.d.ts
 
 # ignore log
 /logs/*
+
+# ignore letsencrypt
+/letsencrypt/*
