@@ -321,7 +321,7 @@ export default function CourseRecommendations() {
             <h4 className="font-medium text-gray-900 mb-1">Personalized Recommendations</h4>
             <p className="text-gray-700 text-sm">
               Based on your current skills in JavaScript and React, and your interest in Machine Learning, 
-              I recommend starting with the "Machine Learning Fundamentals" course at SUTD, followed by 
+              I recommend starting with the &quot;Machine Learning Fundamentals&quot; course at SUTD, followed by 
               the AWS Cloud Practitioner certification. These will give you a strong foundation for 
               modern software development roles.
             </p>

@@ -16,7 +16,7 @@ export default function ProfessionalUploadPortfolio() {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Coming Soon</h3>
             <p className="text-gray-500">
-              This feature is under development. Soon you'll be able to upload and manage your professional portfolio here.
+              This feature is under development. Soon you&apos;ll be able to upload and manage your professional portfolio here.
             </p>
           </div>
         </div>

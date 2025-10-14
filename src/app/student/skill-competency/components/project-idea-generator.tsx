@@ -228,7 +228,7 @@ export default function ProjectIdeaGenerator() {
               <div className="text-center text-gray-500 py-8">
                 <div className="text-4xl mb-2">🤖</div>
                 <p>Start a conversation to get personalized project ideas!</p>
-                <p className="text-sm mt-2">Try asking: "What projects can I build with React and Python?"</p>
+                <p className="text-sm mt-2">Try asking: &quot;What projects can I build with React and Python?&quot;</p>
               </div>
             ) : (
               <div className="space-y-4">

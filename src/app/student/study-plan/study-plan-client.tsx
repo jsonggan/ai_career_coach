@@ -1026,11 +1026,11 @@ Would you like me to generate calendar events for these milestones?`;
             <div className="text-sm text-gray-600">
               Total Credits: {completedCourses.reduce((sum, course) => sum + course.credits, 0)}
             </div>
-            <div className="text-sm text-gray-600">
+            {/* <div className="text-sm text-gray-600">
               Average Grade: {completedCourses.filter(c => c.grade)
                 .map(c => c.grade?.charAt(0))
                 .join(', ') || 'N/A'}
-            </div>
+            </div> */}
           </div>
 
           <div className="bg-white rounded-lg shadow-sm border p-6">

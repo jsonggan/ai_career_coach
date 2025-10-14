@@ -385,7 +385,7 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
           <div className="border-t pt-4">
             <h3 className="text-lg font-medium text-gray-900 mb-3">Other Career Path</h3>
             <p className="text-gray-600 mb-3">
-              Don't see your desired career path? Enter a custom option below.
+              Don&apos;t see your desired career path? Enter a custom option below.
             </p>
             <input
               type="text"
@@ -412,7 +412,7 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
                     <li>• <strong>Entrepreneur:</strong> Many CSD graduates start successful tech companies</li>
                   </ul>
                   <p className="text-gray-700 text-sm mt-2">
-                    <strong>Tip:</strong> You can select multiple career paths if you're interested in exploring different directions. This helps us create a more comprehensive skill development plan.
+                    <strong>Tip:</strong> You can select multiple career paths if you&apos;re interested in exploring different directions. This helps us create a more comprehensive skill development plan.
                   </p>
                 </div>
               </div>
