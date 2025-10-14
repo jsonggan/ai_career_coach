@@ -206,10 +206,10 @@ export default function UploadPortfolioClient() {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">AI Assistant - Writing Great Certificate Descriptions:</h4>
                   <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• <strong>Be specific:</strong> "AWS Certified Solutions Architect - Professional" instead of "AWS Certificate"</li>
-                    <li>• <strong>Include skills:</strong> List relevant technical skills like "Cloud Architecture, AWS Services, Security"</li>
-                    <li>• <strong>Add context:</strong> "Validates expertise in designing distributed systems on AWS"</li>
-                    <li>• <strong>Mention impact:</strong> "Enables me to design scalable cloud solutions for enterprise clients"</li>
+                    <li>• <strong>Be specific:</strong> &quot;AWS Certified Solutions Architect - Professional&quot; instead of &quot;AWS Certificate&quot;</li>
+                    <li>• <strong>Include skills:</strong> List relevant technical skills like &quot;Cloud Architecture, AWS Services, Security&quot;</li>
+                    <li>• <strong>Add context:</strong> &quot;Validates expertise in designing distributed systems on AWS&quot;</li>
+                    <li>• <strong>Mention impact:</strong> &quot;Enables me to design scalable cloud solutions for enterprise clients&quot;</li>
                   </ul>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default function UploadPortfolioClient() {
           {certificates.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               <div className="text-4xl mb-2">🏆</div>
-              <p>No certificates added yet. Click "Add Certificate" to get started.</p>
+              <p>No certificates added yet. Click &quot;Add Certificate&quot; to get started.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -270,10 +270,10 @@ export default function UploadPortfolioClient() {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">AI Assistant - Writing Great Course Descriptions:</h4>
                   <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• <strong>Include platform:</strong> "Coursera", "edX", "Udemy", "LinkedIn Learning"</li>
-                    <li>• <strong>Mention duration:</strong> "12-week course", "40 hours of content"</li>
-                    <li>• <strong>Describe learning:</strong> "Comprehensive course covering React, Redux, and modern JavaScript"</li>
-                    <li>• <strong>Add outcomes:</strong> "Built 5 projects including a full-stack e-commerce application"</li>
+                    <li>• <strong>Include platform:</strong> &quot;Coursera&quot;, &quot;edX&quot;, &quot;Udemy&quot;, &quot;LinkedIn Learning&quot;</li>
+                    <li>• <strong>Mention duration:</strong> &quot;12-week course&quot;, &quot;40 hours of content&quot;</li>
+                    <li>• <strong>Describe learning:</strong> &quot;Comprehensive course covering React, Redux, and modern JavaScript&quot;</li>
+                    <li>• <strong>Add outcomes:</strong> &quot;Built 5 projects including a full-stack e-commerce application&quot;</li>
                   </ul>
                 </div>
               </div>
@@ -283,7 +283,7 @@ export default function UploadPortfolioClient() {
           {courses.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               <div className="text-4xl mb-2">📚</div>
-              <p>No courses added yet. Click "Add Course" to get started.</p>
+              <p>No courses added yet. Click &quot;Add Course&quot; to get started.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -344,10 +344,10 @@ export default function UploadPortfolioClient() {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">AI Assistant - Writing Great Project Descriptions:</h4>
                   <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• <strong>Include project type:</strong> "Web Application", "Mobile App", "Data Analysis", "Machine Learning"</li>
-                    <li>• <strong>List technologies:</strong> "React, Node.js, MongoDB, AWS"</li>
-                    <li>• <strong>Describe the problem:</strong> "Built to solve inventory management challenges for small businesses"</li>
-                    <li>• <strong>Highlight impact:</strong> "Reduced manual tracking time by 70% and improved accuracy"</li>
+                    <li>• <strong>Include project type:</strong> &quot;Web Application&quot;, &quot;Mobile App&quot;, &quot;Data Analysis&quot;, &quot;Machine Learning&quot;</li>
+                    <li>• <strong>List technologies:</strong> &quot;React, Node.js, MongoDB, AWS&quot;</li>
+                    <li>• <strong>Describe the problem:</strong> &quot;Built to solve inventory management challenges for small businesses&quot;</li>
+                    <li>• <strong>Highlight impact:</strong> &quot;Reduced manual tracking time by 70% and improved accuracy&quot;</li>
                     <li>• <strong>Add links:</strong> Include GitHub, live demo, or portfolio links when available</li>
                   </ul>
                 </div>
@@ -358,7 +358,7 @@ export default function UploadPortfolioClient() {
           {projects.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               <div className="text-4xl mb-2">💻</div>
-              <p>No projects added yet. Click "Add Project" to get started.</p>
+              <p>No projects added yet. Click &quot;Add Project&quot; to get started.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

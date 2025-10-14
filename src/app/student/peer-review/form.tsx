@@ -275,7 +275,7 @@ export default function PeerReviewForm({
               </label>
             </div>
             <p className="text-sm text-gray-600 mb-4">
-              Rate this student's academic work quality, understanding, and contribution to learning
+              Rate this student&apos;s academic work quality, understanding, and contribution to learning
             </p>
 
             <div className="flex flex-col gap-4">
@@ -311,7 +311,7 @@ export default function PeerReviewForm({
                 </small>
               )}
 
-              {watchedAcademicRating > 0 && (
+                  {watchedAcademicRating > 0 && (
                 <div className="bg-blue-50 border border-blue-200 rounded p-3 w-full">
                   <div className="flex items-center gap-2">
                     <svg
@@ -419,7 +419,7 @@ export default function PeerReviewForm({
               </label>
             </div>
             <p className="text-sm text-gray-600 mb-4">
-              Highlight this student's key strengths and positive contributions to academic work and peer learning
+              Highlight this student&apos;s key strengths and positive contributions to academic work and peer learning
             </p>
             <Controller
               name="strengths"
@@ -431,7 +431,7 @@ export default function PeerReviewForm({
                 <div>
                   <textarea
                     {...field}
-                    placeholder="Describe your peer's strongest academic skills, qualities, and contributions. Include specific examples of how these strengths have benefited group work or class discussions..."
+                    placeholder="Describe your peer&apos;s strongest academic skills, qualities, and contributions. Include specific examples of how these strengths have benefited group work or class discussions..."
                     rows={6}
                     className={clsx(
                       "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical",
@@ -512,7 +512,7 @@ export default function PeerReviewForm({
               render={({ field }) => (
                 <textarea
                   {...field}
-                  placeholder="Include any additional feedback, observations, or context that would be helpful for your peer's academic development..."
+                  placeholder="Include any additional feedback, observations, or context that would be helpful for your peer&apos;s academic development..."
                   rows={4}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
                 />
@@ -529,7 +529,7 @@ export default function PeerReviewForm({
               <div className="text-sm text-gray-600">
                 <p className="m-0 mb-1">
                   This review will remain confidential and contribute to
-                  your peer's academic development.
+                  your peer&apos;s academic development.
                 </p>
                 <p className="text-xs m-0">
                   Please provide honest and constructive feedback.

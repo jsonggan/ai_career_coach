@@ -16,7 +16,7 @@ export default function ProfessionalManagerReview() {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Coming Soon</h3>
             <p className="text-gray-500">
-              This feature is under development. Soon you'll be able to view and manage your manager reviews here.
+              This feature is under development. Soon you&apos;ll be able to view and manage your manager reviews here.
             </p>
           </div>
         </div>
