@@ -1,5 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { seedCourses } from './seeds/courses'
+import { seedUsers } from './seeds/users'
+import { seedUserCourses } from './seeds/user-courses'
 
 const prisma = new PrismaClient()
 
@@ -7,7 +9,9 @@ async function main() {
   console.log('🌱 Starting seed...')
 
   try {
+    await seedUsers(prisma)
     await seedCourses(prisma)
+    await seedUserCourses(prisma)
     console.log('✅ All seeding completed successfully')
     
   } catch (error) {
