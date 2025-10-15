@@ -58,6 +58,7 @@ model courses {
   course_name String
   course_desc String
   course_full_desc String
+  course_link String?
   ai_tagged_skill String
   user_courses user_courses[]
   recommended_courses recommended_courses[]

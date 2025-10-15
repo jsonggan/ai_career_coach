@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { specialisationTracks, careerPaths } from "./data";
 
-// Define types for the course data
 interface Course {
+  course_id: number;
   courseCode: string;
   courseName: string;
   description: string;
@@ -14,171 +15,74 @@ interface Course {
   year: number;
   category: string;
   department: string;
+  aiTaggedSkill?: string;
 }
 
 interface UserCourse {
+  id: number;
   courseCode: string;
+  courseName: string;
+  description: string;
   term: string;
   year: number;
   status: string;
   grade: string | null;
+  credits: number;
+  level: number;
+  category: string;
+  department: string;
+  enrollmentDate: string;
+  completionStatus: string;
 }
 
 interface AcademyTrackClientProps {
   coursesData: Course[];
   userCourseHistory: UserCourse[];
+  mockCoursesData: Course[];
 }
 
-// Specialisation tracks based on SUTD CSD program
-const specialisationTracks = [
-  {
-    id: "ai",
-    name: "Artificial Intelligence",
-    description: "Focus on intelligent systems that can operate autonomously, learn from experience, and solve complex problems.",
-    icon: "🤖"
-  },
-  {
-    id: "security",
-    name: "Security",
-    description: "Develop state-of-the-art knowledge of computer security, network security and cybersecurity technologies.",
-    icon: "🔒"
-  },
-  {
-    id: "data-analytics",
-    name: "Data Analytics",
-    description: "Revolves around data capture, analysis and exploitation to extract insights and make informed decisions.",
-    icon: "📊"
-  },
-  {
-    id: "software-engineering",
-    name: "Software Engineering",
-    description: "Design, develop, test, evaluate and maintain software systems with engineering principles.",
-    icon: "💻"
-  },
-  {
-    id: "iot-systems",
-    name: "IoT and Intelligent Systems",
-    description: "Build large-scale networked and distributed systems for automotive, web services and e-commerce solutions.",
-    icon: "🌐"
-  },
-  {
-    id: "fintech",
-    name: "Financial Technology",
-    description: "Understand core challenges in finance and advanced computing technologies for next-gen financial services.",
-    icon: "💰"
-  },
-  {
-    id: "visual-analytics",
-    name: "Visual Analytics and Computing",
-    description: "Develop systems to handle visual data, mainly images, videos and shapes using computer analysis.",
-    icon: "🎨"
-  },
-  {
-    id: "custom",
-    name: "Custom Specialisation",
-    description: "Create an interdisciplinary curriculum around a coherent technical theme of your interest.",
-    icon: "⚙️"
-  }
-];
-
-// Career paths based on CSD graduate positions
-const careerPaths = [
-  {
-    id: "software-engineer",
-    name: "Software Engineer/Developer",
-    description: "Design and develop software applications and systems",
-    icon: "👨‍💻"
-  },
-  {
-    id: "data-scientist",
-    name: "Data Analyst/Scientist",
-    description: "Analyze data to extract insights and support decision-making",
-    icon: "📈"
-  },
-  {
-    id: "product-manager",
-    name: "Product Manager",
-    description: "Lead product development and strategy",
-    icon: "📋"
-  },
-  {
-    id: "cybersecurity",
-    name: "Cybersecurity Specialist",
-    description: "Protect systems and networks from security threats",
-    icon: "🛡️"
-  },
-  {
-    id: "frontend-engineer",
-    name: "Front-end Designer/Engineer",
-    description: "Create user interfaces and user experiences",
-    icon: "🎨"
-  },
-  {
-    id: "fullstack-engineer",
-    name: "Full Stack Engineer",
-    description: "Work on both frontend and backend development",
-    icon: "🔧"
-  },
-  {
-    id: "game-designer",
-    name: "Game Designer",
-    description: "Design and develop interactive games",
-    icon: "🎮"
-  },
-  {
-    id: "research-engineer",
-    name: "Research Officer/Engineer",
-    description: "Conduct research and development in technology",
-    icon: "🔬"
-  },
-  {
-    id: "system-consultant",
-    name: "System Consultant",
-    description: "Provide technical consulting and system design",
-    icon: "💼"
-  },
-  {
-    id: "entrepreneur",
-    name: "Entrepreneur/Startup Founder",
-    description: "Launch and lead technology startups",
-    icon: "🚀"
-  }
-];
-
-export default function AcademyTrackClient({ coursesData, userCourseHistory }: AcademyTrackClientProps) {
+export default function AcademyTrackClient({ coursesData, userCourseHistory, mockCoursesData }: AcademyTrackClientProps) {
   const [selectedTracks, setSelectedTracks] = useState<string[]>([]);
   const [selectedCareers, setSelectedCareers] = useState<string[]>([]);
-  const [customCareer, setCustomCareer] = useState<string>("");
   const [studentComments, setStudentComments] = useState<string>("");
   const [showAIHelp, setShowAIHelp] = useState<string>("");
   
   // Course-related state
-  const [previousCourses, setPreviousCourses] = useState<any[]>([]);
-  const [availableCourses, setAvailableCourses] = useState<any[]>([]);
+  const [previousCourses, setPreviousCourses] = useState<UserCourse[]>([]);
+  const [availableCourses, setAvailableCourses] = useState<Course[]>([]);
   const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
   const [currentTerm] = useState("Spring");
   const [currentYear] = useState(2025);
+  
+  // Database data state
+  const [allCourses, setAllCourses] = useState<Course[]>(coursesData);
+  const [userCourses, setUserCourses] = useState<UserCourse[]>(userCourseHistory);
+  
+  // Pagination and search state for all courses
+  const [currentPage, setCurrentPage] = useState(1);
+  const [coursesPerPage] = useState(10);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState("");
+  const [showAllCourses, setShowAllCourses] = useState(false);
+  
+  // Expandable course history state
+  const [showAllPreviousCourses, setShowAllPreviousCourses] = useState(false);
 
-  // Load course data on component mount
+  // Initialize data from props
   useEffect(() => {
-    // Load previous courses (using sample data for now)
-    const prevCourses = userCourseHistory.map(userCourse => {
-      const courseDetails = coursesData.find(c => c.courseCode === userCourse.courseCode);
-      return {
-        ...courseDetails,
-        ...userCourse
-      };
-    });
-    setPreviousCourses(prevCourses);
-
-    // Load available courses for current term
-    const available = coursesData.filter(course => 
-      course.term === currentTerm && 
-      course.year === currentYear &&
-      !userCourseHistory.some(uc => uc.courseCode === course.courseCode)
+    setAllCourses(coursesData);
+    setUserCourses(userCourseHistory);
+    setPreviousCourses(userCourseHistory);
+    
+    // Set available courses for current term (filter out already taken courses)
+    // Use mock data by default for Spring 2025
+    const takenCourseCodes = userCourseHistory.map(uc => uc.courseCode);
+    const mockAvailable = mockCoursesData.filter(course => 
+      !takenCourseCodes.includes(course.courseCode)
     );
-    setAvailableCourses(available);
-  }, [currentTerm, currentYear, coursesData, userCourseHistory]);
+    setAvailableCourses(mockAvailable);
+  }, [coursesData, userCourseHistory, mockCoursesData]);
 
   const handleTrackSelection = (trackId: string) => {
     if (selectedTracks.includes(trackId)) {
@@ -236,20 +140,33 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
     }
   };
 
+  // Filter and paginate all courses
+  const filteredCourses = allCourses.filter(course => {
+    const matchesSearch = !searchTerm || 
+      course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.description.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    const matchesCategory = !selectedCategory || course.category === selectedCategory;
+    const matchesLevel = !selectedLevel || course.level.toString() === selectedLevel;
+    
+    return matchesSearch && matchesCategory && matchesLevel;
+  });
+
+  const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
+  const startIndex = (currentPage - 1) * coursesPerPage;
+  const endIndex = startIndex + coursesPerPage;
+  const currentCourses = filteredCourses.slice(startIndex, endIndex);
+
+  // Get displayed previous courses (expandable)
+  const displayedPreviousCourses = showAllPreviousCourses 
+    ? previousCourses 
+    : previousCourses.slice(0, 4);
+
   const handleSave = () => {
-    // TODO: Implement save functionality
-    console.log({
-      major: "Computer Science and Design",
-      specialisationTracks: selectedTracks,
-      careerPaths: selectedCareers,
-      customCareer: customCareer,
-      comments: studentComments,
-      selectedCourses: selectedCourses,
-      currentTerm: currentTerm,
-      currentYear: currentYear
-    });
     alert("Your academic plan has been saved!");
   };
+
 
   return (
     <div className="container mx-auto px-6 py-8">
@@ -381,21 +298,6 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
             ))}
           </div>
 
-          {/* Custom Career Path */}
-          <div className="border-t pt-4">
-            <h3 className="text-lg font-medium text-gray-900 mb-3">Other Career Path</h3>
-            <p className="text-gray-600 mb-3">
-              Don&apos;t see your desired career path? Enter a custom option below.
-            </p>
-            <input
-              type="text"
-              value={customCareer}
-              onChange={(e) => setCustomCareer(e.target.value)}
-              placeholder="Enter your custom career path..."
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
-
           {showAIHelp === "career" && (
             <div className="mt-4 p-4 bg-gray-50 rounded-lg">
               <div className="flex items-start gap-3">
@@ -426,10 +328,20 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
           
           {/* Previous Courses */}
           <div className="mb-8">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">📚 Previous Courses</h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-medium text-gray-900">📚 Previous Courses</h3>
+              {previousCourses.length > 4 && (
+                <button
+                  onClick={() => setShowAllPreviousCourses(!showAllPreviousCourses)}
+                  className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                >
+                  {showAllPreviousCourses ? 'Show Less' : `Show All (${previousCourses.length})`}
+                </button>
+              )}
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {previousCourses.map((course, index) => (
-                <div key={index} className="border border-gray-200 rounded-lg p-4">
+              {displayedPreviousCourses.map((course, index) => (
+                <div key={course.id || index} className="border border-gray-200 rounded-lg p-4">
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <h4 className="font-semibold text-gray-900">{course.courseCode}</h4>
@@ -446,10 +358,10 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
                       )}
                     </div>
                   </div>
-                  <div className="flex items-center justify-between text-xs text-gray-500">
+                  {/* <div className="flex items-center justify-between text-xs text-gray-500">
                     <span>{course.term} {course.year}</span>
                     <span>{course.credits} credits</span>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
@@ -467,13 +379,15 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
               <h3 className="text-lg font-medium text-gray-900">
                 🎓 Course Selection for {currentTerm} {currentYear}
               </h3>
-              <div className="text-sm text-gray-600">
-                Selected: {selectedCourses.length} courses
+              <div className="flex items-center gap-4">
+                <div className="text-sm text-gray-600">
+                  Selected: {selectedCourses.length} courses
+                </div>
               </div>
             </div>
             
             <p className="text-gray-600 mb-4">
-              Select the courses you want to enroll in for the current term. Prerequisites are automatically checked.
+              Showing all available courses. Select the courses you want to enroll in for Spring 2025. Prerequisites are automatically checked.
             </p>
 
             <div className="grid grid-cols-1 gap-4">
@@ -536,7 +450,9 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
 
             {availableCourses.length === 0 && (
               <div className="text-center py-8 text-gray-500">
-                <p>No courses available for {currentTerm} {currentYear}.</p>
+                <p>
+                  No courses available for ${currentTerm} ${currentYear}.
+                </p>
               </div>
             )}
 
@@ -565,6 +481,175 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory }: A
                     </span>
                   </div>
                 </div>
+              </div>
+            )}
+          </div>
+
+          {/* View All Courses Section */}
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-medium text-gray-900">📖 All Available Courses</h3>
+              <button
+                onClick={() => setShowAllCourses(!showAllCourses)}
+                className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+              >
+                {showAllCourses ? 'Hide All Courses' : `View All Courses (${allCourses.length})`}
+              </button>
+            </div>
+
+            {showAllCourses && (
+              <div className="space-y-4">
+                {/* Search and Filter Controls */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex-1">
+                    <input
+                      type="text"
+                      placeholder="Search courses by code, name, or description..."
+                      value={searchTerm}
+                      onChange={(e) => {
+                        setSearchTerm(e.target.value);
+                        setCurrentPage(1);
+                      }}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                  </div>
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => {
+                      setSelectedCategory(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">All Categories</option>
+                    <option value="Core">Core</option>
+                    <option value="Specialization">Specialization</option>
+                    <option value="Elective">Elective</option>
+                  </select>
+                  <select
+                    value={selectedLevel}
+                    onChange={(e) => {
+                      setSelectedLevel(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">All Levels</option>
+                    <option value="1000">Level 1000</option>
+                    <option value="2000">Level 2000</option>
+                    <option value="3000">Level 3000</option>
+                    <option value="4000">Level 4000</option>
+                  </select>
+                </div>
+
+                {/* Courses Table */}
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course Name</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Level</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Credits</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {currentCourses.map((course) => {
+                          const isTaken = userCourses.some(uc => uc.courseCode === course.courseCode);
+                          return (
+                            <tr key={course.course_id} className="hover:bg-gray-50">
+                              <td className="px-4 py-3 text-sm font-medium text-gray-900">{course.courseCode}</td>
+                              <td className="px-4 py-3 text-sm text-gray-900">
+                                <div>
+                                  <div className="font-medium">{course.courseName}</div>
+                                  <div className="text-gray-500 text-xs mt-1">{course.description}</div>
+                                </div>
+                              </td>
+                              <td className="px-4 py-3 text-sm text-gray-900">
+                                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                  course.category === 'Core' ? 'bg-red-100 text-red-800' :
+                                  course.category === 'Specialization' ? 'bg-purple-100 text-purple-800' :
+                                  'bg-gray-100 text-gray-800'
+                                }`}>
+                                  {course.category}
+                                </span>
+                              </td>
+                              <td className="px-4 py-3 text-sm text-gray-900">{course.level}</td>
+                              <td className="px-4 py-3 text-sm text-gray-900">{course.credits}</td>
+                              <td className="px-4 py-3 text-sm text-gray-900">
+                                {isTaken ? (
+                                  <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                                    Taken
+                                  </span>
+                                ) : (
+                                  <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                                    Available
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm text-gray-700">
+                      Showing {startIndex + 1} to {Math.min(endIndex, filteredCourses.length)} of {filteredCourses.length} courses
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                        disabled={currentPage === 1}
+                        className="px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        Previous
+                      </button>
+                      
+                      {[...Array(Math.min(5, totalPages))].map((_, index) => {
+                        let pageNumber: number;
+                        if (totalPages <= 5) {
+                          pageNumber = index + 1;
+                        } else if (currentPage <= 3) {
+                          pageNumber = index + 1;
+                        } else if (currentPage >= totalPages - 2) {
+                          pageNumber = totalPages - 4 + index;
+                        } else {
+                          pageNumber = currentPage - 2 + index;
+                        }
+
+                        return (
+                          <button
+                            key={pageNumber}
+                            onClick={() => setCurrentPage(pageNumber)}
+                            className={`px-3 py-1 text-sm border rounded-md ${
+                              currentPage === pageNumber
+                                ? 'bg-blue-600 text-white border-blue-600'
+                                : 'border-gray-300 hover:bg-gray-50'
+                            }`}
+                          >
+                            {pageNumber}
+                          </button>
+                        );
+                      })}
+                      
+                      <button
+                        onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                        disabled={currentPage === totalPages}
+                        className="px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        Next
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
