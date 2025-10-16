@@ -1,0 +1,6 @@
+{
+  "query": "(research officer OR research engineer) site:linkedin.com/jobs/view/ (Singapore OR SG)",
+  "count": 0,
+  "generated_at": "2025-10-15T13:49:00Z",
+  "jobs": []
+}
