@@ -1,7 +1,7 @@
 {
   "query": "(cybersecurity specialist) site:linkedin.com/jobs/view/ (Singapore OR SG)",
   "count": 11,
-  "generated_at": "2025-10-15T13:44:02Z",
+  "generated_at": "2025-10-16T09:42:25Z",
   "jobs": [
     {
       "url": "https://www.linkedin.com/jobs/view/3907422953/",
@@ -11,8 +11,8 @@
       "employment_type": "Full-time",
       "experience_level": "Not Applicable",
       "about_us": "",
-      "job_description": "As an individual contributor on our purple team with penetration and security advisory skillset, you’ll have a broad set of responsibilities including: (the mix will depend on your interests and skill-level)\nPrepare and execute purple team exercises and/or penetration testing projects individually for Singapore projects\nCreate, develop, and implement tactics, techniques, and procedures (TTPs)\nDevelop novel attack vectors based on newly discovered vulnerabilities\nDevelop home-grown software solutions and utilities for computer network attack (CNA) and computer network defense (CND)\nApply industry standards and best practices including the Penetration Testing Execution Standard (PTES) and the MITRE Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) Framework\nManage penetration testing services performed by outside vendors\nPerform red teaming of our security measures of both our employee IT and production assets\nPerform penetration testing of our employee IT and production assets, including our applications and internal production services\nConduct security consultancy include security risk assessment, source code review, compliance scan and security advisory when require by customers.",
-      "job_requirements": "Demonstrated ability to:\nIdentify vulnerabilities in web apps and web APIs by means of manual source code review, static code analysis, and/or fuzzing using tooling such as Burp Suite\nIdentify vulnerabilities in Windows/Linux/macOS software by means of manual source code reviews, static code analysis, and/or fuzzing such as AFL\nPerform operating system security assessments, review of hardening controls\nAdvanced experience writing in languages such as: Python, bash, or Golang\nInterested in writing customs tools, wrappers, C2 infrastructure and agents to support internal red team and penetration testing capabilities\nAdvanced knowledge of:\nWindows, Linux, ChromeOS, and macOS\nImplants, shells, Command and Control (C2) infrastructure\nTCP/IP, IDS/IPS, firewalls, WAF, and web content filtering\nCrypto: PGP, SSH, PKI\nNetwork equipment such as Cisco, Palo Alto, and Juniper\nAWS environments\nCertifications in, OSCP or CREST or CISSP (ANY)",
+      "job_description": "As an individual contributor on our purple team with penetration and security advisory skillset, you’ll have a broad set of responsibilities including: (the mix will depend on your interests and skill-level)\n- Prepare and execute purple team exercises and/or penetration testing projects individually for Singapore projects\n- Create, develop, and implement tactics, techniques, and procedures (TTPs)\n- Develop novel attack vectors based on newly discovered vulnerabilities\n- Develop home-grown software solutions and utilities for computer network attack (CNA) and computer network defense (CND)\n- Apply industry standards and best practices including the Penetration Testing Execution Standard (PTES) and the MITRE Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) Framework\n- Manage penetration testing services performed by outside vendors\n- Perform red teaming of our security measures of both our employee IT and production assets\n- Perform penetration testing of our employee IT and production assets, including our applications and internal production services\n- Conduct security consultancy include security risk assessment, source code review, compliance scan and security advisory when require by customers.",
+      "job_requirements": "Demonstrated ability to:\n- Identify vulnerabilities in web apps and web APIs by means of manual source code review, static code analysis, and/or fuzzing using tooling such as Burp Suite\n- Identify vulnerabilities in Windows/Linux/macOS software by means of manual source code reviews, static code analysis, and/or fuzzing such as AFL\n- Perform operating system security assessments, review of hardening controls\n\nAdvanced experience writing in languages such as:\n- Python, bash, or Golang\n- Interested in writing customs tools, wrappers, C2 infrastructure and agents to support internal red team and penetration testing capabilities\n\nAdvanced knowledge of:\n- Windows, Linux, ChromeOS, and macOS\n- Implants, shells, Command and Control (C2) infrastructure\n- TCP/IP, IDS/IPS, firewalls, WAF, and web content filtering\n- Crypto: PGP, SSH, PKI\n- Network equipment such as Cisco, Palo Alto, and Juniper\n- AWS environments\n\nCertifications in, OSCP or CREST or CISSP (ANY)",
       "skills": [
         "Penetration Testing",
         "Security Advisory",
@@ -37,7 +37,7 @@
         "Linux",
         "Chromeos",
         "Macos",
-        "Command And Control (C2)",
+        "Command And Control (C2) Infrastructure",
         "Tcp/Ip",
         "Ids/Ips",
         "Firewalls",
@@ -49,10 +49,7 @@
         "Cisco",
         "Palo Alto",
         "Juniper",
-        "AWS",
-        "OSCP",
-        "CREST",
-        "CISSP"
+        "AWS"
       ]
     },
     {
@@ -126,25 +123,19 @@
       "location": "Kuala Lumpur",
       "employment_type": "Contract",
       "experience_level": "Director",
-      "about_us": "At Humiint, we connect ambitious businesses with expert professionals who can help them scale securely. As companies grow, so do the threats they face—and safeguarding systems, data, and operations requires more than just tools. It takes expert eyes, proactive thinking, and a deep understanding of digital risk. We’re expanding our expert network and seeking experienced Fractional Cybersecurity Specialists to support our clients in monitoring vulnerabilities, managing incidents, and strengthening their security posture across cloud, infrastructure, and endpoint environments. This role is ideal for professionals who want to work across multiple industries and help businesses build resilience—without being tied to one full-time employer. This role is perfect for security professionals who enjoy staying one step ahead of threats while working flexibly across industries. If you have experience in vulnerability management, security operations, or threat detection—and want to apply your skills in a fractional, high-trust environment—this is an opportunity to make real impact, remotely. Ideal for SOC analysts, risk consultants, or security engineers looking for freelance or contract work.",
+      "about_us": "At Humiint, we connect ambitious businesses with expert professionals who can help them scale securely. As companies grow, so do the threats they face—and safeguarding systems, data, and operations requires more than just tools. It takes expert eyes, proactive thinking, and a deep understanding of digital risk. We’re expanding our expert network and seeking experienced Fractional Cybersecurity Specialists to support our clients in monitoring vulnerabilities, managing incidents, and strengthening their security posture across cloud, infrastructure, and endpoint environments. This role is ideal for professionals who want to work across multiple industries and help businesses build resilience—without being tied to one full-time employer. This role is perfect for security professionals who enjoy staying one step ahead of threats while working flexibly across industries. If you have experience in vulnerability management, security operations, or threat detection—and want to apply your skills in a fractional, high-trust environment—this is an opportunity to make real impact, remotely.",
       "job_description": "Your responsibilities may include:\n- Monitoring systems, logs, and activity to detect and respond to potential security threats\n- Performing vulnerability assessments and coordinating mitigation plans with internal teams\n- Assisting with implementation and configuration of security tools (EDR, firewalls, SIEMs, etc.)\n- Supporting incident response planning and managing real-time alerts or breaches\n- Conducting security audits, policy reviews, and risk assessments across infrastructure and applications\n- Collaborating with engineering and IT teams to implement best practices in secure system design\n- Keeping up to date with global threat intelligence, emerging attack vectors, and compliance requirements\n- Preparing reports for internal stakeholders, clients, or auditors as needed",
       "job_requirements": "Required qualities may include:\n- Proven experience in cybersecurity, SOC analysis, or IT security roles\n- Proficiency with threat detection tools, vulnerability scanners, firewalls, and endpoint protection platforms\n- Strong knowledge of network security, cloud environments (AWS, Azure, GCP), and secure system architecture\n- Familiarity with frameworks like NIST, ISO 27001, CIS Controls, or SOC 2\n- Ability to triage alerts, communicate risks, and document incidents with clarity and speed\n- Experience working independently and collaboratively with remote teams\n- Relevant certifications\n- Experience supporting startups or international teams with limited in-house security resources",
       "skills": [
         "Vulnerability Management",
         "Security Operations",
         "Threat Detection",
-        "Monitoring Systems",
-        "Vulnerability Assessments",
-        "Security Tools",
         "EDR",
         "Firewalls",
         "Siems",
-        "Incident Response Planning",
+        "Incident Response",
         "Security Audits",
-        "Policy Reviews",
         "Risk Assessments",
-        "Secure System Design",
-        "Threat Intelligence",
         "Network Security",
         "Cloud Environments",
         "AWS",
@@ -155,12 +146,12 @@
         "Iso 27001",
         "Cis Controls",
         "SOC 2",
-        "Triage Alerts",
+        "Threat Detection Tools",
+        "Vulnerability Scanners",
+        "Endpoint Protection Platforms",
         "Communication",
-        "Documentation",
-        "Independent Work",
         "Collaboration",
-        "Remote Teams"
+        "Remote Teamwork"
       ]
     },
     {
@@ -188,9 +179,6 @@
         "Python",
         "Bash",
         "Powershell",
-        "CEH",
-        "OSCP",
-        "CISSP",
         "Analytical Skills",
         "Problem-Solving Skills",
         "Communication Skills"
@@ -219,6 +207,7 @@
         "Verbal Communication",
         "Remote Work",
         "Testing Plans",
+        "Cybersecurity Threats",
         "Cybersecurity Certifications"
       ]
     },
@@ -245,7 +234,7 @@
         "Ids/Ips Analysis",
         "Log Analysis",
         "Cryptography",
-        "Network Security Monitoring Tools",
+        "Network Security Monitoring",
         "Disk Forensic Tools",
         "Memory Forensic Tools",
         "Custom Scripting",
@@ -284,12 +273,16 @@
         "Vendor Risk Management",
         "User Access Reviews",
         "Encryption",
-        "Authentication (Mfa/Sso)",
+        "Authentication",
+        "MFA",
+        "SSO",
         "Vulnerability Management",
         "Network Security",
-        "Audit Logging And Monitoring",
+        "Audit Logging",
+        "Monitoring",
         "Change Management",
-        "Cloud (Aws)",
+        "Cloud",
+        "AWS",
         "Effective Communication"
       ]
     },
@@ -309,6 +302,8 @@
         "Chromeos",
         "Macos",
         "Endpoint Detection And Response (Edr)",
+        "Carbon Black",
+        "Endgame",
         "Tcp/Ip",
         "Ids/Ips",
         "Firewalls",
@@ -325,7 +320,6 @@
         "Python",
         "Bash",
         "Golang",
-        "Threat Model Methodologies",
         "Stride"
       ]
     },
@@ -338,22 +332,8 @@
       "experience_level": "Entry level",
       "about_us": "Sandeza Inc is growing! Looking for motivated, energetic Business Development specialists to be a part of our growth story! We are well-established mid-tier IT Services organization, with offices in Atlanta, Boston, Singapore and India, gratefully counts Fortune 100 enterprises as long-term customers.",
       "job_description": "The role involves managing new IT sales, generating new leads, and handling account management responsibilities. The Sales Manager will work closely with clients to understand their IT needs and provide appropriate solutions to enhance their business operations. Location is Hybrid and travel on need basis.",
-      "job_requirements": [
-        "Proven experience in IT Sales and Lead Generation",
-        "Strong skills in Sales & Account Management",
-        "In-depth knowledge of Information Technology and its applications",
-        "Excellent communication and interpersonal skills",
-        "Ability to work collaboratively in a team setting",
-        "Experience in the platform sales, SaaS industry is a plus"
-      ],
-      "skills": [
-        "It Sales",
-        "Lead Generation",
-        "Sales Management",
-        "Account Management",
-        "Information Technology",
-        "Saas"
-      ]
+      "job_requirements": "Qualifications\n- Proven experience in IT Sales and Lead Generation\n- Strong skills in Sales & Account Management\n- In-depth knowledge of Information Technology and its applications\n- Excellent communication and interpersonal skills\n- Ability to work collaboratively in a team setting\n- Experience in the platform sales, SaaS industry is a plus",
+      "skills": []
     }
   ]
 }
