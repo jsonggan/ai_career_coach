@@ -71,15 +71,37 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--jobs-q",
-        type=str,
-        default='software engineer OR "data scientist" OR "computer science"',
-        help="Custom job search query (used when --jobs)",
+        nargs="+",
+        default='"software engineer" OR "software developer" OR "data analyst" OR "data scientist" OR "product manager" OR "cybersecurity specialist" OR "front-end engineer" OR "front-end designer" OR "full stack engineer" OR "game designer" OR "research officer" OR "research engineer" OR "system consultant"',
+        help="Custom job search query (used when --jobs). Accepts multiple tokens without quotes.",
     )
     parser.add_argument(
         "--jobs-sites",
         type=str,
         default='linkedin,indeed,glassdoor,greenhouse,lever',
         help="Comma-separated sites to include (domains). Supported: linkedin, indeed, glassdoor, greenhouse, lever",
+    )
+    parser.add_argument(
+        "--jobs-region",
+        type=str,
+        default='Singapore',
+        help="Region/country filter for jobs (e.g., 'Singapore')",
+    )
+    parser.add_argument(
+        "--jobs-literal",
+        action="store_true",
+        help="Use --jobs-q exactly as provided (no expansions), for precise site-limited queries",
+    )
+    parser.add_argument(
+        "--jobs-balanced",
+        action="store_true",
+        help="Evenly sample jobs across predefined roles",
+    )
+    parser.add_argument(
+        "--jobs-per-role",
+        type=int,
+        default=5,
+        help="Number of jobs to fetch per role when --jobs-balanced is enabled",
     )
     parser.add_argument(
         "--debug",
@@ -165,19 +187,22 @@ def google_search_jobs(api_key: str, cse_id: str, query: str, num: int, debug: b
     results: List[Dict[str, Any]] = []
     remaining = max(1, min(num, 50))
     start = 1
-    
+
+    # Ensure Singapore hint is present
+    region_hint = " Singapore" if "singapore" not in query.lower() else ""
+
     # Try different job site patterns
     job_patterns = [
-        f'"{query}" jobs',
-        f'"{query}" careers',
-        f'"{query}" hiring',
-        f'"{query}" position',
+        f'"{query}{region_hint}" jobs',
+        f'"{query}{region_hint}" careers',
+        f'"{query}{region_hint}" hiring',
+        f'"{query}{region_hint}" position',
     ]
-    
+
     for pattern in job_patterns:
         if len(results) >= num:
             break
-            
+
         params = {
             "key": api_key,
             "cx": cse_id,
@@ -185,38 +210,56 @@ def google_search_jobs(api_key: str, cse_id: str, query: str, num: int, debug: b
             "num": min(10, remaining),
             "start": start,
             "hl": "en",
-            "gl": "us",
+            "gl": "sg",  # bias to Singapore
+            "cr": "countrySG",  # restrict country
         }
-        
+
         try:
             resp = requests.get("https://www.googleapis.com/customsearch/v1", params=params, timeout=30)
             if resp.status_code >= 400:
                 if debug:
                     print(f"[debug] Google CSE error {resp.status_code} for pattern: {pattern}", file=sys.stderr)
                 continue
-                
+
             data = resp.json() or {}
             items = data.get("items", [])
-            
+
             for item in items:
-                link = item.get("link", "")
-                # Look for job-related URLs
-                if any(site in link.lower() for site in ["linkedin.com/jobs", "indeed.com", "glassdoor.com", "greenhouse.io", "lever.co", "ziprecruiter.com", "monster.com"]):
+                link = item.get("link", "").lower()
+                # Look for job-related URLs including SG portals
+                allowed_domains = [
+                    "linkedin.com/jobs",
+                    "sg.linkedin.com/jobs",
+                    "indeed.com",
+                    "indeed.com.sg",
+                    "glassdoor.com",
+                    "glassdoor.com.sg",
+                    "greenhouse.io",
+                    "lever.co",
+                    "ziprecruiter.com",
+                    "monster.com",
+                    "mycareersfuture.gov.sg",
+                    "jobsdb.com",
+                    "jobstreet.com",
+                    "jobstreet.com.sg",
+                    "jobscentral.com.sg",
+                ]
+                if any(domain in link for domain in allowed_domains):
                     results.append({
                         "title": item.get("title"),
-                        "link": link,
+                        "link": item.get("link"),
                         "snippet": item.get("snippet", ""),
                     })
                     if len(results) >= num:
                         break
-                        
+
         except Exception as e:
             if debug:
                 print(f"[debug] Error searching pattern '{pattern}': {e}", file=sys.stderr)
-                
+
         start += 10
         remaining = num - len(results)
-        
+
     return results[:num]
 
 
@@ -260,22 +303,54 @@ def google_cse_search(api_key: str, cse_id: str, query: str, num: int, debug: bo
     return results
 
 
+def google_cse_query(api_key: str, cse_id: str, query: str, num: int, debug: bool = False) -> List[Dict[str, Any]]:
+    """Single Google CSE call with the provided query, minimal processing, return items as results."""
+    results: List[Dict[str, Any]] = []
+    remaining = max(1, min(num, 50))
+    start = 1
+    while remaining > 0 and start <= 91:
+        page_size = min(10, remaining)
+        params = {
+            "key": api_key,
+            "cx": cse_id,
+            "q": query,
+            "num": page_size,
+            "start": start,
+            "hl": "en",
+        }
+        resp = requests.get("https://www.googleapis.com/customsearch/v1", params=params, timeout=30)
+        if resp.status_code >= 400:
+            if debug:
+                print(f"[debug] Google CSE error {resp.status_code}: {resp.text[:200]}", file=sys.stderr)
+            break
+        data = resp.json() or {}
+        items = data.get("items") or []
+        for it in items:
+            link = it.get("link")
+            if not link:
+                continue
+            results.append({
+                "title": it.get("title"),
+                "link": link,
+                "snippet": it.get("snippet") or "",
+            })
+        remaining -= len(items)
+        start += 10
+        if not items:
+            break
+    return results
+
+
 def build_jobs_query(base_q: str, sites_csv: str) -> str:
-    site_map = {
-        "linkedin": "site:linkedin.com/jobs",
-        "indeed": "site:indeed.com",
-        "glassdoor": "site:glassdoor.com",
-        "greenhouse": "site:boards.greenhouse.io",
-        "lever": "site:jobs.lever.co",
-    }
-    tokens = []
-    for s in [x.strip().lower() for x in sites_csv.split(',') if x.strip()]:
-        if s in site_map:
-            tokens.append(site_map[s])
-    if tokens:
-        sites_expr = " OR ".join(tokens)
-        return f"({base_q}) ({sites_expr})"
-    return base_q
+    """
+    Builds a focused Google CSE query for LinkedIn job listings in Singapore
+    based on the given job titles.
+    """
+    # Only search LinkedIn job listings
+    site_expr = "site:linkedin.com/jobs/view/"
+
+    # Emphasize job titles and region
+    return f'({base_q}) {site_expr} ("Singapore" OR "SG")'
 
 
 def fetch_job_page_text(url: str, timeout: int = 30) -> str:
@@ -693,11 +768,154 @@ def to_benchmark_records(
     return records
 
 
+DEFAULT_ROLES: List[str] = [
+    "software engineer",
+    "software developer",
+    "data analyst",
+    "data scientist",
+    "product manager",
+    "cybersecurity specialist",
+    "front-end engineer",
+    "front-end designer",
+    "full stack engineer",
+    "game designer",
+    "research officer",
+    "research engineer",
+    "system consultant",
+]
+
+
+def _to_text(value: Any) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        parts = []
+        for v in value:
+            t = _to_text(v)
+            if t:
+                parts.append(t)
+        return "\n".join(parts)
+    if isinstance(value, dict):
+        # Try common textual fields
+        for k in ("text", "summary", "content", "description"):
+            if k in value and isinstance(value[k], str):
+                return value[k]
+        # Fallback: JSON string
+        try:
+            return json.dumps(value, ensure_ascii=False)
+        except Exception:
+            return str(value)
+    return str(value)
+
+
 def main() -> None:
     args = parse_args()
+    # Normalize --jobs-q when provided as multiple tokens (nargs='+')
+    if isinstance(getattr(args, "jobs_q", None), list):
+        args.jobs_q = " ".join(args.jobs_q)
     serpapi_key = os.getenv("SERPAPI_API_KEY")
     google_api_key = os.getenv("GOOGLE_API_KEY")
     google_cse_id = os.getenv("GOOGLE_CSE_ID")
+
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+    # Proxycurl is disabled per user preference; ignoring any configured key
+    proxycurl_api_key = None
+    if args.ai and not openai_api_key:
+        print("--ai provided but OPENAI_API_KEY is missing.", file=sys.stderr)
+        sys.exit(1)
+
+    # Jobs path: run first and return early
+    if args.jobs:
+        if not (google_api_key and google_cse_id):
+            print("Missing GOOGLE_API_KEY or GOOGLE_CSE_ID for job search.", file=sys.stderr)
+            sys.exit(1)
+
+        jobs: List[Dict[str, Any]] = []
+
+        def discover_and_extract(q_literal: str, take: int) -> List[Dict[str, Any]]:
+            found = google_cse_query(google_api_key, google_cse_id, q_literal, take * 2, debug=args.debug)
+            if args.debug:
+                print(f"[debug] role query: {q_literal} results={len(found)}", file=sys.stderr)
+            picked = []
+            for i, r in enumerate(found[:take]):
+                url = r.get("link")
+                if not url:
+                    continue
+                if i > 0:
+                    time.sleep(1.0)
+                page_text = fetch_job_page_text(url)
+                job = {"url": url, "title": None, "company": None, "location": None, "employment_type": None, "experience_level": None, "about_us": None, "job_description": None, "job_requirements": None, "skills": []}
+                if openai_api_key:
+                    ai_job = ai_extract_job(openai_api_key, args.openai_model, page_text)
+                    job.update({k: v for k, v in ai_job.items() if k in job})
+                    # If AI extraction seems incomplete, add raw text as fallback
+                    if not job.get("job_description") or len(_to_text(job.get("job_description"))) < 200:
+                        job["raw_page_text"] = page_text[:5000]
+                    # Fallback: ensure skills are populated
+                    if not job.get("skills"):
+                        combined_text_parts = [
+                            _to_text(job.get("about_us")),
+                            _to_text(job.get("job_description")),
+                            _to_text(job.get("job_requirements")),
+                        ]
+                        combined_text = "\n".join([p for p in combined_text_parts if p]).strip()
+                        if combined_text:
+                            skills_fallback = ai_extract_skills(openai_api_key, args.openai_model, combined_text)
+                            if skills_fallback:
+                                job["skills"] = skills_fallback
+                else:
+                    job["job_description"] = page_text[:5000]
+                # Singapore-only filter
+                loc_txt = _to_text(job.get("location")).lower()
+                page_txt_lc = page_text.lower() if isinstance(page_text, str) else ""
+                if args.jobs_region:
+                    want = args.jobs_region.lower()
+                    if (want not in loc_txt) and (want not in page_txt_lc):
+                        if args.debug:
+                            print(f"[debug] skip non-{args.jobs_region}: {job.get('location')} -> {url}", file=sys.stderr)
+                        continue
+                jobs.append(job)
+            return picked
+
+        if args.jobs_balanced:
+            roles = [r for r in DEFAULT_ROLES]
+            per_role = max(1, args.jobs_per_role)
+            for role in roles:
+                # Strict LinkedIn SG literal query per role
+                q_literal = f'({role}) site:linkedin.com/jobs/view/ ("{args.jobs_region}" OR "SG")'
+                jobs.extend(discover_and_extract(q_literal, per_role))
+        else:
+            if args.jobs_literal:
+                q = args.jobs_q
+            else:
+                titles_expr = args.jobs_q
+                region_tokens = f'("{args.jobs_region}" OR "SG")' if args.jobs_region else ''
+                q = f'({titles_expr}) {region_tokens}'.strip()
+            found = google_cse_query(google_api_key, google_cse_id, q, args.limit * 2, debug=args.debug)
+            if args.debug:
+                print(f"[debug] jobs search_results={len(found)}", file=sys.stderr)
+                print(f"[debug] jobs query: {q}", file=sys.stderr)
+                for i, r in enumerate(found[:5]):
+                    print(f"[debug] job[{i}]: {r.get('link')}", file=sys.stderr)
+            jobs.extend(discover_and_extract_queries := discover_and_extract(q, args.limit))
+
+        payload = {
+            "query": args.jobs_q if not args.jobs_balanced else "balanced",
+            "count": len(jobs),
+            "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "jobs": jobs,
+        }
+        output = json.dumps(payload, indent=2, ensure_ascii=False)
+        if args.out:
+            with open(args.out, "w", encoding="utf-8") as f:
+                f.write(output)
+            print(f"Saved {len(jobs)} jobs to {args.out}")
+        else:
+            print(output)
+        return
+
     if args.search == "serpapi":
         if not serpapi_key:
             print("Missing SERPAPI_API_KEY. Set it in your environment.", file=sys.stderr)
@@ -706,13 +924,6 @@ def main() -> None:
         if not (google_api_key and google_cse_id):
             print("Missing GOOGLE_API_KEY or GOOGLE_CSE_ID for --search google.", file=sys.stderr)
             sys.exit(1)
-
-    openai_api_key = os.getenv("OPENAI_API_KEY")
-    # Proxycurl is disabled per user preference; ignoring any configured key
-    proxycurl_api_key = None
-    if args.ai and not openai_api_key:
-        print("--ai provided but OPENAI_API_KEY is missing.", file=sys.stderr)
-        sys.exit(1)
 
     if args.search == "serpapi":
         search_results = serp_search_google(serpapi_key, args.q, args.limit * 2, debug=args.debug)
@@ -784,53 +995,7 @@ def main() -> None:
                 prof["skills"] = merged
         results.append(prof)
 
-    if args.jobs:
-        if args.search == "serpapi":
-            base_q = args.jobs_q
-        else:
-            base_q = args.jobs_q
-        q = build_jobs_query(base_q, args.jobs_sites)
-        if args.search == "serpapi":
-            search_results = google_search_jobs(google_api_key, google_cse_id, args.jobs_q, args.limit * 2, debug=args.debug)
-        else:
-            search_results = google_search_jobs(google_api_key, google_cse_id, args.jobs_q, args.limit * 2, debug=args.debug)
-    if args.debug:
-        print(f"[debug] jobs search_results={len(search_results)}", file=sys.stderr)
-        print(f"[debug] jobs query: {q}", file=sys.stderr)
-        for i, r in enumerate(search_results[:3]):
-            print(f"[debug] job[{i}]: {r.get('link')}", file=sys.stderr)
-        jobs: List[Dict[str, Any]] = []
-        for i, r in enumerate(search_results[:args.limit]):
-            url = r.get("link")
-            if not url:
-                continue
-            if i > 0:
-                time.sleep(1.2)
-            page_text = fetch_job_page_text(url)
-            job = {"url": url, "title": None, "company": None, "location": None, "employment_type": None, "experience_level": None, "about_us": None, "job_description": None, "job_requirements": None, "skills": []}
-            if openai_api_key:
-                ai_job = ai_extract_job(openai_api_key, args.openai_model, page_text)
-                job.update({k: v for k, v in ai_job.items() if k in job})
-                # If AI extraction seems incomplete, add raw text as fallback
-                if not job.get("job_description") or len(job.get("job_description", "")) < 200:
-                    job["raw_page_text"] = page_text[:5000]
-            else:
-                job["job_description"] = page_text[:5000]
-            jobs.append(job)
-        payload = {
-            "query": q,
-            "count": len(jobs),
-            "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-            "jobs": jobs,
-        }
-        output = json.dumps(payload, indent=2, ensure_ascii=False)
-        if args.out:
-            with open(args.out, "w", encoding="utf-8") as f:
-                f.write(output)
-            print(f"Saved {len(jobs)} jobs to {args.out}")
-        else:
-            print(output)
-    elif args.sections:
+    if args.sections:
         # Emit raw sections per profile
         payload = {
             "query": args.q,
