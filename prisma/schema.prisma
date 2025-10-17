@@ -36,6 +36,7 @@ model certificates {
   cert_provider String
   cert_level String
   cert_category String
+  is_added_by_user Boolean @default(false)
   user_certificates user_certificates[]
   recommended_certificate recommended_certificate[]
   study_plan_certificate study_plan_certificate[]
