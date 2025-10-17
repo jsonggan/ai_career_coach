@@ -79,6 +79,16 @@ model external_courses {
   @@id([external_course_id])
 }
 
+model job_description {
+  job_id Int
+  job_url String
+  job_title String
+  job_description String
+  job_hard_skills String
+  job_soft_skills String
+  @@id([job_id])
+}
+
 model linkedin_benchmark {
   id Int
   skill_name String
