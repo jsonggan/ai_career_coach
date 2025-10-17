@@ -143,21 +143,10 @@ export default function PeerReviewForm({
       console.log("Peer review data:", data);
 
       toast.success(
-        "Peer review submitted successfully! The student will be notified.",
-        {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        }
+        "Peer review submitted successfully! The student will be notified."
       );
     } catch (error) {
-      toast.error("Failed to submit review. Please try again.", {
-        position: "top-right",
-        autoClose: 5000,
-      });
+      toast.error("Failed to submit review. Please try again."); 
     } finally {
       setIsSubmitting(false);
     }
@@ -186,8 +175,6 @@ export default function PeerReviewForm({
 
   return (
     <>
-      <ToastContainer />
-
       {/* Main Form Card */}
       <Card className="shadow-2 border-none bg-white rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)} className="px-8 py-6">

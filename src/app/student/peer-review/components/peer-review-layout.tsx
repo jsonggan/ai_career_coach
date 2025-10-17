@@ -40,12 +40,12 @@ export default function PeerReviewLayout({
           Peer Review
         </h1>
         <p className="text-gray-600 m-0">
-          Review and get reviewed by your fellow students to improve your academic work and receive valuable feedback
+          Review and get reviewed by your fellow students to improve your academic work and receive valuable feedback. All feedback you provide is anonymous and will be used to generate a skill competency profile for your peers, highlighting their strengths and areas of expertise.
         </p>
       </div>
 
       {/* Peer Selector (if enabled) */}
-      {showPeerSelector && <PeerSelector className="mb-8" students={students} />}
+      <PeerSelector className="mb-8" students={students} />
 
       {/* Content */}
       {children}
