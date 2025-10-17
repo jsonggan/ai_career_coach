@@ -14,6 +14,7 @@ export interface Course {
   category: string;
   department: string;
   aiTaggedSkill?: string;
+  link?: string;
 }
 
 export interface UserCourse {
@@ -98,7 +99,8 @@ export async function getAllCourses(): Promise<Course[]> {
       year: 2024, // Default year
       category: getCategoryFromSkill(course.ai_tagged_skill),
       department: 'Computer Science and Design',
-      aiTaggedSkill: course.ai_tagged_skill
+      aiTaggedSkill: course.ai_tagged_skill,
+      link: course.course_link || undefined
     }));
 
     return transformedCourses;
@@ -188,6 +190,8 @@ export async function getMockData(): Promise<Course[]> {
       orderBy: { course_code: 'asc' }
     });
 
+    console.log(courses);
+
     // Transform the data to match the expected format
     const transformedCourses: Course[] = courses.map(course => ({
       course_id: course.course_id,
@@ -201,7 +205,8 @@ export async function getMockData(): Promise<Course[]> {
       year: 2024, // Default year
       category: getCategoryFromSkill(course.ai_tagged_skill),
       department: 'Computer Science and Design',
-      aiTaggedSkill: course.ai_tagged_skill
+      aiTaggedSkill: course.ai_tagged_skill,
+      link: course.course_link || undefined
     }));
 
     return transformedCourses;

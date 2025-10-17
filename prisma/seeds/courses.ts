@@ -8,6 +8,7 @@ interface CourseData {
   description: string
   full_description: string
   course_type: string
+  detail_url?: string
 }
 
 export async function seedCourses(prisma: PrismaClient) {
@@ -35,6 +36,7 @@ export async function seedCourses(prisma: PrismaClient) {
           course_name: course.course_name || '',
           course_desc: course.description || '',
           course_full_desc: course.full_description || '',
+          course_link: course.detail_url || null,
           ai_tagged_skill: course.course_type || 'Unknown',
         }
       })
