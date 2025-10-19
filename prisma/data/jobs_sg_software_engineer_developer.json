@@ -57,44 +57,6 @@
       ]
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/3410462044",
-      "title": "Senior Java Software Engineer",
-      "company": "8x8",
-      "location": "Singapore, Singapore",
-      "employment_type": "Full-time",
-      "experience_level": "Not Applicable",
-      "about_us": "At 8x8 Inc. [Nasdaq:EGHT] we put communications at the heart of our business and build technology that allows people to connect anytime, anywhere they are in the world, and on any device. 8x8 CPaaS provides a cloud-based infrastructure and platform to integrate real-time communications capabilities including SMS, chat apps, voice, and video calls into applications, websites, and workflows, using APIs. With 8x8 CPaaS, organizations around the world have successfully unified omnichannel customer communications to optimize their customer experience. Learn more on our company website at www.8x8.com and follow our pages on LinkedIn, Twitter and Facebook.",
-      "job_description": "We are looking for a Senior Software Engineer / Technical lead (Java) to join our growing technology team based in Singapore to work on our core Voice platform. This is an exciting opportunity to become a member of the 8x8 CpaaS Engineering team that is involved in the entire life cycle of development. You will be challenged with tasks related to concurrency, performance optimization and real time processing. What will you build? Being part of a global team of software engineers, we are continuously on the lookout for enhancements to our Voice platform. You will be developing state of the art microservices, based on JVM technologies, which interacts not only with other services but also with some industry leading open source software. How will you do it? As a software engineer, you’ll be involved in all aspects of development, from the inception to delivery. Be it a completely new feature or an enhancement to a feature that is already being loved by our customers, you and your team will enjoy finding the best technical solution, practicing agile methodologies. Our Agile Process is continuously improved in order to support our Continuous Delivery mindset and fast evolving business needs. We are firm believers that Quality relies on healthy engineering practices: Well articulated Technical Design; API First; Great Code, Clean code and clean architecture; Extensive and candid Peer Reviews; Qualitative and quantitative test coverage as per the Pyramid of Tests; Excellent Documentation.",
-      "job_requirements": "Requirements\nA computer science degree or equivalent qualifications\n6+ years of professional software development experience;\nStrong background in design and implementation of RESTful APIs, reusable software components and scalable microservices and a good understanding of algorithms and data structures;\nExpert knowledge and experience coding in Java, object-oriented programming and design patterns. Think Multi-threaded!\nKnowledge of concurrency models and best practices;\nKnowledge in asynchronous programming, caching technologies (i.e. Redis), message queues (i.e. RabbitMq, Kafka), Java frameworks like Vertx.io or Akka.io, RDBMS, Docker and Kubernetes;\nWorking knowledge of Linux, Git, SQL and CI tools;\nExperienced in agile methodologies;\nExperience working with SIP stack, SIP servers and other VoIP technologies(desired);\nFluency in English (both in writing and speaking) and great communication skills.",
-      "skills": [
-        "Java",
-        "Restful Apis",
-        "Microservices",
-        "Object-Oriented Programming",
-        "Design Patterns",
-        "Concurrency Models",
-        "Asynchronous Programming",
-        "Caching Technologies",
-        "Redis",
-        "Message Queues",
-        "Rabbitmq",
-        "Kafka",
-        "Vertx.Io",
-        "Akka.Io",
-        "RDBMS",
-        "Docker",
-        "Kubernetes",
-        "Linux",
-        "Git",
-        "SQL",
-        "Ci Tools",
-        "Agile Methodologies",
-        "Sip Stack",
-        "Voip Technologies",
-        "Communication Skills"
-      ]
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/backend-software-engineer-tiktok-live-money-platform-singapore-at-jobscentral-3945472807",
       "title": "Backend Software Engineer - TikTok Live Money Platform",
       "company": "Jobscentral",
@@ -120,26 +82,6 @@
         "Continuous Learning",
         "Payment Systems",
         "Financial Domain Knowledge"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/9596670",
-      "title": "Senior Software Design Engineer",
-      "company": "Verifone",
-      "location": "Singapore",
-      "employment_type": "Full-time",
-      "experience_level": "Not Applicable",
-      "about_us": "Develop Java Enterprise payment application for expanding world of electronic payment. Specify and analyses requirements, design, code, unit and integration test applications. Maintain application through beta testing with live merchants. Actively work to improve the software development process. Candidate will have the opportunity to work directly with customers to define software requirements and features.",
-      "job_description": "Duties and Responsibilities:\n- Write software programs in J2EE environment\n- Able to work on Linux or Windows platform\n- Able to work with multiple projects at the same time\n- Work with other team members to understand customer requirements and come up with meaningful solutions\n- Develop detailed design specifications including service models and message schemas\n- Troubleshoot for customer reported issues\n- Maintain existing software\n- Development support for iOS payment application",
-      "job_requirements": "",
-      "skills": [
-        "Java",
-        "J2EE",
-        "Linux",
-        "Windows",
-        "Software Development",
-        "Troubleshooting",
-        "Ios Development"
       ]
     },
     {
@@ -292,44 +234,6 @@
       ]
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-c%23-at-socium-teams-done-differently-4269298318",
-      "title": "Senior Software Engineer (C#)",
-      "company": "Socium - Teams Done Differently",
-      "location": "Southeast Asia",
-      "employment_type": "Contract",
-      "experience_level": "Mid-Senior level",
-      "about_us": "",
-      "job_description": "",
-      "job_requirements": [
-        "At least 4+ years of strong hands-on experience with C#",
-        "Experience working with React components (for frontend collaboration or minor UI adjustments)",
-        "Familiarity with Git and CI/CD tools (DroneCI preferred)",
-        "Strong experience with AWS cloud environments",
-        "Proficient in working with PostgreSQL and MS SQL Server",
-        "Bonus: Familiarity with AWS Lambda functions and Kubernetes",
-        "Experience in building or supporting post-order systems (e.g., order tracking, delivery management, customer notifications, refunds, etc.)",
-        "Fluent in English, both written and spoken",
-        "Strong ability to manage cross-team alignment and stakeholder communication",
-        "Experience working in Agile/SCRUM environments",
-        "Proficient with JIRA and other task-tracking tools"
-      ],
-      "skills": [
-        "C#",
-        "React",
-        "Git",
-        "CI/CD",
-        "AWS",
-        "Postgresql",
-        "Ms Sql Server",
-        "Aws Lambda",
-        "Kubernetes",
-        "Agile",
-        "SCRUM",
-        "JIRA"
-      ],
-      "raw_page_text": "Socium - Teams Done Differently hiring Senior Software Engineer (C#) in Southeast Asia | LinkedIn Skip to main content LinkedIn Senior Software Engineer (C#) in Kuala Lumpur Expand search This button displays the currently selected search type. When expanded it provides a list of search options that will switch the search inputs to match the current selection. Jobs People Learning Clear text Clear text Clear text Clear text Clear text Sign in Join now Senior Software Engineer (C#) Socium - Teams Done Differently Southeast Asia Senior Software Engineer (C#) Socium - Teams Done Differently Southeast Asia 2 months ago Be among the first 25 applicants See who Socium - Teams Done Differently has hired for this role No longer accepting applications Report this job Direct message the job poster from Socium - Teams Done Differently Patricia Delos Santos Patricia Delos Santos Recruitment Consultant at Socium - Teams Done Differently Location: Remote (Monday to Friday) Required Technical Skills At least 4+ years of strong hands-on experience with C# Experience working with React components (for frontend collaboration or minor UI adjustments) Familiarity with Git and CI/CD tools (DroneCI preferred) Strong experience with AWS cloud environments Proficient in working with PostgreSQL and MS SQL Server Bonus: Familiarity with AWS Lambda functions and Kubernetes Experience in building or supporting post-order systems (e.g., order tracking, delivery management, customer notifications, refunds, etc.) Non-Technical Skills Fluent in English, both written and spoken Strong ability to manage cross-team alignment and stakeholder communication Experience working in Agile/SCRUM environments Proficient with JIRA and other task-tracking tools Show more Show less Seniority level Mid-Senior level Employment type Contract Job function Information Technology Industries Business Consulting and Services Referrals increase your chances of interviewing at Socium - Teams Done Differently by 2x See who you know Get notified when a new job is posted. Set alert Sign in to set job alerts for “Software Engineer” roles. Sign in Welcome back Email or phone Password Show Forgot password? Sign in or By clicking Continue to join or sign in, you agree to LinkedIn’s User Agreement , Privacy Policy , and Cookie Policy . New to LinkedIn? Join now or New to LinkedIn? Join now By clicking Continue to join or sign in, you agree to LinkedIn’s User Agreement , Privacy Policy , and Cookie Policy . Similar jobs Junior Full Stack Software Developer | Work from Home Junior Full Stack Software Developer | Work from Home Cast LMS (Buri Technologies Inc) Quezon City, National Capital Region, Philippines 1 week ago Software Engineer (Intern) Software Engineer (Intern) Naptha AI Singapore, Singapore 8 months ago Part-Time Frontend Developer (Work From Home) Part-Time Frontend Developer (Work From Home) Sozoroad Davao, Davao Region, Philippines 6 days ago Frontend Developer Frontend Developer The Value Maximizer Gia Lai, Vietnam 6 days ago Junior Python Developer Junior Python Developer ShipERP Philippines 6 months ago Junior Frontend ReactJS Developer Junior Frontend ReactJS Developer Kegmil Ho Chi Minh City Metropolitan Area 1 month ago Web Developer Web Developer GB wusic Sepang, Selangor, Malaysia MYR 3,000.00 - MYR 4,500.00 1 week ago Full Stack Engineer II Full Stack Engineer II Outliant Manila, National Capital Region, Philippines 4 weeks ago Web Frontend Engineer（Work Location: Remote in Taiwan) Web Frontend Engineer（Work Location: Remote in Taiwan) Brix Singapore, Singapore 3 months ago Software Engineer (Frontend - Pluto Connect) Software Engineer (Frontend - Pluto Connect) Pluto Vietnam 8 months ago Frontend Developer Frontend Developer TechnoSphere, Inc. Philippines 2 days ago Backend Developer Backend Developer UltaHost Jakarta, Jakarta, Indonesia 2 days ago Full-Stack Software Engineer Full-Stack Software Engineer The Value Maximizer Gia Lai, Vietnam 1 week ago Junior Software Developer - Java (Work From Home) Junior Software Developer - Java (Work From Home) Quantrics Enterprises Inc. Manila, National Capital Region, Philippines 1 week ago Full Stack Developer Full Stack Developer RemoteVA Philippines 2 weeks ago Full Stack Developer Full Stack Developer RemoteVA Philippines 2 weeks ago Web Application Developer Intern - winter 2025 Web Application Developer Intern - winter 2025 Truffle Technologies Singapore SGD 800.00 - SGD 801.00 4 weeks ago Frontend Engineer (React) Frontend Engineer (React) Tempo (YC S23) Philippines 4 months ago Backend Python/Django Backend Python/Django 10Pearls Bandar Banang Jaya, Johore, Malaysia 6 months ago Software Engineer, Platform Software Engineer, Platform Speechify Singapore, Singapore 2 weeks ago Junior JavaScript Developer Junior JavaScript Developer Tort Experts Balimbing, BARMM, Philippines 1 month ago Software Engineer Software Engineer Payboy Malaysia 7 hours ago Full Stack Developer Full Stack Developer VisionTech"
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/1931204276",
       "title": "Back End Developer",
       "company": "YOOZOO GAMES",
@@ -409,95 +313,6 @@
       ]
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/2194881209/",
-      "title": "Senior Mobile Engineer (Android)",
-      "company": "Rakuten Asia Pte Ltd",
-      "location": "Singapore, Singapore",
-      "employment_type": "Full-time",
-      "experience_level": "Not Applicable",
-      "about_us": "Rakuten is an equal opportunities employer and welcomes applications regardless of sex, marital status, ethnic origin, sexual orientation, religious belief or age.",
-      "job_description": "Your main responsibility will be development and maintenance of our online marketing platform and understanding both business demands and available system assets. This position is mainly development of SDK and supporting SDK integration. This mobile SDK provides functions to support Marketing and Advertisement services in Rakuten. SDK supports not only Rakuten Apps, but also 3rd party customers. Working on entire process of Mobile SDK development. Involved in whole process of application life cycle: architecture design, middleware selection, development, configuration setting, application release and production system operation. Technical support for customers to use the products Proposing new technologies, middle-wares, tools etc. to improve architecture of mobile. Lead mobile related works and make a plan with team members Working closely with related teams in both Singapore and overseas, such as Japan and India, by showcasing efficient communication ability and building consensus among stakeholders.",
-      "job_requirements": {
-        "minimum_qualifications": [
-          "3+ years of professional experience on Android application development of Java or other equivalent programming languages",
-          "Have experience of Kotlin",
-          "Strong knowledge/experience on Mobile Application development and CI/CD",
-          "Keeping up with the latest Mobile Technology and apply it to the product",
-          "Design Mobile Application from scratch",
-          "Familiar with Web API to connect from Mobile",
-          "Familiar with Agile style"
-        ],
-        "good_to_have": [
-          "Experience in iOS application development",
-          "Experience in Server side development",
-          "Experience in Mobile SDK development",
-          "Knowledge of on-line AD or marketing business and related technologies",
-          "Experience in Unity application development",
-          "Experience in cross-platform mobile application development (React-Native, Apache Cordova, Flutter, etc…)"
-        ]
-      },
-      "skills": [
-        "Java",
-        "Kotlin",
-        "Mobile Application Development",
-        "CI/CD",
-        "Web Api",
-        "Agile",
-        "Ios Application Development",
-        "Server Side Development",
-        "Mobile Sdk Development",
-        "Online Advertising Technologies",
-        "Unity",
-        "React-Native",
-        "Apache Cordova",
-        "Flutter"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4303381348/",
-      "title": "3 Months Contract QA Manual (M)",
-      "company": "Glints",
-      "location": "Batam, Riau Islands, Indonesia",
-      "employment_type": "Contract",
-      "experience_level": "Entry level",
-      "about_us": "",
-      "job_description": "Responsibilities\n- Review and understand business requirements to assist in preparing test cases and test plans.\n- Execute test scenarios, record results, and ensure issues are documented clearly.\n- Collaborate with development teams to track and resolve defects.\n- Support User Acceptance Testing (UAT) by coordinating with business users and providing guidance.\n- Continuously learn and apply best practices in software testing to ensure high-quality deliverables.",
-      "job_requirements": "Requirements\n- Bachelor’s Degree in Information Technology, Computer Science, or related field (Diploma can be considered).\n- Basic knowledge of Software Testing or Quality Assurance (manual testing experience through coursework, internship, or projects is an advantage).\n- Interest or exposure to Banking, Insurance, or Financial sector is preferred.\n- Strong analytical and problem-solving skills with the ability to understand business requirements.\n- Good communication skills in English, both written and spoken.\n- Familiarity with Web applications or LifeAsia is a plus, but not mandatory.\n- Eager to learn, detail-oriented, and able to work both independently and in a team.",
-      "skills": [
-        "Software Testing",
-        "Quality Assurance",
-        "Analytical Skills",
-        "Problem-Solving Skills",
-        "Communication Skills",
-        "Web Applications",
-        "Lifeasia"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-remote-at-socium-teams-done-differently-4204796388",
-      "title": "Senior Software Engineer (Golang)",
-      "company": "Socium - Teams Done Differently",
-      "location": "Southeast Asia",
-      "employment_type": "Full-Time",
-      "experience_level": "Mid-Senior level",
-      "about_us": "We are on the lookout for talented Senior Software Engineer (Golang) to join our growing team. If you’re passionate about building impactful applications and have experience in grocery/food delivery, e-commerce, logistics, or ride-hailing platforms, we want to hear from you!",
-      "job_description": "Responsibilities\n- Work closely with other engineers on the team to build scalable and robust backend applications and services\n- Write high-quality, performant and reliable code while working on defined tasks or bugs independently\n- Identify and address performance bottlenecks, and optimize platform components for speed and efficiency.\n- Work independently to understand functional specifications and deliver complete features.\n- Maintain comprehensive documentation for code, architecture, and processes to facilitate knowledge sharing within the team.\n- Participate in code reviews to ensure software quality.\n- Participate in team agile and engineering practices and contribute to their continuous evolution.",
-      "job_requirements": "Qualifications\n- Bachelor's degree in Computer Science (or related field)\n- 4+ years of professional software development experience\n- Strong problem-solving skills and the ability to work effectively in a fast-paced, collaborative environment.\n- Working experience with Golang\n- Working knowledge of Computer Science fundamentals, including OOP, data structures, and algorithms.\n- Experience with system design and architecture\n- Experience with databases and data modeling\n- Experienced operating online systems reliably, including deploying changes to production in live systems.\n- Good communication skills and the ability to work closely with cross-functional teams.",
-      "skills": [
-        "Golang",
-        "OOP",
-        "Data Structures",
-        "Algorithms",
-        "System Design",
-        "Architecture",
-        "Databases",
-        "Data Modeling",
-        "Deployment",
-        "Communication",
-        "Problem-Solving"
-      ]
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/3308551017",
       "title": "Android Developer (Kotlin)",
       "company": "OKX",
@@ -538,30 +353,6 @@
         "VBA",
         "Web Technologies",
         "Relational Databases"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-remote-at-socium-teams-done-differently-4246076199",
-      "title": "Senior Software Engineer (Golang)",
-      "company": "Socium - Teams Done Differently",
-      "location": "Southeast Asia",
-      "employment_type": "Contract",
-      "experience_level": "Mid-Senior level",
-      "about_us": "We are on the lookout for talented Senior Software Engineer (Golang) to join our growing team. If you’re passionate about building impactful applications and have experience in grocery/food delivery, e-commerce, logistics, or ride-hailing platforms, we want to hear from you!",
-      "job_description": "Responsibilities\n- Work closely with other engineers on the team to build scalable and robust backend applications and services\n- Write high-quality, performant and reliable code while working on defined tasks or bugs independently\n- Identify and address performance bottlenecks, and optimize platform components for speed and efficiency.\n- Work independently to understand functional specifications and deliver complete features.\n- Maintain comprehensive documentation for code, architecture, and processes to facilitate knowledge sharing within the team.\n- Participate in code reviews to ensure software quality.\n- Participate in team agile and engineering practices and contribute to their continuous evolution.",
-      "job_requirements": "Qualifications\n- Bachelor's degree in Computer Science (or related field)\n- 4+ years of professional software development experience\n- Strong problem-solving skills and the ability to work effectively in a fast-paced, collaborative environment.\n- Working experience with Golang\n- Working knowledge of Computer Science fundamentals, including OOP, data structures, and algorithms.\n- Experience with system design and architecture\n- Experience with databases and data modeling\n- Experienced operating online systems reliably, including deploying changes to production in live systems.\n- Good communication skills and the ability to work closely with cross-functional teams.",
-      "skills": [
-        "Golang",
-        "OOP",
-        "Data Structures",
-        "Algorithms",
-        "System Design",
-        "Architecture",
-        "Databases",
-        "Data Modeling",
-        "Agile Practices",
-        "Problem-Solving",
-        "Communication Skills"
       ]
     },
     {
@@ -730,29 +521,6 @@
       ]
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-at-socium-teams-done-differently-4285069050",
-      "title": "Senior Software Engineer (Golang)",
-      "company": "Socium - Teams Done Differently",
-      "location": "Southeast Asia",
-      "employment_type": "Contract",
-      "experience_level": "Mid-Senior level",
-      "about_us": "We are on the lookout for talented Senior Software Engineer (Golang) to join our growing team. If you’re passionate about building impactful applications and have experience in grocery/food delivery, e-commerce, logistics, or ride-hailing platforms, we want to hear from you!",
-      "job_description": "Responsibilities\n- Work closely with other engineers on the team to build scalable and robust backend applications and services\n- Write high-quality, performant and reliable code while working on defined tasks or bugs independently\n- Identify and address performance bottlenecks, and optimize platform components for speed and efficiency.\n- Work independently to understand functional specifications and deliver complete features.\n- Maintain comprehensive documentation for code, architecture, and processes to facilitate knowledge sharing within the team.\n- Participate in code reviews to ensure software quality.\n- Participate in team agile and engineering practices and contribute to their continuous evolution.",
-      "job_requirements": "Qualifications\n- Bachelor's degree in Computer Science (or related field)\n- 5+ years of professional software development experience\n- Strong problem-solving skills and the ability to work effectively in a fast-paced, collaborative environment.\n- Working experience with Golang\n- Working knowledge of Computer Science fundamentals, including OOP, data structures, and algorithms.\n- Experience with system design and architecture\n- Experience with databases and data modeling\n- Experienced operating online systems reliably, including deploying changes to production in live systems.\n- Good communication skills and the ability to work closely with cross-functional teams.",
-      "skills": [
-        "Golang",
-        "OOP",
-        "Data Structures",
-        "Algorithms",
-        "System Design",
-        "Architecture",
-        "Databases",
-        "Data Modeling",
-        "Problem-Solving",
-        "Communication"
-      ]
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/2925508435/?capColoOverride=true",
       "title": "Embedded Software Engineer",
       "company": "EndoMaster Pte Ltd",
@@ -807,35 +575,6 @@
         "Smart Contract Auditing",
         "Problem-Solving",
         "Communication"
-      ]
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/2615015998/",
-      "title": "Lead Software Engineer (Funded Startup)",
-      "company": "Omni HR",
-      "location": "Singapore, Singapore",
-      "employment_type": "Full-time",
-      "experience_level": "Not Applicable",
-      "about_us": "We are a funded SaaS startup in Singapore. We are building a new category of office software that focuses on the automation and integration of workflows, especially in the area of employee management. Our product vision is to become an organization’s “operating system”, by managing a single source of truth of the organization’s employee records and integrating those records with an ecosystem of built-in applications / third-party apps (e.g. Google Workspace (G Suite), Slack, etc). Learn more about Omni at: https://www.getomni.co/our-vision",
-      "job_description": "As the Lead Software Engineer, you will be in charge of all engineering decisions related to the product. You will work directly with the Founders and the Product Lead in building and shaping a product that users love and can rely on. As this is a position for a core member of the technical team, you will be required to demonstrate proficient end-to-end technical capabilities in back-end, front-end, software architecture, and software infrastructure. This role will be challenging, but rewarding -- you will gain invaluable experience in both product development and team building. Our team will make every effort to provide you with a setup that spawns great creativity, innovation, and leadership. We offer a competitive salary that matches your existing compensation package, with potential upside from equity sharing.",
-      "job_requirements": "Qualifications\n- 8+ years of experience in backend programming development\n- 3+ years of experience in software architecture design and software infrastructure\n- Experienced in using an Agile methodology / operate with a DevOps culture\n- Strong analytical mindset, attention to details, and critical thinking; entrepreneurial and solution-oriented\n- Strong team player with good communication and leadership skills\n- Experience with high scalability SaaS systems built with microservices is a plus\n\nTechnical Requirements (Open to equivalent technologies)\n- Experienced programmer in Python (Django), React, and TypeScript\n- Experience with AWS, API development, container orchestration (Kubernetes, Docker), PostgreSQL, and Terraform\n- Experience with operational tools such as ELK stack, Prometheus, Grafana, and Loki\n- Experience with version control (git) and CI/CD tools.\n- Good understanding of implementing CI/CD processes\n\nPromising candidates with less industry experience may be considered for Engineer / Senior Engineer roles.",
-      "skills": [
-        "Python",
-        "Django",
-        "React",
-        "Typescript",
-        "AWS",
-        "Api Development",
-        "Kubernetes",
-        "Docker",
-        "Postgresql",
-        "Terraform",
-        "Elk Stack",
-        "Prometheus",
-        "Grafana",
-        "Loki",
-        "Git",
-        "CI/CD"
       ]
     },
     {

@@ -4,55 +4,6 @@
   "generated_at": "2025-10-16T09:42:25Z",
   "jobs": [
     {
-      "url": "https://www.linkedin.com/jobs/view/3907422953/",
-      "title": "Senior Cybersecurity (CISSP)",
-      "company": "Apping Technology",
-      "location": "Johor Baharu, Johore, Malaysia",
-      "employment_type": "Full-time",
-      "experience_level": "Not Applicable",
-      "about_us": "",
-      "job_description": "As an individual contributor on our purple team with penetration and security advisory skillset, you’ll have a broad set of responsibilities including: (the mix will depend on your interests and skill-level)\n- Prepare and execute purple team exercises and/or penetration testing projects individually for Singapore projects\n- Create, develop, and implement tactics, techniques, and procedures (TTPs)\n- Develop novel attack vectors based on newly discovered vulnerabilities\n- Develop home-grown software solutions and utilities for computer network attack (CNA) and computer network defense (CND)\n- Apply industry standards and best practices including the Penetration Testing Execution Standard (PTES) and the MITRE Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) Framework\n- Manage penetration testing services performed by outside vendors\n- Perform red teaming of our security measures of both our employee IT and production assets\n- Perform penetration testing of our employee IT and production assets, including our applications and internal production services\n- Conduct security consultancy include security risk assessment, source code review, compliance scan and security advisory when require by customers.",
-      "job_requirements": "Demonstrated ability to:\n- Identify vulnerabilities in web apps and web APIs by means of manual source code review, static code analysis, and/or fuzzing using tooling such as Burp Suite\n- Identify vulnerabilities in Windows/Linux/macOS software by means of manual source code reviews, static code analysis, and/or fuzzing such as AFL\n- Perform operating system security assessments, review of hardening controls\n\nAdvanced experience writing in languages such as:\n- Python, bash, or Golang\n- Interested in writing customs tools, wrappers, C2 infrastructure and agents to support internal red team and penetration testing capabilities\n\nAdvanced knowledge of:\n- Windows, Linux, ChromeOS, and macOS\n- Implants, shells, Command and Control (C2) infrastructure\n- TCP/IP, IDS/IPS, firewalls, WAF, and web content filtering\n- Crypto: PGP, SSH, PKI\n- Network equipment such as Cisco, Palo Alto, and Juniper\n- AWS environments\n\nCertifications in, OSCP or CREST or CISSP (ANY)",
-      "skills": [
-        "Penetration Testing",
-        "Security Advisory",
-        "Tactics, Techniques, And Procedures (Ttps)",
-        "Attack Vectors Development",
-        "Software Development",
-        "Computer Network Attack (Cna)",
-        "Computer Network Defense (Cnd)",
-        "Penetration Testing Execution Standard (Ptes)",
-        "Mitre Att&Ck Framework",
-        "Red Teaming",
-        "Security Risk Assessment",
-        "Source Code Review",
-        "Compliance Scan",
-        "Burp Suite",
-        "Static Code Analysis",
-        "Fuzzing",
-        "Python",
-        "Bash",
-        "Golang",
-        "Windows",
-        "Linux",
-        "Chromeos",
-        "Macos",
-        "Command And Control (C2) Infrastructure",
-        "Tcp/Ip",
-        "Ids/Ips",
-        "Firewalls",
-        "WAF",
-        "Web Content Filtering",
-        "PGP",
-        "SSH",
-        "PKI",
-        "Cisco",
-        "Palo Alto",
-        "Juniper",
-        "AWS"
-      ]
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/cyber-security-consultant-at-socium-teams-done-differently-4309545637",
       "title": "Cyber Security Consultant",
       "company": "Socium - Teams Done Differently",
@@ -322,18 +273,6 @@
         "Golang",
         "Stride"
       ]
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/business-development-manager-at-sandeza-inc-4274801576",
-      "title": "Business Development Manager",
-      "company": "Sandeza Inc",
-      "location": "Atlanta, GA",
-      "employment_type": "Full-time",
-      "experience_level": "Entry level",
-      "about_us": "Sandeza Inc is growing! Looking for motivated, energetic Business Development specialists to be a part of our growth story! We are well-established mid-tier IT Services organization, with offices in Atlanta, Boston, Singapore and India, gratefully counts Fortune 100 enterprises as long-term customers.",
-      "job_description": "The role involves managing new IT sales, generating new leads, and handling account management responsibilities. The Sales Manager will work closely with clients to understand their IT needs and provide appropriate solutions to enhance their business operations. Location is Hybrid and travel on need basis.",
-      "job_requirements": "Qualifications\n- Proven experience in IT Sales and Lead Generation\n- Strong skills in Sales & Account Management\n- In-depth knowledge of Information Technology and its applications\n- Excellent communication and interpersonal skills\n- Ability to work collaboratively in a team setting\n- Experience in the platform sales, SaaS industry is a plus",
-      "skills": []
     }
   ]
 }
