@@ -22,6 +22,7 @@ export async function seedCourses(prisma: PrismaClient) {
     
     // Clear existing courses data
     console.log('🧹 Clearing existing courses data...')
+    await prisma.community_posts.deleteMany()
     await prisma.courses.deleteMany()
     
     // Insert courses data

@@ -4,9 +4,7 @@ export async function seedUserCourses(prisma: PrismaClient) {
   console.log('📚 Starting user courses seeding...')
   
   try {
-    // Clear existing user_courses data
-    console.log('🧹 Clearing existing user_courses data...')
-    await prisma.user_courses.deleteMany()
+    // Data clearing is handled in users seeding
     
     // List of all courses to be taken
     const courseCodes = [
