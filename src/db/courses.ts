@@ -47,7 +47,7 @@ function getLevelFromCourseCode(courseCode: string): number {
 // Helper function to determine category from AI tagged skill
 function getCategoryFromSkill(skill: string): string {
   if (!skill) return 'Elective';
-  
+
   const skillLower = skill.toLowerCase();
   if (skillLower.includes('core') || skillLower.includes('fundamental')) return 'Core';
   if (skillLower.includes('specialization') || skillLower.includes('specialised')) return 'Specialization';
@@ -151,9 +151,9 @@ export async function getAvailableCourses(userId: number = 1): Promise<Course[]>
   try {
     const allCourses = await getAllCourses();
     const userCourses = await getUserCourses(userId);
-    
+
     const takenCourseCodes = userCourses.map(uc => uc.courseCode);
-    const availableCourses = allCourses.filter(course => 
+    const availableCourses = allCourses.filter(course =>
       !takenCourseCodes.includes(course.courseCode)
     );
 
@@ -169,7 +169,7 @@ export async function getMockData(): Promise<Course[]> {
   try {
     const mockCourseCodes = [
       '50.006',
-      '50.007', 
+      '50.007',
       '50.017',
       '50.020',
       '50.033',
@@ -189,8 +189,6 @@ export async function getMockData(): Promise<Course[]> {
       },
       orderBy: { course_code: 'asc' }
     });
-
-    console.log(courses);
 
     // Transform the data to match the expected format
     const transformedCourses: Course[] = courses.map(course => ({
