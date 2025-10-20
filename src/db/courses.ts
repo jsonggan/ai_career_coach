@@ -74,6 +74,8 @@ function mapCompletionStatus(status: string): string {
     case 'dropped':
     case 'withdrawn':
       return 'DROPPED';
+    case 'not_started':
+      return 'NOT_STARTED';
     default:
       return 'IN_PROGRESS';
   }
@@ -165,6 +167,90 @@ export async function getAvailableCourses(userId: number = 1): Promise<Course[]>
 }
 
 // Get mock data for spring 2025
+// Enroll user in courses with "NOT_STARTED" status
+export async function enrollUserInCourses(userId: number, courseCodes: string[], term: string = 'Spring', year: number = 2025): Promise<void> {
+  try {
+    // First, remove any existing enrollments for the same term/year to avoid duplicates
+    await prisma.user_courses.deleteMany({
+      where: {
+        user_id: userId,
+        course: {
+          course_code: {
+            in: courseCodes
+          }
+        },
+        enrollment_date: {
+          gte: new Date(`${year}-01-01`),
+          lt: new Date(`${year + 1}-01-01`)
+        }
+      }
+    });
+
+    // Get course IDs from course codes
+    const courses = await prisma.courses.findMany({
+      where: {
+        course_code: {
+          in: courseCodes
+        }
+      },
+      select: {
+        course_id: true,
+        course_code: true
+      }
+    });
+
+    if (courses.length === 0) {
+      return; // No valid courses found
+    }
+
+    // Get the max id for user_courses table
+    const maxId = await prisma.user_courses.aggregate({
+      _max: { id: true }
+    });
+    let nextId = (maxId._max.id || 0) + 1;
+
+    // Create enrollment records
+    const enrollmentData = courses.map(course => ({
+      id: nextId++,
+      user_id: userId,
+      course_id: course.course_id,
+      enrollment_date: new Date(),
+      completion_status: 'NOT_STARTED'
+    }));
+
+    await prisma.user_courses.createMany({
+      data: enrollmentData
+    });
+
+  } catch (error) {
+    console.error('Error enrolling user in courses:', error);
+    throw new Error('Failed to enroll user in courses');
+  }
+}
+
+// Get user's enrolled courses for a specific term/year (for default values)
+export async function getUserEnrolledCourses(userId: number = 1, term: string = 'Spring', year: number = 2025): Promise<string[]> {
+  try {
+    const userCourses = await prisma.user_courses.findMany({
+      where: {
+        user_id: userId,
+        enrollment_date: {
+          gte: new Date(`${year}-01-01`),
+          lt: new Date(`${year + 1}-01-01`)
+        }
+      },
+      include: {
+        course: true
+      }
+    });
+
+    return userCourses.map(uc => uc.course?.course_code || '').filter(code => code);
+  } catch (error) {
+    console.error('Error fetching user enrolled courses:', error);
+    return [];
+  }
+}
+
 export async function getMockData(): Promise<Course[]> {
   try {
     const mockCourseCodes = [

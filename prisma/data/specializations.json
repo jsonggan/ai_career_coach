@@ -40,11 +40,5 @@
     "spec_name": "Visual Analytics and Computing",
     "spec_desc": "Develop systems to handle visual data, mainly images, videos and shapes using computer analysis.",
     "icon": "🎨"
-  },
-  {
-    "spec_id": 8,
-    "spec_name": "Custom Specialisation",
-    "spec_desc": "Create an interdisciplinary curriculum around a coherent technical theme of your interest.",
-    "icon": "⚙️"
   }
 ]

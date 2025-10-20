@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { toast } from 'react-toastify';
 import { Specialization, CareerPath, UserSpecialization, UserCareerPath } from "@/db/academy";
 
 interface Course {
@@ -46,18 +47,19 @@ interface AcademyTrackClientProps {
     careerPaths: CareerPath[];
     userCareerPaths: UserCareerPath[];
   };
+  defaultSelectedCourses?: string[];
 }
 
-export default function AcademyTrackClient({ coursesData, userCourseHistory, mockCoursesData, academyData }: AcademyTrackClientProps) {
+export default function AcademyTrackClient({ coursesData, userCourseHistory, mockCoursesData, academyData, defaultSelectedCourses = [] }: AcademyTrackClientProps) {
   const [selectedTracks, setSelectedTracks] = useState<string[]>([]);
   const [selectedCareers, setSelectedCareers] = useState<string[]>([]);
-  const [studentComments, setStudentComments] = useState<string>("");
   const [showAIHelp, setShowAIHelp] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   
   // Course-related state
   const [previousCourses, setPreviousCourses] = useState<UserCourse[]>([]);
   const [availableCourses, setAvailableCourses] = useState<Course[]>([]);
-  const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
+  const [selectedCourses, setSelectedCourses] = useState<string[]>(defaultSelectedCourses);
   const [currentTerm] = useState("Spring");
   const [currentYear] = useState(2025);
   
@@ -79,6 +81,11 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
     const userCareerIds = academyData.userCareerPaths.map(ucp => ucp.career_id.toString());
     setSelectedCareers(userCareerIds);
   }, [academyData]);
+
+  // Initialize selected courses from default prop
+  useEffect(() => {
+    setSelectedCourses(defaultSelectedCourses);
+  }, [defaultSelectedCourses]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
@@ -93,11 +100,11 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
     setUserCourses(userCourseHistory);
     setPreviousCourses(userCourseHistory);
     
-    // Set available courses for current term (filter out already taken courses)
-    // Use mock data by default for Spring 2025
-    const takenCourseCodes = userCourseHistory.map(uc => uc.courseCode);
+    const completedOrInProgressCodes = userCourseHistory
+      .filter(uc => uc.completionStatus !== 'NOT_STARTED')
+      .map(uc => uc.courseCode);
     const mockAvailable = mockCoursesData.filter(course => 
-      !takenCourseCodes.includes(course.courseCode)
+      !completedOrInProgressCodes.includes(course.courseCode)
     );
     setAvailableCourses(mockAvailable);
   }, [coursesData, userCourseHistory, mockCoursesData]);
@@ -153,6 +160,7 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
       case 'COMPLETED': return "bg-green-100 text-green-800";
       case 'IN_PROGRESS': return "bg-blue-100 text-blue-800";
       case 'ENROLLED': return "bg-purple-100 text-purple-800";
+      case 'NOT_STARTED': return "bg-orange-100 text-orange-800";
       case 'DROPPED': return "bg-red-100 text-red-800";
       default: return "bg-gray-100 text-gray-800";
     }
@@ -181,8 +189,52 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
     ? previousCourses 
     : previousCourses.slice(0, 4);
 
-  const handleSave = () => {
-    alert("Your academic plan has been saved!");
+  const handleSave = async () => {
+    setIsLoading(true);
+    
+    try {
+      // Convert string arrays to number arrays for API
+      const selectedSpecializations = selectedTracks.map(id => parseInt(id));
+      const selectedCareerPaths = selectedCareers.map(id => parseInt(id));
+      
+      // Validation checks
+      if (selectedSpecializations.length === 0) {
+        toast.error('Please select at least one specialization track');
+        return;
+      }
+      
+      if (selectedCareerPaths.length === 0) {
+        toast.error('Please select at least one career path');
+        return;
+      }
+      
+      const response = await fetch('/api/v1/academy-track', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: 1, // Hardcoded as per app pattern
+          selectedSpecializations,
+          selectedCareerPaths,
+          selectedCourses
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to save academy track');
+      }
+
+      toast.success('Your academic plan has been saved successfully!');
+      
+    } catch (error) {
+      console.error('Error saving academy track:', error);
+      toast.error(error instanceof Error ? error.message : 'Failed to save academy track');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
 
@@ -699,29 +751,21 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
           </div>
         </div>
 
-        {/* Student Comments */}
-        <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Additional Comments</h2>
-          <p className="text-gray-600 mb-4">
-            Share your thoughts, interests, or specific goals. This helps us customize your skill competency tracking and study plan.
-          </p>
-          
-          <textarea
-            value={studentComments}
-            onChange={(e) => setStudentComments(e.target.value)}
-            placeholder="Tell us about your interests, career goals, or any specific areas you'd like to focus on..."
-            className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-            rows={4}
-          />
-        </div>
-
         {/* Save Button */}
         <div className="flex justify-end">
           <button
             onClick={handleSave}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+            disabled={isLoading}
+            className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center gap-2"
           >
-            Save Academic Plan
+            {isLoading ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Saving...
+              </>
+            ) : (
+              'Save Academic Plan'
+            )}
           </button>
         </div>
       </div>
