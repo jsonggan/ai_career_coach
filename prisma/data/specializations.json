@@ -1,0 +1,50 @@
+[
+  {
+    "spec_id": 1,
+    "spec_name": "Artificial Intelligence",
+    "spec_desc": "Focus on intelligent systems that can operate autonomously, learn from experience, and solve complex problems.",
+    "icon": "🤖"
+  },
+  {
+    "spec_id": 2,
+    "spec_name": "Security",
+    "spec_desc": "Develop state-of-the-art knowledge of computer security, network security and cybersecurity technologies.",
+    "icon": "🔒"
+  },
+  {
+    "spec_id": 3,
+    "spec_name": "Data Analytics",
+    "spec_desc": "Revolves around data capture, analysis and exploitation to extract insights and make informed decisions.",
+    "icon": "📊"
+  },
+  {
+    "spec_id": 4,
+    "spec_name": "Software Engineering",
+    "spec_desc": "Design, develop, test, evaluate and maintain software systems with engineering principles.",
+    "icon": "💻"
+  },
+  {
+    "spec_id": 5,
+    "spec_name": "IoT and Intelligent Systems",
+    "spec_desc": "Build large-scale networked and distributed systems for automotive, web services and e-commerce solutions.",
+    "icon": "🌐"
+  },
+  {
+    "spec_id": 6,
+    "spec_name": "Financial Technology",
+    "spec_desc": "Understand core challenges in finance and advanced computing technologies for next-gen financial services.",
+    "icon": "💰"
+  },
+  {
+    "spec_id": 7,
+    "spec_name": "Visual Analytics and Computing",
+    "spec_desc": "Develop systems to handle visual data, mainly images, videos and shapes using computer analysis.",
+    "icon": "🎨"
+  },
+  {
+    "spec_id": 8,
+    "spec_name": "Custom Specialisation",
+    "spec_desc": "Create an interdisciplinary curriculum around a coherent technical theme of your interest.",
+    "icon": "⚙️"
+  }
+]

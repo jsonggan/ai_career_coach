@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import { clearDatabase } from './seeds/clear-database'
 import { seedCourses } from './seeds/courses'
 import { seedUsers } from './seeds/users'
 import { seedUserCourses } from './seeds/user-courses'
@@ -7,6 +8,8 @@ import { seedCertificates } from './seeds/certificates'
 import { seedUserCertificates } from './seeds/user-certificates'
 import { seedUserExternalCourses } from './seeds/user-external-courses'
 import { seedUserProjects } from './seeds/user-projects'
+import { seedSpecializations, seedUserSpecializations } from './seeds/specializations'
+import { seedCareerPaths, seedUserCareerPaths } from './seeds/career-paths'
 
 const prisma = new PrismaClient()
 
@@ -14,18 +17,34 @@ async function main() {
   console.log('Starting seed...')
 
   try {
-    await seedUsers(prisma)
+    // Step 1: Clear all existing data
+    await clearDatabase(prisma)
+
+    // Step 2: Seed base entities (entities without foreign key dependencies)
+    console.log('📋 Seeding base entities...')
     await seedCourses(prisma)
-    await seedUserCourses(prisma)
     await seedCertificates(prisma)
+    await seedSpecializations(prisma)
+    await seedCareerPaths(prisma)
+    // await seedJobDescriptions(prisma)
+
+    // Step 3: Seed users (after base entities are ready)
+    console.log('👥 Seeding users...')
+    await seedUsers(prisma)
+
+    // Step 4: Seed user-related junction/relationship tables
+    console.log('🔗 Seeding user relationships...')
+    await seedUserCourses(prisma)
     await seedUserCertificates(prisma)
     await seedUserExternalCourses(prisma)
     await seedUserProjects(prisma)
-    // await seedJobDescriptions(prisma)
-    console.log('All seeding completed successfully')
+    await seedUserSpecializations(prisma)
+    await seedUserCareerPaths(prisma)
+
+    console.log('✅ All seeding completed successfully')
 
   } catch (error) {
-    console.error('Error during seeding:', error)
+    console.error('❌ Error during seeding:', error)
     throw error
   }
 }

@@ -1,0 +1,50 @@
+[
+  {
+    "career_id": 1,
+    "career_title": "Software Engineer/Developer",
+    "career_desc": "Design and develop software applications and systems",
+    "icon": "👨‍💻"
+  },
+  {
+    "career_id": 2,
+    "career_title": "Data Analyst/Scientist",
+    "career_desc": "Analyze data to extract insights and support decision-making",
+    "icon": "📈"
+  },
+  {
+    "career_id": 3,
+    "career_title": "Product Manager",
+    "career_desc": "Lead product development and strategy",
+    "icon": "📋"
+  },
+  {
+    "career_id": 4,
+    "career_title": "Cybersecurity Specialist",
+    "career_desc": "Protect systems and networks from security threats",
+    "icon": "🛡️"
+  },
+  {
+    "career_id": 5,
+    "career_title": "Front-end Designer/Engineer",
+    "career_desc": "Create user interfaces and user experiences",
+    "icon": "🎨"
+  },
+  {
+    "career_id": 6,
+    "career_title": "Full Stack Engineer",
+    "career_desc": "Work on both frontend and backend development",
+    "icon": "🔧"
+  },
+  {
+    "career_id": 7,
+    "career_title": "Game Designer",
+    "career_desc": "Design and develop interactive games",
+    "icon": "🎮"
+  },
+  {
+    "career_id": 8,
+    "career_title": "Research Officer/Engineer",
+    "career_desc": "Conduct research and development in technology",
+    "icon": "🔬"
+  }
+]

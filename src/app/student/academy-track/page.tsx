@@ -1,12 +1,14 @@
 import AcademyTrackClient from "./academy-track-client";
 import { getAllCourses, getUserCourses, getMockData, Course, UserCourse } from "@/db/courses";
+import { getAcademyTrackData } from "@/db/academy";
 
 export default async function AcademyTrack() {
   try {
-    const [allCourses, userCourses, mockCourses] = await Promise.all([
+    const [allCourses, userCourses, mockCourses, academyData] = await Promise.all([
       getAllCourses(),
       getUserCourses(1), // Using user ID 1 for now
-      getMockData()
+      getMockData(),
+      getAcademyTrackData(1)
     ]);
     
 
@@ -15,6 +17,7 @@ export default async function AcademyTrack() {
         coursesData={allCourses}
         userCourseHistory={userCourses}
         mockCoursesData={mockCourses}
+        academyData={academyData}
       />
     );
   } catch (error) {
@@ -26,6 +29,12 @@ export default async function AcademyTrack() {
         coursesData={[]}
         userCourseHistory={[]}
         mockCoursesData={[]}
+        academyData={{
+          specializations: [],
+          userSpecializations: [],
+          careerPaths: [],
+          userCareerPaths: []
+        }}
       />
     );
   }

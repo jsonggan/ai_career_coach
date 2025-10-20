@@ -26,6 +26,7 @@ model career_paths {
   career_id Int
   career_title String
   career_desc String
+  icon String?
   user_career_paths user_career_paths[]
   @@id([career_id])
 }
@@ -137,6 +138,7 @@ model specialization {
   spec_id Int
   spec_name String
   spec_desc String
+  icon String?
   users_specialization users_specialization[]
   @@id([spec_id])
 }
@@ -197,7 +199,7 @@ model user_career_paths {
   career_id Int
   career_path career_paths? @relation(fields: [career_id], references: [career_id])
   user users? @relation(fields: [user_id], references: [user_id])
-  @@id([user_id])
+  @@id([user_id, career_id])
 }
 
 model user_certificates {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { specialisationTracks, careerPaths } from "./data";
+import { Specialization, CareerPath, UserSpecialization, UserCareerPath } from "@/db/academy";
 
 interface Course {
   course_id: number;
@@ -40,9 +40,15 @@ interface AcademyTrackClientProps {
   coursesData: Course[];
   userCourseHistory: UserCourse[];
   mockCoursesData: Course[];
+  academyData: {
+    specializations: Specialization[];
+    userSpecializations: UserSpecialization[];
+    careerPaths: CareerPath[];
+    userCareerPaths: UserCareerPath[];
+  };
 }
 
-export default function AcademyTrackClient({ coursesData, userCourseHistory, mockCoursesData }: AcademyTrackClientProps) {
+export default function AcademyTrackClient({ coursesData, userCourseHistory, mockCoursesData, academyData }: AcademyTrackClientProps) {
   const [selectedTracks, setSelectedTracks] = useState<string[]>([]);
   const [selectedCareers, setSelectedCareers] = useState<string[]>([]);
   const [studentComments, setStudentComments] = useState<string>("");
@@ -62,6 +68,17 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
   // Pagination and search state for all courses
   const [currentPage, setCurrentPage] = useState(1);
   const [coursesPerPage] = useState(10);
+
+  // Initialize selected tracks and careers from user's existing data
+  useEffect(() => {
+    // Initialize selected specializations
+    const userSpecIds = academyData.userSpecializations.map(us => us.spec_id.toString());
+    setSelectedTracks(userSpecIds);
+
+    // Initialize selected career paths
+    const userCareerIds = academyData.userCareerPaths.map(ucp => ucp.career_id.toString());
+    setSelectedCareers(userCareerIds);
+  }, [academyData]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
@@ -213,23 +230,23 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {specialisationTracks.map((track) => (
+            {academyData.specializations.map((track) => (
               <div
-                key={track.id}
-                onClick={() => handleTrackSelection(track.id)}
+                key={track.spec_id}
+                onClick={() => handleTrackSelection(track.spec_id.toString())}
                 className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                  selectedTracks.includes(track.id)
+                  selectedTracks.includes(track.spec_id.toString())
                     ? "border-blue-500 bg-blue-50"
                     : "border-gray-200 hover:border-gray-300"
-                } ${selectedTracks.length >= 2 && !selectedTracks.includes(track.id) ? "opacity-50 cursor-not-allowed" : ""}`}
+                } ${selectedTracks.length >= 2 && !selectedTracks.includes(track.spec_id.toString()) ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 <div className="flex items-start gap-3">
-                  <div className="text-2xl">{track.icon}</div>
+                  <div className="text-2xl">{track.icon || "🎓"}</div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-1">{track.name}</h3>
-                    <p className="text-sm text-gray-600">{track.description}</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">{track.spec_name}</h3>
+                    <p className="text-sm text-gray-600">{track.spec_desc}</p>
                   </div>
-                  {selectedTracks.includes(track.id) && (
+                  {selectedTracks.includes(track.spec_id.toString()) && (
                     <div className="text-blue-500">✓</div>
                   )}
                 </div>
@@ -275,23 +292,23 @@ export default function AcademyTrackClient({ coursesData, userCourseHistory, moc
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-            {careerPaths.map((career) => (
+            {academyData.careerPaths.map((career) => (
               <div
-                key={career.id}
-                onClick={() => handleCareerSelection(career.id)}
+                key={career.career_id}
+                onClick={() => handleCareerSelection(career.career_id.toString())}
                 className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                  selectedCareers.includes(career.id)
+                  selectedCareers.includes(career.career_id.toString())
                     ? "border-green-500 bg-green-50"
                     : "border-gray-200 hover:border-gray-300"
                 }`}
               >
                 <div className="flex items-start gap-3">
-                  <div className="text-2xl">{career.icon}</div>
+                  <div className="text-2xl">{career.icon || "💼"}</div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-1">{career.name}</h3>
-                    <p className="text-sm text-gray-600">{career.description}</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">{career.career_title}</h3>
+                    <p className="text-sm text-gray-600">{career.career_desc}</p>
                   </div>
-                  {selectedCareers.includes(career.id) && (
+                  {selectedCareers.includes(career.career_id.toString()) && (
                     <div className="text-green-500">✓</div>
                   )}
                 </div>

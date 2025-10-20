@@ -13,21 +13,20 @@ interface CourseData {
 
 export async function seedCourses(prisma: PrismaClient) {
   console.log('🌱 Starting course seeding...')
-  
+
   try {
     // Load courses data from JSON file
     const dataPath = path.join(__dirname, '../data/sutd_courses_20251013_185407.json')
     const coursesData: CourseData[] = JSON.parse(readFileSync(dataPath, 'utf-8'))
     console.log(`📚 Found ${coursesData.length} SUTD courses to seed`)
-    
-    // Clear existing courses data
-    console.log('🧹 Clearing existing courses data...')
-    await prisma.courses.deleteMany()
-    
+
+    // Note: Data clearing is handled by clearDatabase function in main seed
+    // No need to clear here as it's done before all seeding starts
+
     // Insert courses data
     console.log('📝 Inserting courses data...')
     let courseIdCounter = 1
-    
+
     for (const course of coursesData) {
       await prisma.courses.create({
         data: {
@@ -42,9 +41,9 @@ export async function seedCourses(prisma: PrismaClient) {
       })
       courseIdCounter++
     }
-    
+
     console.log(`✅ Successfully seeded ${coursesData.length} courses`)
-    
+
   } catch (error) {
     console.error('❌ Error during course seeding:', error)
     throw error

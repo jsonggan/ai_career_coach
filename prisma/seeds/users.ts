@@ -2,15 +2,14 @@ import { PrismaClient } from '@prisma/client'
 
 export async function seedUsers(prisma: PrismaClient) {
   console.log('👥 Starting users seeding...')
-  
+
   try {
-    // Clear existing users data
-    console.log('🧹 Clearing existing users data...')
-    await prisma.users.deleteMany()
-    
+    // Note: Data clearing is handled by clearDatabase function in main seed
+    // No need to clear here as it's done before all seeding starts
+
     // Create 5 users with specific user_ids
     console.log('👤 Creating users...')
-    
+
     const usersData = [
       {
         user_id: 1,
@@ -23,14 +22,14 @@ export async function seedUsers(prisma: PrismaClient) {
       {
         user_id: 2,
         user_name: "Bob Chen",
-        user_email: "bob.chen@sutd.edu.sg", 
+        user_email: "bob.chen@sutd.edu.sg",
         password_hash: "$2b$10$K8K8K8K8K8K8K8K8K8K8KuO8K8K8K8K8K8K8K8K8K8K8K8K8K8K8",
         created_at: new Date('2024-01-02'),
         updated_at: new Date('2024-01-02')
       },
       {
         user_id: 3,
-        user_name: "Carol Martinez", 
+        user_name: "Carol Martinez",
         user_email: "carol.martinez@sutd.edu.sg",
         password_hash: "$2b$10$K8K8K8K8K8K8K8K8K8K8KuO8K8K8K8K8K8K8K8K8K8K8K8K8K8K8",
         created_at: new Date('2024-01-03'),
@@ -53,15 +52,15 @@ export async function seedUsers(prisma: PrismaClient) {
         updated_at: new Date('2024-01-05')
       }
     ]
-    
+
     for (const userData of usersData) {
       await prisma.users.create({
         data: userData
       })
     }
-    
+
     console.log(`✅ Successfully seeded ${usersData.length} users`)
-    
+
   } catch (error) {
     console.error('❌ Error during users seeding:', error)
     throw error
