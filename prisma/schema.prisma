@@ -17,7 +17,7 @@ model ai_insights {
 }
 
 model career_paths {
-  career_id Int
+  career_id Int @id
   career_title String
   career_desc String
   icon String?
@@ -32,8 +32,8 @@ model certificates {
   cert_category           String
   is_added_by_user        Boolean                   @default(false)
   recommended_certificate recommended_certificate[]
-  study_plan_certificate study_plan_certificate[] 
-  @@id([cert_id])
+  study_plan_certificate study_plan_certificate[]
+  user_certificates       user_certificates[]
 }
 
 model community_posts {
@@ -45,21 +45,8 @@ model community_posts {
   user          users    @relation("PostAuthor", fields: [user_id], references: [user_id])
 }
 
-model courses {
-  course_id           Int                   @id
-  course_code         String
-  course_name         String
-  course_desc         String
-  course_full_desc    String
-  ai_tagged_skill     String
-  course_link         String?
-  recommended_courses recommended_courses[]
-  study_plan_courses study_plan_courses[]
-  @@id([course_id])
-}
-
 model external_courses {
-  external_course_id Int
+  external_course_id Int @id
   external_course_name String
   external_provider String
   external_course_desc String
@@ -68,16 +55,6 @@ model external_courses {
   user_external_courses user_external_courses[]
   recommended_external_courses recommended_external_courses[]
   study_plan_external_courses  study_plan_external_courses[]
-  user_external_courses        user_external_courses[]
-}
-
-model community_posts {
-  post_id       Int      @id
-  user_id       Int
-  posted_on     DateTime
-  post_content  String
-  course_rating Int
-  user          users    @relation("PostAuthor", fields: [user_id], references: [user_id])
 }
 
 model courses {
@@ -145,7 +122,7 @@ model skill_competencies {
 }
 
 model specialization {
-  spec_id Int
+  spec_id Int @id
   spec_name String
   spec_desc String
   icon String?
@@ -201,8 +178,8 @@ model study_plans {
 model user_career_paths {
   user_id Int
   career_id Int
-  career_path career_paths? @relation(fields: [career_id], references: [career_id])
-  user users? @relation(fields: [user_id], references: [user_id])
+  career_path career_paths @relation(fields: [career_id], references: [career_id])
+  user users @relation(fields: [user_id], references: [user_id])
   @@id([user_id, career_id])
 }
 
@@ -262,7 +239,7 @@ model users {
   recommended_external_courses recommended_external_courses[]
   recommended_projects         recommended_projects[]
   study_plans                  study_plans[]
-  user_career_paths            user_career_paths?
+  user_career_paths            user_career_paths[]
   user_certificates            user_certificates[]
   user_courses                 user_courses[]
   user_external_courses        user_external_courses[]
