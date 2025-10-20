@@ -10,11 +10,13 @@ import { seedUserExternalCourses } from './seeds/user-external-courses'
 import { seedUserProjects } from './seeds/user-projects'
 import { seedSpecializations, seedUserSpecializations } from './seeds/specializations'
 import { seedCareerPaths, seedUserCareerPaths } from './seeds/career-paths'
+import { seedPeerReviews } from './seeds/peer-reviews'
+import { seedCommunityPosts } from './seeds/community-posts'
 
 const prisma = new PrismaClient()
 
 async function main() {
-  console.log('Starting seed...')
+  console.log('🌱 Starting seed...')
 
   try {
     // Step 1: Clear all existing data
@@ -41,6 +43,11 @@ async function main() {
     await seedUserSpecializations(prisma)
     await seedUserCareerPaths(prisma)
 
+    console.log('✅ All seeding completed successfully')
+
+    await seedJobDescriptions(prisma)
+    await seedPeerReviews(prisma)
+    await seedCommunityPosts(prisma)
     console.log('✅ All seeding completed successfully')
 
   } catch (error) {

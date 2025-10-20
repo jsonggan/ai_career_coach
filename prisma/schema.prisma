@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,13 +8,12 @@ datasource db {
 }
 
 model ai_insights {
-  insight_id Int
-  user_id Int
-  generated_on DateTime
-  recommendation String
+  insight_id              Int      @id
+  user_id                 Int
+  generated_on            DateTime
+  recommendation          String
   spec_additional_comment String
-  user users? @relation(fields: [user_id], references: [user_id])
-  @@id([insight_id])
+  user                    users    @relation(fields: [user_id], references: [user_id])
 }
 
 model career_paths {
@@ -28,41 +22,37 @@ model career_paths {
   career_desc String
   icon String?
   user_career_paths user_career_paths[]
-  @@id([career_id])
 }
 
 model certificates {
-  cert_id Int
-  cert_name String
-  cert_provider String
-  cert_level String
-  cert_category String
-  is_added_by_user Boolean @default(false)
-  user_certificates user_certificates[]
+  cert_id                 Int                       @id
+  cert_name               String
+  cert_provider           String
+  cert_level              String
+  cert_category           String
+  is_added_by_user        Boolean                   @default(false)
   recommended_certificate recommended_certificate[]
-  study_plan_certificate study_plan_certificate[]
+  study_plan_certificate study_plan_certificate[] 
   @@id([cert_id])
 }
 
 model community_posts {
-  post_id Int
-  user_id Int
-  posted_on DateTime
-  post_content String
+  post_id       Int      @id
+  user_id       Int
+  posted_on     DateTime
+  post_content  String
   course_rating Int
-  user users? @relation("PostAuthor", fields: [user_id], references: [user_id])
-  @@id([post_id])
+  user          users    @relation("PostAuthor", fields: [user_id], references: [user_id])
 }
 
 model courses {
-  course_id Int
-  course_code String
-  course_name String
-  course_desc String
-  course_full_desc String
-  course_link String?
-  ai_tagged_skill String
-  user_courses user_courses[]
+  course_id           Int                   @id
+  course_code         String
+  course_name         String
+  course_desc         String
+  course_full_desc    String
+  ai_tagged_skill     String
+  course_link         String?
   recommended_courses recommended_courses[]
   study_plan_courses study_plan_courses[]
   @@id([course_id])
@@ -74,64 +64,84 @@ model external_courses {
   external_provider String
   external_course_desc String
   external_ai_tagged_skill String
-  is_added_by_user Boolean @default(false)
+  is_added_by_user Boolean @default(false) 
   user_external_courses user_external_courses[]
   recommended_external_courses recommended_external_courses[]
-  study_plan_external_courses study_plan_external_courses[]
-  @@id([external_course_id])
+  study_plan_external_courses  study_plan_external_courses[]
+  user_external_courses        user_external_courses[]
+}
+
+model community_posts {
+  post_id       Int      @id
+  user_id       Int
+  posted_on     DateTime
+  post_content  String
+  course_rating Int
+  user          users    @relation("PostAuthor", fields: [user_id], references: [user_id])
+}
+
+model courses {
+  course_id           Int                   @id
+  course_code         String
+  course_name         String
+  course_desc         String
+  course_full_desc    String
+  ai_tagged_skill     String
+  course_link         String?
+  recommended_courses recommended_courses[]
+  study_plan_courses  study_plan_courses[]
+  user_courses        user_courses[]
 }
 
 model job_description {
-  job_id Int
-  job_url String
-  job_title String
+  job_id          Int    @id
+  job_url         String
+  job_title       String
   job_description String
   job_hard_skills String
   job_soft_skills String
-  @@id([job_id])
 }
 
 model linkedin_benchmark {
-  id Int
-  skill_name String
+  id              Int    @id
+  skill_name      String
   avg_skill_score Float
-  percentile_75 Float
-  percentile_90 Float
-  sample_size Int
-  @@id([id])
+  percentile_75   Float
+  percentile_90   Float
+  sample_size     Int
 }
 
 model peer_reviews {
-  feedback String
-  rating Int
-  review_date DateTime
-  review_id Int
-  reviewer_id Int
-  reviewee_id Int
-  reviewer users? @relation(name: "PeerReviewsReviewer", fields: [reviewer_id], references: [user_id])
-  reviewee users? @relation(name: "PeerReviewsReviewee", fields: [reviewee_id], references: [user_id])
-  @@id([review_id])
+  review_date                   DateTime
+  review_id                     Int      @id @default(autoincrement())
+  reviewer_id                   Int
+  reviewee_id                   Int
+  academic_performance_rating   Int
+  additional_comments           String?
+  areas_for_improvement         String
+  collaboration_teamwork_rating Int
+  strengths_feedback            String
+  reviewee                      users    @relation("PeerReviewsReviewee", fields: [reviewee_id], references: [user_id])
+  reviewer                      users    @relation("PeerReviewsReviewer", fields: [reviewer_id], references: [user_id])
 }
 
 model projects {
-  project_id Int
-  project_title String
-  project_desc String
-  difficulty_level String
-  estimated_time String
-  users users[]
+  project_id           Int                    @id
+  project_title        String
+  project_desc         String
+  difficulty_level     String
+  estimated_time       String
   recommended_projects recommended_projects[]
-  study_plan_projects study_plan_projects[]
-  @@id([project_id])
+  study_plan_projects  study_plan_projects[]
+  users                users[]                @relation("projectsTousers")
 }
 
 model skill_competencies {
-  skill_id Int
-  skill_name String
-  skill_grade String
+  skill_id       Int          @id
+  skill_name     String
+  skill_grade    String
   skill_category String
-  user_skill user_skill[]
-  @@id([skill_id])
+  user_skill     user_skill[]
 }
 
 model specialization {
@@ -140,58 +150,52 @@ model specialization {
   spec_desc String
   icon String?
   users_specialization users_specialization[]
-  @@id([spec_id])
 }
 
 model study_plan_certificate {
-  id Int
-  plan_id Int
-  cert_id Int
-  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
-  certificate certificates? @relation(fields: [cert_id], references: [cert_id])
-  @@id([id])
+  id          Int          @id
+  plan_id     Int
+  cert_id     Int
+  certificate certificates @relation(fields: [cert_id], references: [cert_id])
+  study_plans study_plans  @relation(fields: [plan_id], references: [plan_id])
 }
 
 model study_plan_courses {
-  id Int
-  plan_id Int
-  course_id Int
-  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
-  course courses? @relation(fields: [course_id], references: [course_id])
-  @@id([id])
+  id          Int         @id
+  plan_id     Int
+  course_id   Int
+  course      courses     @relation(fields: [course_id], references: [course_id])
+  study_plans study_plans @relation(fields: [plan_id], references: [plan_id])
 }
 
 model study_plan_external_courses {
-  id Int
-  plan_id Int
+  id                 Int              @id
+  plan_id            Int
   external_course_id Int
-  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
-  external_courses external_courses? @relation(fields: [external_course_id], references: [external_course_id])
-  @@id([id])
+  external_courses   external_courses @relation(fields: [external_course_id], references: [external_course_id])
+  study_plans        study_plans      @relation(fields: [plan_id], references: [plan_id])
 }
 
 model study_plan_projects {
-  plan_id Int
-  project_id Int
-  id Int
-  study_plans study_plans? @relation(fields: [plan_id], references: [plan_id])
-  project projects? @relation(fields: [project_id], references: [project_id])
-  @@id([plan_id])
+  plan_id     Int         @id
+  project_id  Int
+  id          Int
+  study_plans study_plans @relation(fields: [plan_id], references: [plan_id])
+  project     projects    @relation(fields: [project_id], references: [project_id])
 }
 
 model study_plans {
-  plan_id Int
-  user_id Int
-  plan_name String
-  plan_desc String
-  created_at DateTime
-  updated_at DateTime
-  user users? @relation(fields: [user_id], references: [user_id])
-  study_plan_courses study_plan_courses[]
-  study_plan_projects study_plan_projects[]
-  study_plan_certificate study_plan_certificate[]
+  plan_id                     Int                           @id
+  user_id                     Int
+  plan_name                   String
+  plan_desc                   String
+  created_at                  DateTime
+  updated_at                  DateTime
+  study_plan_certificate      study_plan_certificate[]
+  study_plan_courses          study_plan_courses[]
   study_plan_external_courses study_plan_external_courses[]
-  @@id([plan_id])
+  study_plan_projects         study_plan_projects?
+  user                        users                         @relation(fields: [user_id], references: [user_id])
 }
 
 model user_career_paths {
@@ -203,118 +207,112 @@ model user_career_paths {
 }
 
 model user_certificates {
-  user_cert_id Int
-  user_id Int
-  date_obtained DateTime @db.Date
-  cert_id Int
-  user users? @relation(fields: [user_id], references: [user_id])
-  certificate certificates? @relation(fields: [cert_id], references: [cert_id])
-  @@id([user_cert_id])
+  user_cert_id  Int          @id
+  user_id       Int
+  date_obtained DateTime     @db.Date
+  cert_id       Int
+  certificate   certificates @relation(fields: [cert_id], references: [cert_id])
+  user          users        @relation(fields: [user_id], references: [user_id])
 }
 
 model user_courses {
-  id Int
-  user_id Int
-  course_id Int
-  enrollment_date DateTime @db.Date
+  id                Int      @id
+  user_id           Int
+  course_id         Int
+  enrollment_date   DateTime @db.Date
   completion_status String
-  user users? @relation(fields: [user_id], references: [user_id])
-  course courses? @relation(fields: [course_id], references: [course_id])
-  @@id([id])
+  course            courses  @relation(fields: [course_id], references: [course_id])
+  user              users    @relation(fields: [user_id], references: [user_id])
 }
 
 model user_external_courses {
-  user_external_course_id Int
-  user_id Int
-  external_course_completion_date DateTime @db.Date
-  external_course_id Int
-  user users? @relation(fields: [user_id], references: [user_id])
-  external_courses external_courses? @relation(fields: [external_course_id], references: [external_course_id])
-  @@id([user_external_course_id])
+  user_external_course_id         Int              @id
+  user_id                         Int
+  external_course_completion_date DateTime         @db.Date
+  external_course_id              Int
+  external_courses                external_courses @relation(fields: [external_course_id], references: [external_course_id])
+  user                            users            @relation(fields: [user_id], references: [user_id])
 }
 
 model user_skill {
-  user_id Int
-  skill_id Int
+  user_id           Int
+  skill_id          Int
   proficiency_score Float
-  last_updated DateTime
-  data_source String
-  user users? @relation(fields: [user_id], references: [user_id])
-  skill skill_competencies? @relation(fields: [skill_id], references: [skill_id])
+  last_updated      DateTime
+  data_source       String
+  skill             skill_competencies @relation(fields: [skill_id], references: [skill_id])
+  user              users              @relation(fields: [user_id], references: [user_id])
+
   @@id([user_id, skill_id])
 }
 
 model users {
-  password_hash String
-  created_at DateTime
-  updated_at DateTime
-  user_id Int
-  user_name String
-  user_email String
-  user_certificates user_certificates[]
-  users_specialization users_specialization[]
-  user_career_paths user_career_paths[]
-  user_external_courses user_external_courses[]
-  reviewsAuthored peer_reviews[] @relation(name: "PeerReviewsReviewer")
-  reviewsReceived peer_reviews[] @relation(name: "PeerReviewsReviewee")
-  ai_insights ai_insights[]
-  study_plans study_plans[]
-  community_posts community_posts[] @relation("PostAuthor")
-  user_courses user_courses[]
-  user_skill user_skill[]
-  projects projects[]
-  recommended_certificate recommended_certificate[]
-  recommended_courses recommended_courses[]
+  password_hash                String
+  created_at                   DateTime
+  updated_at                   DateTime
+  user_id                      Int                            @id
+  user_name                    String
+  user_email                   String
+  ai_insights                  ai_insights[]
+  community_posts              community_posts[]              @relation("PostAuthor")
+  reviewsReceived              peer_reviews[]                 @relation("PeerReviewsReviewee")
+  reviewsAuthored              peer_reviews[]                 @relation("PeerReviewsReviewer")
+  recommended_certificate      recommended_certificate[]
+  recommended_courses          recommended_courses[]
   recommended_external_courses recommended_external_courses[]
-  recommended_projects recommended_projects[]
-  @@id([user_id])
+  recommended_projects         recommended_projects[]
+  study_plans                  study_plans[]
+  user_career_paths            user_career_paths?
+  user_certificates            user_certificates[]
+  user_courses                 user_courses[]
+  user_external_courses        user_external_courses[]
+  user_skill                   user_skill[]
+  users_specialization         users_specialization[]
+  projects                     projects[]                     @relation("projectsTousers")
 }
 
 model users_specialization {
-  user_id Int
-  spec_id Int
-  added_date DateTime
-  user users? @relation(fields: [user_id], references: [user_id])
-  specialization specialization? @relation(fields: [spec_id], references: [spec_id])
+  user_id        Int
+  spec_id        Int
+  added_date     DateTime
+  specialization specialization @relation(fields: [spec_id], references: [spec_id])
+  user           users          @relation(fields: [user_id], references: [user_id])
+
   @@id([user_id, spec_id])
 }
 
 model recommended_certificate {
-  id Int
-  user_id Int
-  cert_id Int
-  reason String
-  user users? @relation(fields: [user_id], references: [user_id])
-  certificate certificates? @relation(fields: [cert_id], references: [cert_id])
-  @@id([id])
+  id          Int          @id
+  user_id     Int
+  cert_id     Int
+  reason      String
+  certificate certificates @relation(fields: [cert_id], references: [cert_id])
+  user        users        @relation(fields: [user_id], references: [user_id])
 }
 
 model recommended_courses {
-  re_course_id Int
-  user_id Int
-  course_id Int
-  reason String
-  user users? @relation(fields: [user_id], references: [user_id])
-  course courses? @relation(fields: [course_id], references: [course_id])
-  @@id([re_course_id])
+  re_course_id Int     @id
+  user_id      Int
+  course_id    Int
+  reason       String
+  course       courses @relation(fields: [course_id], references: [course_id])
+  user         users   @relation(fields: [user_id], references: [user_id])
 }
 
 model recommended_external_courses {
-  id Int
-  user_id Int
+  id                 Int              @id
+  user_id            Int
   external_course_id Int
-  reason String
-  user users? @relation(fields: [user_id], references: [user_id])
-  external_courses external_courses? @relation(fields: [external_course_id], references: [external_course_id])
-  @@id([id])
+  reason             String
+  external_courses   external_courses @relation(fields: [external_course_id], references: [external_course_id])
+  user               users            @relation(fields: [user_id], references: [user_id])
 }
 
 model recommended_projects {
-  id Int
-  user_id Int
+  id         Int      @id
+  user_id    Int
   project_id Int
-  reason String
-  user users? @relation(fields: [user_id], references: [user_id])
-  project projects? @relation(fields: [project_id], references: [project_id])
-  @@id([id])
+  reason     String
+  project    projects @relation(fields: [project_id], references: [project_id])
+  user       users    @relation(fields: [user_id], references: [user_id])
 }

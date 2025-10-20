@@ -5,7 +5,7 @@ export async function seedUserCourses(prisma: PrismaClient) {
 
   try {
     // Note: User courses clearing is handled by clearDatabase function in main seed
-    // No need to clear here as it's done before all seeding starts
+    // No need to clear here as it's done before all seeding starts 
 
     // List of all courses to be taken
     const courseCodes = [

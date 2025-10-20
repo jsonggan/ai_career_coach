@@ -4,8 +4,23 @@ export async function seedUsers(prisma: PrismaClient) {
   console.log('👥 Starting users seeding...')
 
   try {
-    // Note: Data clearing is handled by clearDatabase function in main seed
-    // No need to clear here as it's done before all seeding starts
+    // Clear existing data in correct order (dependent tables first)
+    console.log('🧹 Clearing existing data...')
+    await prisma.community_posts.deleteMany()
+    await prisma.peer_reviews.deleteMany()
+    await prisma.user_courses.deleteMany()
+    await prisma.user_certificates.deleteMany()
+    await prisma.user_external_courses.deleteMany()
+    await prisma.user_skill.deleteMany()
+    await prisma.users_specialization.deleteMany()
+    await prisma.user_career_paths.deleteMany()
+    await prisma.ai_insights.deleteMany()
+    await prisma.study_plans.deleteMany()
+    await prisma.recommended_certificate.deleteMany()
+    await prisma.recommended_courses.deleteMany()
+    await prisma.recommended_external_courses.deleteMany()
+    await prisma.recommended_projects.deleteMany()
+    await prisma.users.deleteMany()
 
     // Create 5 users with specific user_ids
     console.log('👤 Creating users...')

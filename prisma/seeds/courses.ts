@@ -20,8 +20,10 @@ export async function seedCourses(prisma: PrismaClient) {
     const coursesData: CourseData[] = JSON.parse(readFileSync(dataPath, 'utf-8'))
     console.log(`📚 Found ${coursesData.length} SUTD courses to seed`)
 
-    // Note: Data clearing is handled by clearDatabase function in main seed
-    // No need to clear here as it's done before all seeding starts
+    // Clear existing courses data
+    console.log('🧹 Clearing existing courses data...')
+    await prisma.community_posts.deleteMany()
+    await prisma.courses.deleteMany()
 
     // Insert courses data
     console.log('📝 Inserting courses data...')
