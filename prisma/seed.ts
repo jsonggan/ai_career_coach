@@ -6,6 +6,7 @@ import { seedUserCourses } from './seeds/user-courses'
 import { seedJobDescriptions } from './seeds/job-descriptions'
 import { seedCertificates } from './seeds/certificates'
 import { seedUserCertificates } from './seeds/user-certificates'
+import { seedExternalCourses } from './seeds/external-courses'
 import { seedUserExternalCourses } from './seeds/user-external-courses'
 import { seedUserProjects } from './seeds/user-projects'
 import { seedSpecializations, seedUserSpecializations } from './seeds/specializations'
@@ -26,6 +27,7 @@ async function main() {
     console.log('📋 Seeding base entities...')
     await seedCourses(prisma)
     await seedCertificates(prisma)
+    await seedExternalCourses(prisma)
     await seedSpecializations(prisma)
     await seedCareerPaths(prisma)
     // await seedJobDescriptions(prisma)
