@@ -210,7 +210,7 @@ export default function SkillsetAnalysis() {
       <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900">Skillset Analysis</h2>
-          <select
+          {/* <select
             value={selectedTimeframe}
             onChange={(e) => setSelectedTimeframe(e.target.value)}
             className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -218,7 +218,7 @@ export default function SkillsetAnalysis() {
             <option value="3months">Last 3 months</option>
             <option value="6months">Last 6 months</option>
             <option value="1year">Last year</option>
-          </select>
+          </select> */}
         </div>
         <p className="text-gray-600">
           Comprehensive analysis of your skills, capabilities, and learning recommendations.

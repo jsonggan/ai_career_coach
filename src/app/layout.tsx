@@ -44,13 +44,13 @@ const studentNavItems = [
     role: "Student",
     href: "/student/skill-competency",
   },
-  {
-    icon: "pi pi-calendar",
-    title: "Study Plan",
-    subtitle: "Plan and organize your study schedule",
-    role: "Student",
-    href: "/student/study-plan",
-  },
+  // {
+  //   icon: "pi pi-calendar",
+  //   title: "Study Plan",
+  //   subtitle: "Plan and organize your study schedule",
+  //   role: "Student",
+  //   href: "/student/study-plan",
+  // },
   {
     icon: "pi pi-comments",
     title: "Community",

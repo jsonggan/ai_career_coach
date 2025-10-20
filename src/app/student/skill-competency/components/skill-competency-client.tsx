@@ -63,7 +63,7 @@ export default function SkillCompetencyClient() {
               <CurrentSkillsView showHardSkillsOnly={true} />
               <AISkillSuggestions />
               <CourseRecommendations />
-              <ProjectIdeaGenerator />
+              {/* <ProjectIdeaGenerator /> */}
             </div>
           )}
 
