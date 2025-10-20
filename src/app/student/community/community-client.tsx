@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 // Types
 interface Course {
+  course_id: number;
   courseCode: string;
   courseName: string;
   description: string;
@@ -14,14 +15,25 @@ interface Course {
   year: number;
   category: string;
   department: string;
+  aiTaggedSkill?: string;
+  link?: string;
 }
 
 interface UserCourse {
+  id: number;
   courseCode: string;
+  courseName: string;
+  description: string;
   term: string;
   year: number;
-  status: 'COMPLETED' | 'IN_PROGRESS';
+  status: string;
   grade: string | null;
+  credits: number;
+  level: number;
+  category: string;
+  department: string;
+  enrollmentDate: string;
+  completionStatus: string;
 }
 
 interface Professor {
@@ -86,25 +98,7 @@ export default function CommunityClient({
   const [currentView, setCurrentView] = useState<'all-courses' | 'course-terms' | 'detailed-reviews'>('all-courses');
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [selectedTerm, setSelectedTerm] = useState<CourseTermSummary | null>(null);
-  const [showReviewForm, setShowReviewForm] = useState(false);
 
-  // Review form state
-  const [reviewForm, setReviewForm] = useState({
-    courseCode: '',
-    term: '',
-    year: 2025,
-    professorId: '',
-    courseRating: 5,
-    courseDifficulty: 3,
-    courseWorkload: 3,
-    courseUsefulness: 4,
-    professorRating: 5,
-    professorClarity: 4,
-    professorHelpfulness: 4,
-    professorEngagement: 4,
-    comment: '',
-    isAnonymous: false
-  });
 
   // Get completed courses for reviews
   const completedCourses = userCourses
@@ -114,12 +108,12 @@ export default function CommunityClient({
 
   // Get all courses with review data
   const allCoursesWithReviews = courses.map(course => {
-    const reviews = courseReviews.filter(r => r.courseCode === course.courseCode);
+    const reviews = courseReviews.filter((r: CourseReview) => r.courseCode === course.courseCode);
     const avgCourseRating = reviews.length > 0 
-      ? reviews.reduce((sum, r) => sum + r.courseRating, 0) / reviews.length 
+      ? reviews.reduce((sum: number, r: CourseReview) => sum + r.courseRating, 0) / reviews.length 
       : 0;
     const avgProfessorRating = reviews.length > 0
-      ? reviews.reduce((sum, r) => sum + r.professorRating, 0) / reviews.length
+      ? reviews.reduce((sum: number, r: CourseReview) => sum + r.professorRating, 0) / reviews.length
       : 0;
     
     return {
@@ -132,74 +126,23 @@ export default function CommunityClient({
 
   // Get term summaries for selected course
   const selectedCourseTerms = selectedCourse 
-    ? courseTermSummaries.filter(ts => ts.courseCode === selectedCourse.courseCode)
-        .sort((a, b) => b.year - a.year || (b.term === 'Fall' ? 1 : -1))
+    ? courseTermSummaries.filter((ts: CourseTermSummary) => ts.courseCode === selectedCourse.courseCode)
+        .sort((a: CourseTermSummary, b: CourseTermSummary) => b.year - a.year || (b.term === 'Fall' ? 1 : -1))
     : [];
 
   // Get detailed reviews for selected term
   const selectedTermReviews = selectedTerm
-    ? courseReviews.filter(r => 
+    ? courseReviews.filter((r: CourseReview) => 
         r.courseCode === selectedTerm.courseCode && 
         r.term === selectedTerm.term && 
         r.year === selectedTerm.year
-      ).sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+      ).sort((a: CourseReview, b: CourseReview) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
     : [];
 
-  // Handle review submission
-  const handleReviewSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!reviewForm.courseCode || !reviewForm.professorId) return;
-
-    const professor = professors.find(p => p.id === reviewForm.professorId);
-    if (!professor) return;
-
-    const newReview: CourseReview = {
-      id: Date.now().toString(),
-      courseCode: reviewForm.courseCode,
-      term: reviewForm.term,
-      year: reviewForm.year,
-      professorId: reviewForm.professorId,
-      professorName: professor.name,
-      userId: 'current-user',
-      userName: reviewForm.isAnonymous ? 'Anonymous' : 'You',
-      courseRating: reviewForm.courseRating,
-      courseDifficulty: reviewForm.courseDifficulty,
-      courseWorkload: reviewForm.courseWorkload,
-      courseUsefulness: reviewForm.courseUsefulness,
-      professorRating: reviewForm.professorRating,
-      professorClarity: reviewForm.professorClarity,
-      professorHelpfulness: reviewForm.professorHelpfulness,
-      professorEngagement: reviewForm.professorEngagement,
-      comment: reviewForm.comment,
-      timestamp: new Date().toISOString(),
-      upvotes: 0,
-      hasUpvoted: false,
-      isAnonymous: reviewForm.isAnonymous
-    };
-
-    setCourseReviews([newReview, ...courseReviews]);
-    setReviewForm({
-      courseCode: '',
-      term: '',
-      year: 2025,
-      professorId: '',
-      courseRating: 5,
-      courseDifficulty: 3,
-      courseWorkload: 3,
-      courseUsefulness: 4,
-      professorRating: 5,
-      professorClarity: 4,
-      professorHelpfulness: 4,
-      professorEngagement: 4,
-      comment: '',
-      isAnonymous: false
-    });
-    setShowReviewForm(false);
-  };
 
   // Handle upvotes
   const handleUpvoteReview = (reviewId: string) => {
-    setCourseReviews(courseReviews.map(review => 
+    setCourseReviews(courseReviews.map((review: CourseReview) => 
       review.id === reviewId 
         ? { 
             ...review, 
@@ -255,25 +198,21 @@ export default function CommunityClient({
   return (
     <div className="container mx-auto px-6 py-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Course Reviews</h1>
-            <p className="text-lg text-gray-600">
-              Share detailed reviews of courses and professors to help fellow students make informed decisions.
-            </p>
-          </div>
-          <button
-            onClick={() => setShowReviewForm(true)}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-          >
-            Write Review
-          </button>
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Course Reviews</h1>
+          <p className="text-lg text-gray-600">
+            Share detailed reviews of courses and professors to help fellow students make informed decisions.
+          </p>
         </div>
 
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
           <button
-            onClick={() => setCurrentView('all-courses')}
+            onClick={() => {
+              setSelectedTerm(null);
+              setSelectedCourse(null);
+              setCurrentView('all-courses');
+            }}
             className={`hover:text-blue-600 transition-colors ${currentView === 'all-courses' ? 'text-blue-600 font-medium' : ''}`}
           >
             All Courses
@@ -282,7 +221,10 @@ export default function CommunityClient({
             <>
               <span className="text-gray-400">/</span>
               <button
-                onClick={() => setCurrentView('course-terms')}
+                onClick={() => {
+                  setSelectedTerm(null);
+                  setCurrentView('course-terms');
+                }}
                 className={`hover:text-blue-600 transition-colors ${currentView === 'course-terms' ? 'text-blue-600 font-medium' : ''}`}
               >
                 {selectedCourse.courseCode} - {selectedCourse.courseName}
@@ -449,7 +391,7 @@ export default function CommunityClient({
             </div>
 
             {selectedTermReviews.length > 0 ? (
-              selectedTermReviews.map((review) => (
+              selectedTermReviews.map((review: CourseReview) => (
                 <div key={review.id} className="bg-white border border-gray-200 rounded-lg p-6">
                   <div className="flex justify-between items-start mb-4">
                     <div>
@@ -457,7 +399,7 @@ export default function CommunityClient({
                         <span className="text-sm font-medium text-gray-900">
                           {review.isAnonymous ? 'Anonymous Student' : review.userName}
                         </span>
-                        <span className="text-xs text-gray-500">•</span>
+                        <span className="text-xs text-gray-500">-</span>
                         <span className="text-xs text-gray-500">{formatDate(review.timestamp)}</span>
                       </div>
                     </div>
@@ -544,268 +486,6 @@ export default function CommunityClient({
                 <p>No detailed reviews available for this term yet.</p>
               </div>
             )}
-          </div>
-        )}
-
-        {/* Review Form Modal */}
-        {showReviewForm && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-              <h3 className="text-xl font-semibold mb-6">Write a Detailed Course Review</h3>
-              <form onSubmit={handleReviewSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Course Selection */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Select Course
-                    </label>
-                    <select
-                      value={reviewForm.courseCode}
-                      onChange={(e) => setReviewForm({...reviewForm, courseCode: e.target.value})}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      required
-                    >
-                      <option value="">Choose a completed course...</option>
-                      {completedCourses.map((course) => (
-                        <option key={course.courseCode} value={course.courseCode}>
-                          {course.courseCode} - {course.courseName}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Professor Selection */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Select Professor
-                    </label>
-                    <select
-                      value={reviewForm.professorId}
-                      onChange={(e) => setReviewForm({...reviewForm, professorId: e.target.value})}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      required
-                    >
-                      <option value="">Choose professor...</option>
-                      {professors.map((professor) => (
-                        <option key={professor.id} value={professor.id}>
-                          {professor.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Term and Year */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Term
-                    </label>
-                    <select
-                      value={reviewForm.term}
-                      onChange={(e) => setReviewForm({...reviewForm, term: e.target.value})}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      required
-                    >
-                      <option value="">Select term...</option>
-                      <option value="Fall">Fall</option>
-                      <option value="Spring">Spring</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Year
-                    </label>
-                    <select
-                      value={reviewForm.year}
-                      onChange={(e) => setReviewForm({...reviewForm, year: parseInt(e.target.value)})}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      required
-                    >
-                      {[2024, 2025, 2026, 2027, 2028].map(year => (
-                        <option key={year} value={year}>{year}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Course Ratings */}
-                <div>
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">Course Evaluation</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Overall Course Rating
-                      </label>
-                      <select
-                        value={reviewForm.courseRating}
-                        onChange={(e) => setReviewForm({...reviewForm, courseRating: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num} Star{num > 1 ? 's' : ''}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Difficulty Level (1-5)
-                      </label>
-                      <select
-                        value={reviewForm.courseDifficulty}
-                        onChange={(e) => setReviewForm({...reviewForm, courseDifficulty: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num} - {getDifficultyLabel(num)}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Workload (1-5)
-                      </label>
-                      <select
-                        value={reviewForm.courseWorkload}
-                        onChange={(e) => setReviewForm({...reviewForm, courseWorkload: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num} - {getWorkloadLabel(num)}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Usefulness (1-5)
-                      </label>
-                      <select
-                        value={reviewForm.courseUsefulness}
-                        onChange={(e) => setReviewForm({...reviewForm, courseUsefulness: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num} - {getUsefulnessLabel(num)}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Professor Ratings */}
-                <div>
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">Professor Evaluation</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Overall Professor Rating
-                      </label>
-                      <select
-                        value={reviewForm.professorRating}
-                        onChange={(e) => setReviewForm({...reviewForm, professorRating: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num} Star{num > 1 ? 's' : ''}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Clarity (1-5)
-                      </label>
-                      <select
-                        value={reviewForm.professorClarity}
-                        onChange={(e) => setReviewForm({...reviewForm, professorClarity: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Helpfulness (1-5)
-                      </label>
-                      <select
-                        value={reviewForm.professorHelpfulness}
-                        onChange={(e) => setReviewForm({...reviewForm, professorHelpfulness: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Engagement (1-5)
-                      </label>
-                      <select
-                        value={reviewForm.professorEngagement}
-                        onChange={(e) => setReviewForm({...reviewForm, professorEngagement: parseInt(e.target.value)})}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Review Comment */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Detailed Review
-                  </label>
-                  <textarea
-                    value={reviewForm.comment}
-                    onChange={(e) => setReviewForm({...reviewForm, comment: e.target.value})}
-                    placeholder="Share your detailed experience with this course and professor. Include information about course content, assignments, exams, teaching style, and any advice for future students..."
-                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    rows={6}
-                    required
-                  />
-                </div>
-
-                {/* Anonymous Option */}
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="anonymous"
-                    checked={reviewForm.isAnonymous}
-                    onChange={(e) => setReviewForm({...reviewForm, isAnonymous: e.target.checked})}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                  />
-                  <label htmlFor="anonymous" className="ml-2 block text-sm text-gray-900">
-                    Submit this review anonymously
-                  </label>
-                </div>
-
-                <div className="flex justify-end space-x-3 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setShowReviewForm(false)}
-                    className="px-6 py-2 text-gray-600 hover:text-gray-800 transition-colors"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-                  >
-                    Submit Review
-                  </button>
-                </div>
-              </form>
-            </div>
           </div>
         )}
       </div>
