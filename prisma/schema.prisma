@@ -73,6 +73,7 @@ model external_courses {
   external_provider String
   external_course_desc String
   external_ai_tagged_skill String
+  is_added_by_user Boolean @default(false)
   user_external_courses user_external_courses[]
   recommended_external_courses recommended_external_courses[]
   study_plan_external_courses study_plan_external_courses[]
