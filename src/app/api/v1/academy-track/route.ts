@@ -59,9 +59,8 @@ export async function PUT(request: NextRequest) {
     });
 
     // 5. Handle course enrollments (outside transaction since it has its own)
-    if (selectedCourses.length > 0) {
-      await enrollUserInCourses(userId, selectedCourses, 'Spring', 2025);
-    }
+    // Always call this function, even if no courses are selected, to clear previous enrollments
+    await enrollUserInCourses(userId, selectedCourses, 'Spring', 2025);
 
     return NextResponse.json({
       success: true,

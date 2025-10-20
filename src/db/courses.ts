@@ -170,21 +170,24 @@ export async function getAvailableCourses(userId: number = 1): Promise<Course[]>
 // Enroll user in courses with "NOT_STARTED" status
 export async function enrollUserInCourses(userId: number, courseCodes: string[], term: string = 'Spring', year: number = 2025): Promise<void> {
   try {
-    // First, remove any existing enrollments for the same term/year to avoid duplicates
+    // First, remove ALL existing enrollments for the user for this term/year
+    // This ensures deselected courses are properly removed
     await prisma.user_courses.deleteMany({
       where: {
         user_id: userId,
-        course: {
-          course_code: {
-            in: courseCodes
-          }
-        },
         enrollment_date: {
           gte: new Date(`${year}-01-01`),
           lt: new Date(`${year + 1}-01-01`)
-        }
+        },
+        // Only delete courses with NOT_STARTED status to preserve completed/in-progress courses
+        completion_status: 'NOT_STARTED'
       }
     });
+
+    // If no courses are selected, we're done (all enrollments cleared)
+    if (courseCodes.length === 0) {
+      return;
+    }
 
     // Get course IDs from course codes
     const courses = await prisma.courses.findMany({
