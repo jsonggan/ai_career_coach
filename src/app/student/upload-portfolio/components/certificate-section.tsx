@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { UserCertificate } from '@/db/portfolio';
-import Modal from './Modal';
-import CertificateForm from './CertificateForm';
-import AIHelpSection from './AIHelpSection';
+import Modal from './modal';
+import CertificateForm from './certificate-form';
+import AIHelpSection from './ai-help-section';
 
 interface CertificateSectionProps {
   certificates: UserCertificate[];

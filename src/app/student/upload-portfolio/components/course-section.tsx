@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { UserExternalCourse } from '@/db/portfolio';
-import Modal from './Modal';
-import CourseForm from './CourseForm';
-import AIHelpSection from './AIHelpSection';
+import Modal from './modal';
+import CourseForm from './course-form';
+import AIHelpSection from './ai-help-section';
 
 interface CourseSectionProps {
   courses: UserExternalCourse[];

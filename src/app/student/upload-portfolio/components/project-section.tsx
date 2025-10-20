@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { UserProject } from '@/db/portfolio';
-import Modal from './Modal';
-import ProjectForm from './ProjectForm';
-import AIHelpSection from './AIHelpSection';
+import Modal from './modal';
+import ProjectForm from './project-form';
+import AIHelpSection from './ai-help-section';
 
 interface ProjectSectionProps {
   projects: UserProject[];

@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import { UserCertificate, UserExternalCourse, UserProject } from '@/db/portfolio';
-import CertificateSection from './components/CertificateSection';
-import CourseSection from './components/CourseSection';
-import ProjectSection from './components/ProjectSection';
+import CertificateSection from './components/certificate-section';
+import CourseSection from './components/course-section';
+import ProjectSection from './components/project-section';
 
 interface UploadPortfolioClientProps {
   initialCertificates?: UserCertificate[];
