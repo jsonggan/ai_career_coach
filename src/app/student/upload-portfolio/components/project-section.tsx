@@ -40,7 +40,7 @@ export default function ProjectSection({
             onClick={() => setShowAIHelp(!showAIHelp)}
             className="text-blue-600 hover:text-blue-800 text-sm font-medium"
           >
-            {showAIHelp ? "Hide AI Help" : "Get AI Help"}
+            {showAIHelp ? "Hide Help" : "Get Help"}
           </button>
           <button
             onClick={() => setShowModal(true)}

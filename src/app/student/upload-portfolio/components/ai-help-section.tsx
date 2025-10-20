@@ -5,7 +5,7 @@ interface AIHelpSectionProps {
 
 const helpContent = {
   certificates: {
-    title: "AI Assistant - Writing Great Certificate Descriptions:",
+    title: "Writing Great Certificate Descriptions:",
     tips: [
       { label: "Be specific:", example: "\"AWS Certified Solutions Architect - Professional\" instead of \"AWS Certificate\"" },
       { label: "Include skills:", example: "List relevant technical skills like \"Cloud Architecture, AWS Services, Security\"" },
@@ -14,7 +14,7 @@ const helpContent = {
     ]
   },
   courses: {
-    title: "AI Assistant - Writing Great Course Descriptions:",
+    title: "Writing Great Course Descriptions:",
     tips: [
       { label: "Include platform:", example: "\"Coursera\", \"edX\", \"Udemy\", \"LinkedIn Learning\"" },
       { label: "Mention duration:", example: "\"12-week course\", \"40 hours of content\"" },
@@ -23,7 +23,7 @@ const helpContent = {
     ]
   },
   projects: {
-    title: "AI Assistant - Writing Great Project Descriptions:",
+    title: "Writing Great Project Descriptions:",
     tips: [
       { label: "Include project type:", example: "\"Web Application\", \"Mobile App\", \"Data Analysis\", \"Machine Learning\"" },
       { label: "List technologies:", example: "\"React, Node.js, MongoDB, AWS\"" },
