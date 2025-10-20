@@ -32,7 +32,7 @@ export default function NavigationItem({
             "flex items-center rounded-xl p-3 cursor-pointer transition-all duration-150",
             isCollapsed ? "justify-center" : "gap-3",
             isActive
-              ? "bg-blue-50 border border-blue-200"
+              ? "bg-primary-50 border border-primary-200"
               : "bg-white hover:bg-gray-50 border border-transparent hover:border-gray-200"
           )}
           title={isCollapsed ? item.title : ""}
@@ -41,13 +41,13 @@ export default function NavigationItem({
             className={clsx(
               item.icon,
               "text-xl flex-shrink-0",
-              isActive ? "text-blue-600" : "text-gray-500"
+              isActive ? "text-primary-600" : "text-gray-500"
             )}
           />
           {!isCollapsed && (
             <div className="flex flex-col min-w-0">
               <span
-                className={`text-base ${isActive ? "text-blue-600" : "text-gray-800 "}`}
+                className={`text-base ${isActive ? "text-primary-600" : "text-gray-800 "}`}
               >
                 {item.title}
               </span>
@@ -56,7 +56,7 @@ export default function NavigationItem({
               >
                 {item.subtitle}
               </span>
-              <span className="text-blue-500 mt-1 text-xs">{item.role}</span>
+              {/* <span className="text-blue-500 mt-1 text-xs">{item.role}</span> */}
             </div>
           )}
         </div>

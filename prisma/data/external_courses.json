@@ -1,0 +1,362 @@
+[
+  {
+    "external_course_id": 1,
+    "external_course_name": "CS50's Introduction to Computer Science",
+    "external_provider": "Harvard University (edX)",
+    "external_course_desc": "Harvard's introduction to computer science and programming, covering algorithms, data structures, and software engineering principles",
+    "external_course_link": "https://cs50.harvard.edu/x/",
+    "external_ai_tagged_skill": "Programming, Algorithms, Data Structures, C, Python, SQL, Web Development",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 2,
+    "external_course_name": "Full-Stack Web Development with React",
+    "external_provider": "Coursera",
+    "external_course_desc": "Complete full-stack development course covering React, Node.js, MongoDB, and modern web development practices",
+    "external_course_link": "https://www.coursera.org/specializations/full-stack-react",
+    "external_ai_tagged_skill": "React, Node.js, MongoDB, JavaScript, HTML, CSS, Web Development",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 3,
+    "external_course_name": "Java Programming and Software Engineering Fundamentals",
+    "external_provider": "Coursera",
+    "external_course_desc": "Comprehensive Java programming course covering object-oriented programming, data structures, and software engineering principles",
+    "external_course_link": "https://www.coursera.org/specializations/java-programming",
+    "external_ai_tagged_skill": "Java, Object-Oriented Programming, Data Structures, Software Engineering, Algorithms",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 4,
+    "external_course_name": "Python for Everybody",
+    "external_provider": "Coursera",
+    "external_course_desc": "Complete Python programming specialization covering basics to advanced topics including data structures and web scraping",
+    "external_course_link": "https://www.coursera.org/specializations/python",
+    "external_ai_tagged_skill": "Python, Programming, Data Structures, Web Scraping, Database Programming",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 5,
+    "external_course_name": "The Complete Web Developer Course 2.0",
+    "external_provider": "Udemy",
+    "external_course_desc": "Comprehensive web development course covering HTML, CSS, JavaScript, PHP, MySQL, and modern frameworks",
+    "external_course_link": "https://www.udemy.com/course/the-complete-web-developer-course-2/",
+    "external_ai_tagged_skill": "HTML, CSS, JavaScript, PHP, MySQL, Web Development, Responsive Design",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 6,
+    "external_course_name": "Data Science Specialization",
+    "external_provider": "Coursera",
+    "external_course_desc": "Comprehensive data science course covering R programming, statistical analysis, machine learning, and data visualization",
+    "external_course_link": "https://www.coursera.org/specializations/jhu-data-science",
+    "external_ai_tagged_skill": "R Programming, Statistics, Machine Learning, Data Visualization, Data Analysis",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 7,
+    "external_course_name": "Applied Data Science with Python",
+    "external_provider": "Coursera",
+    "external_course_desc": "Python-based data science course covering data manipulation, analysis, visualization, and machine learning",
+    "external_course_link": "https://www.coursera.org/specializations/data-science-python",
+    "external_ai_tagged_skill": "Python, Pandas, NumPy, Matplotlib, Scikit-learn, Data Analysis, Machine Learning",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 8,
+    "external_course_name": "Data Science MicroMasters",
+    "external_provider": "edX",
+    "external_course_desc": "Advanced data science program covering statistics, machine learning, and big data analytics",
+    "external_course_link": "https://www.edx.org/micromasters/data-science",
+    "external_ai_tagged_skill": "Statistics, Machine Learning, Big Data, Python, R, Data Analysis",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 9,
+    "external_course_name": "Data Science and Machine Learning Bootcamp with R",
+    "external_provider": "Udemy",
+    "external_course_desc": "Intensive bootcamp covering data science fundamentals, statistical analysis, and machine learning using R",
+    "external_course_link": "https://www.udemy.com/course/data-science-and-machine-learning-bootcamp-with-r/",
+    "external_ai_tagged_skill": "R Programming, Statistics, Machine Learning, Data Visualization, Data Analysis",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 10,
+    "external_course_name": "Introduction to Data Science",
+    "external_provider": "edX",
+    "external_course_desc": "Foundational course in data science covering data collection, analysis, and interpretation",
+    "external_course_link": "https://www.edx.org/course/introduction-to-data-science",
+    "external_ai_tagged_skill": "Data Science, Statistics, Data Analysis, Python, SQL",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 11,
+    "external_course_name": "Digital Marketing Specialization",
+    "external_provider": "Coursera",
+    "external_course_desc": "Comprehensive digital marketing course covering SEO, social media, content marketing, and analytics",
+    "external_course_link": "https://www.coursera.org/specializations/digital-marketing",
+    "external_ai_tagged_skill": "Digital Marketing, SEO, Social Media Marketing, Content Marketing, Analytics",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 12,
+    "external_course_name": "Google Digital Marketing & E-commerce Professional Certificate",
+    "external_provider": "Coursera",
+    "external_course_desc": "Google's professional certificate program covering digital marketing, e-commerce, and analytics",
+    "external_course_link": "https://www.coursera.org/professional-certificates/google-digital-marketing-ecommerce",
+    "external_ai_tagged_skill": "Digital Marketing, E-commerce, Google Analytics, SEO, Social Media Marketing",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 13,
+    "external_course_name": "The Complete Digital Marketing Guide",
+    "external_provider": "Udemy",
+    "external_course_desc": "Comprehensive digital marketing course covering all aspects of online marketing and advertising",
+    "external_course_link": "https://www.udemy.com/course/learn-digital-marketing-course/",
+    "external_ai_tagged_skill": "Digital Marketing, SEO, PPC, Social Media, Email Marketing, Analytics",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 14,
+    "external_course_name": "Digital Marketing Strategy",
+    "external_provider": "edX",
+    "external_course_desc": "Strategic approach to digital marketing covering planning, implementation, and measurement",
+    "external_course_link": "https://www.edx.org/course/digital-marketing-strategy",
+    "external_ai_tagged_skill": "Digital Marketing Strategy, Marketing Analytics, Customer Acquisition, Brand Management",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 15,
+    "external_course_name": "HubSpot Content Marketing Certification",
+    "external_provider": "HubSpot Academy",
+    "external_course_desc": "Content marketing certification covering strategy, creation, distribution, and measurement",
+    "external_course_link": "https://academy.hubspot.com/courses/content-marketing",
+    "external_ai_tagged_skill": "Content Marketing, Content Strategy, SEO, Social Media, Marketing Automation",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 16,
+    "external_course_name": "Introduction to Cyber Security Specialization",
+    "external_provider": "Coursera",
+    "external_course_desc": "Comprehensive cybersecurity course covering network security, cryptography, and risk management",
+    "external_course_link": "https://www.coursera.org/specializations/intro-cyber-security",
+    "external_ai_tagged_skill": "Cybersecurity, Network Security, Cryptography, Risk Management, Security Analysis",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 17,
+    "external_course_name": "Cybersecurity: Managing Risk in the Information Age",
+    "external_provider": "edX",
+    "external_course_desc": "Advanced cybersecurity course focusing on risk management and information security strategies",
+    "external_course_link": "https://www.edx.org/course/cybersecurity-managing-risk-in-the-information-age",
+    "external_ai_tagged_skill": "Cybersecurity, Risk Management, Information Security, Security Policies, Compliance",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 18,
+    "external_course_name": "The Complete Cyber Security Course: Hackers Exposed!",
+    "external_provider": "Udemy",
+    "external_course_desc": "Comprehensive cybersecurity course covering ethical hacking, penetration testing, and security defense",
+    "external_course_link": "https://www.udemy.com/course/the-complete-internet-security-privacy-course-volume-1/",
+    "external_ai_tagged_skill": "Ethical Hacking, Penetration Testing, Network Security, Security Defense, Privacy",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 19,
+    "external_course_name": "Cybersecurity Foundations",
+    "external_provider": "LinkedIn Learning",
+    "external_course_desc": "Foundational cybersecurity course covering basic security concepts and best practices",
+    "external_course_link": "https://www.linkedin.com/learning/cybersecurity-foundations",
+    "external_ai_tagged_skill": "Cybersecurity Fundamentals, Security Concepts, Threat Analysis, Security Policies",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 20,
+    "external_course_name": "Cybersecurity Essentials",
+    "external_provider": "Cisco Networking Academy",
+    "external_course_desc": "Cisco's cybersecurity essentials course covering network security and threat protection",
+    "external_course_link": "https://www.netacad.com/courses/cybersecurity/essentials",
+    "external_ai_tagged_skill": "Network Security, Threat Protection, Security Protocols, Cisco Security",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 21,
+    "external_course_name": "Google UX Design Professional Certificate",
+    "external_provider": "Coursera",
+    "external_course_desc": "Comprehensive UX design program covering user research, wireframing, prototyping, and usability testing",
+    "external_course_link": "https://www.coursera.org/professional-certificates/google-ux-design",
+    "external_ai_tagged_skill": "UX Design, User Research, Wireframing, Prototyping, Usability Testing, Figma",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 22,
+    "external_course_name": "User Experience Design Essentials",
+    "external_provider": "Udemy",
+    "external_course_desc": "Complete UX design course covering user research, design thinking, and interface design",
+    "external_course_link": "https://www.udemy.com/course/ux-design-essentials/",
+    "external_ai_tagged_skill": "UX Design, User Research, Design Thinking, Interface Design, Adobe XD",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 23,
+    "external_course_name": "Introduction to User Experience Design",
+    "external_provider": "Coursera",
+    "external_course_desc": "Foundational UX design course covering user-centered design principles and methodologies",
+    "external_course_link": "https://www.coursera.org/learn/user-experience-design",
+    "external_ai_tagged_skill": "UX Design, User-Centered Design, Design Principles, User Research",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 24,
+    "external_course_name": "UX Design for Mobile Developers",
+    "external_provider": "Udacity",
+    "external_course_desc": "Specialized UX design course focusing on mobile app design and user experience",
+    "external_course_link": "https://www.udacity.com/course/ux-design-for-mobile-developers--ud849",
+    "external_ai_tagged_skill": "Mobile UX Design, App Design, User Interface, Mobile Development",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 25,
+    "external_course_name": "Human-Computer Interaction",
+    "external_provider": "edX",
+    "external_course_desc": "Advanced course in human-computer interaction covering usability, accessibility, and user experience",
+    "external_course_link": "https://www.edx.org/course/human-computer-interaction",
+    "external_ai_tagged_skill": "Human-Computer Interaction, Usability, Accessibility, User Experience, Interface Design",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 26,
+    "external_course_name": "Full Stack Web Development with React",
+    "external_provider": "Coursera",
+    "external_course_desc": "Complete full-stack development course covering frontend and backend technologies with React",
+    "external_course_link": "https://www.coursera.org/specializations/full-stack-react",
+    "external_ai_tagged_skill": "React, Node.js, MongoDB, JavaScript, Full Stack Development, Web Development",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 27,
+    "external_course_name": "The Complete 2024 Web Development Bootcamp",
+    "external_provider": "Udemy",
+    "external_course_desc": "Comprehensive web development bootcamp covering HTML, CSS, JavaScript, React, Node.js, and databases",
+    "external_course_link": "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
+    "external_ai_tagged_skill": "HTML, CSS, JavaScript, React, Node.js, MongoDB, Full Stack Development",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 28,
+    "external_course_name": "Full Stack Open",
+    "external_provider": "University of Helsinki",
+    "external_course_desc": "Free full-stack development course covering React, Node.js, TypeScript, and modern web technologies",
+    "external_course_link": "https://fullstackopen.com/",
+    "external_ai_tagged_skill": "React, Node.js, TypeScript, Full Stack Development, JavaScript, Web Development",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 29,
+    "external_course_name": "Full Stack Web Development with React Specialization",
+    "external_provider": "Coursera",
+    "external_course_desc": "Specialized program in full-stack development with React, covering frontend and backend technologies",
+    "external_course_link": "https://www.coursera.org/specializations/full-stack-react",
+    "external_ai_tagged_skill": "React, Node.js, MongoDB, Full Stack Development, JavaScript, Web Development",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 30,
+    "external_course_name": "Full Stack JavaScript Developer",
+    "external_provider": "freeCodeCamp",
+    "external_course_desc": "Free comprehensive full-stack JavaScript development course covering all modern web technologies",
+    "external_course_link": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+    "external_ai_tagged_skill": "JavaScript, React, Node.js, Full Stack Development, Web Development, APIs",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 31,
+    "external_course_name": "Game Design and Development Specialization",
+    "external_provider": "Coursera",
+    "external_course_desc": "Comprehensive game design course covering game mechanics, storytelling, and development tools",
+    "external_course_link": "https://www.coursera.org/specializations/game-design",
+    "external_ai_tagged_skill": "Game Design, Game Development, Unity, C#, Game Mechanics, Storytelling",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 32,
+    "external_course_name": "Complete C# Unity Game Developer 3D",
+    "external_provider": "Udemy",
+    "external_course_desc": "Complete Unity game development course covering 3D game creation with C# programming",
+    "external_course_link": "https://www.udemy.com/course/unitycourse2/",
+    "external_ai_tagged_skill": "Unity, C#, Game Development, 3D Games, Game Programming, Game Design",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 33,
+    "external_course_name": "Introduction to Game Development",
+    "external_provider": "edX",
+    "external_course_desc": "Foundational game development course covering game design principles and development tools",
+    "external_course_link": "https://www.edx.org/course/introduction-to-game-development",
+    "external_ai_tagged_skill": "Game Development, Game Design, Programming, Game Mechanics, Game Art",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 34,
+    "external_course_name": "Game Design and Development with Unity 2020",
+    "external_provider": "Coursera",
+    "external_course_desc": "Unity-based game development course covering 2D and 3D game creation",
+    "external_course_link": "https://www.coursera.org/learn/game-design-and-development",
+    "external_ai_tagged_skill": "Unity, Game Development, C#, 2D Games, 3D Games, Game Programming",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 35,
+    "external_course_name": "Game Design: Art and Concepts Specialization",
+    "external_provider": "Coursera",
+    "external_course_desc": "Art-focused game design course covering visual design, storytelling, and game aesthetics",
+    "external_course_link": "https://www.coursera.org/specializations/game-design-art-concepts",
+    "external_ai_tagged_skill": "Game Art, Game Design, Visual Design, Storytelling, Game Aesthetics, Character Design",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 36,
+    "external_course_name": "Research Methods and Statistics",
+    "external_provider": "Coursera",
+    "external_course_desc": "Comprehensive research methodology course covering statistical analysis and research design",
+    "external_course_link": "https://www.coursera.org/specializations/research-methods-statistics",
+    "external_ai_tagged_skill": "Research Methods, Statistics, Data Analysis, Research Design, Statistical Modeling",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 37,
+    "external_course_name": "Machine Learning and Data Science",
+    "external_provider": "edX",
+    "external_course_desc": "Advanced course in machine learning and data science for research applications",
+    "external_course_link": "https://www.edx.org/course/machine-learning-and-data-science",
+    "external_ai_tagged_skill": "Machine Learning, Data Science, Python, Statistics, Research, Data Analysis",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 38,
+    "external_course_name": "Advanced Research Methods",
+    "external_provider": "Coursera",
+    "external_course_desc": "Advanced research methodology course covering experimental design and data analysis",
+    "external_course_link": "https://www.coursera.org/learn/advanced-research-methods",
+    "external_ai_tagged_skill": "Research Methods, Experimental Design, Data Analysis, Statistics, Research Ethics",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 39,
+    "external_course_name": "Data Science for Research",
+    "external_provider": "edX",
+    "external_course_desc": "Specialized data science course for research applications and academic studies",
+    "external_course_link": "https://www.edx.org/course/data-science-for-research",
+    "external_ai_tagged_skill": "Data Science, Research, Python, R, Statistical Analysis, Data Visualization",
+    "is_added_by_user": false
+  },
+  {
+    "external_course_id": 40,
+    "external_course_name": "Research Ethics and Integrity",
+    "external_provider": "Coursera",
+    "external_course_desc": "Essential course on research ethics, integrity, and responsible conduct in research",
+    "external_course_link": "https://www.coursera.org/learn/research-ethics-integrity",
+    "external_ai_tagged_skill": "Research Ethics, Academic Integrity, Responsible Research, Research Standards",
+    "is_added_by_user": false
+  }
+]

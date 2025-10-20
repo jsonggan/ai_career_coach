@@ -15,50 +15,58 @@ import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const navItems = [
+const studentNavItems = [
   {
-    icon: "pi pi-home",
-    title: "Command Center",
-    subtitle: "Overview and statistics",
-    role: "HR Admin",
-    href: "/dashboard",
+    icon: "pi pi-book",
+    title: "Courses, Major & Career",
+    subtitle: "Academic planning & tracking",
+    role: "Student",
+    href: "/student/academy-track",
   },
   {
-    icon: "pi pi-file-edit",
-    title: "Self Assessment",
-    subtitle: "Complete your evaluation",
-    role: "Employee",
-    href: "/self-assessment",
-  },
-  {
-    icon: "pi pi-comments",
-    title: "Peer Assessment",
-    subtitle: "360° colleague evaluation",
-    role: "Peer",
-    href: "/peer-assessment",
+    icon: "pi pi-upload",
+    title: "Upload Portfolio",
+    subtitle: "Certificates, courses & projects",
+    role: "Student",
+    href: "/student/upload-portfolio",
   },
   {
     icon: "pi pi-users",
-    title: "Supervisor Review",
-    subtitle: "Evaluate unit members",
-    role: "Manager",
-    href: "/supervisor-review",
+    title: "Peer Review",
+    subtitle: "Review and get reviewed by peers",
+    role: "Student",
+    href: "/student/peer-review",
   },
   {
-    icon: "pi pi-sparkles",
-    title: "Roles",
-    subtitle: "Find the best candidates",
-    role: "HR Admin",
-    href: "/roles",
+    icon: "pi pi-chart-line",
+    title: "Skill Competency",
+    subtitle: "Track your skills & progress",
+    role: "Student",
+    href: "/student/skill-competency",
+  },
+  // {
+  //   icon: "pi pi-calendar",
+  //   title: "Study Plan",
+  //   subtitle: "Plan and organize your study schedule",
+  //   role: "Student",
+  //   href: "/student/study-plan",
+  // },
+  {
+    icon: "pi pi-comments",
+    title: "Community",
+    subtitle: "Get advice on professors & courses",
+    role: "Student",
+    href: "/student/community",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "TalentForge",
-  description: "Unlock your talent",
+  title: "Pathly",
+  description: "AI Career Coach",
 };
 
-function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
+function Navigation({ isCollapsed }: { isCollapsed: boolean; }) {
+
   return (
     <nav
       className={clsx(
@@ -68,16 +76,16 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
     >
       <div className="flex flex-row items-center gap-2 pt-4">
         <Image
-          alt="TalentForge"
-          className="cursor-pointer flex-shrink-0"
+          alt="AI Career Coach"
+          className="cursor-pointer flex-shrink-0 p-1"
           src="/logo.png"
           width={32}
           height={32}
         />
         {!isCollapsed && (
           <div className="flex flex-col flex-1 min-w-0">
-            <h3 className="text-lg font-semibold">Defence Personnel</h3>
-            <p className="text-sm text-gray-500">Assessment Management</p>
+            <h3 className="text-lg font-semibold">Pathly</h3>
+            <p className="text-sm text-gray-500">AI Career Coach</p>
           </div>
         )}
         <SidebarToggle isCollapsed={isCollapsed} />
@@ -86,10 +94,10 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
       <div className="border-b border-gray-200 mt-4 mb-2"></div>
 
       <ul
-        className="list-none p-0 m-0 flex flex-col gap-2"
+        className="list-none p-0 m-0 flex flex-col gap-4"
         style={{ listStyle: "none" }}
       >
-        {navItems.map((item) => (
+        {studentNavItems.map((item) => (
           <NavigationItem
             key={item.title}
             item={item}
@@ -106,7 +114,7 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
             "flex items-center mb-4 hover:bg-gray-50 cursor-pointer px-4 py-2 rounded-md transition-all",
             isCollapsed ? "justify-center" : "flex-row gap-2"
           )}
-          title={isCollapsed ? "COL Edward Lim" : ""}
+          title={isCollapsed ? "Andrew Ng" : ""}
         >
           <Image
             src="/avatar.png"
@@ -117,9 +125,9 @@ function Navigation({ isCollapsed }: { isCollapsed: boolean }) {
           />
           {!isCollapsed && (
             <div className="flex flex-col min-w-0">
-              <h3 className="text-md">COL Edward Lim</h3>
+              <h3 className="text-md">Andrew Ng</h3>
               <p className="text-xs text-gray-500">
-                Joint Task Force Commander
+                Student Profile
               </p>
             </div>
           )}
@@ -150,14 +158,14 @@ export default function RootLayout({
             "h-screen w-screen flex overflow-hidden"
           )}
         >
-          <Navigation isCollapsed={isCollapsed} />
+          <Navigation isCollapsed={isCollapsed}/>
           <main className="flex-1 bg-gray-50 flex flex-col items-center h-screen pb-8 min-h-0 min-w-0 overflow-y-auto">
             {children}
             {/* <TeemoChat /> */}
             {/* <CreateProjectDialog /> */}
           </main>
           <ToastContainer
-            position="top-right"
+            position="bottom-right"
             autoClose={3000}
             hideProgressBar={false}
             newestOnTop={false}
