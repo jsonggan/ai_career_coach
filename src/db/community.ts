@@ -130,10 +130,10 @@ export async function getCourseReviews(): Promise<CourseReview[]> {
         courseDifficulty: difficulty,
         courseWorkload: workload,
         courseUsefulness: usefulness,
-        professorRating: Math.floor(Math.random() * 2) + 3, // 3-4 professor rating
-        professorClarity: Math.floor(Math.random() * 2) + 3, // 3-4 clarity
-        professorHelpfulness: Math.floor(Math.random() * 2) + 3, // 3-4 helpfulness
-        professorEngagement: Math.floor(Math.random() * 2) + 3, // 3-4 engagement
+        professorRating: Math.floor(Math.random() * 2) + 4, // 3-4 professor rating
+        professorClarity: Math.floor(Math.random() * 2) + 4, // 3-4 clarity
+        professorHelpfulness: Math.floor(Math.random() * 2) + 4, // 3-4 helpfulness
+        professorEngagement: Math.floor(Math.random() * 2) + 4, // 3-4 engagement
         comment: courseSpecificComment,
         timestamp: post.posted_on.toISOString(),
         upvotes: Math.floor(Math.random() * 10), // Random upvotes 0-9
