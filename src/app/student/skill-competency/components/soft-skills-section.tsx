@@ -9,22 +9,16 @@ interface SoftSkill {
   peerRating: number;
   improvementAreas: string[];
   strengths: string[];
-}
-
-interface PeerReview {
-  id: string;
-  reviewerName: string;
-  skill: string;
-  rating: number;
-  comment: string;
-  date: string;
-  isAnonymous: boolean;
+  improvementSuggestions: {
+    area: string;
+    actions: string[];
+    resources: string[];
+  }[];
 }
 
 export default function SoftSkillsSection() {
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
-  // Mock data - in real app, this would come from database
   const softSkills: SoftSkill[] = [
     {
       id: "1",
@@ -32,7 +26,37 @@ export default function SoftSkillsSection() {
       description: "Ability to express ideas clearly and listen effectively",
       peerRating: 8,
       improvementAreas: ["Public speaking", "Written communication"],
-      strengths: ["Active listening", "Team collaboration"]
+      strengths: ["Active listening", "Team collaboration"],
+      improvementSuggestions: [
+        {
+          area: "Public speaking",
+          actions: [
+            "Join Toastmasters or similar speaking club",
+            "Practice presentations in front of mirror daily",
+            "Record yourself speaking and analyze body language",
+            "Start with small group presentations before larger audiences"
+          ],
+          resources: [
+            "Coursera: Introduction to Public Speaking",
+            "TED Talks on effective communication",
+            "Book: 'Talk Like TED' by Carmine Gallo"
+          ]
+        },
+        {
+          area: "Written communication",
+          actions: [
+            "Write daily journal entries to practice clarity",
+            "Use Grammarly to improve writing structure",
+            "Read professional emails and analyze effective patterns",
+            "Practice writing executive summaries of complex topics"
+          ],
+          resources: [
+            "edX: Writing Professional Emails and Memos",
+            "Book: 'On Writing Well' by William Zinsser",
+            "Harvard Business Review writing guides"
+          ]
+        }
+      ]
     },
     {
       id: "2",
@@ -40,7 +64,37 @@ export default function SoftSkillsSection() {
       description: "Ability to guide and motivate others towards common goals",
       peerRating: 7,
       improvementAreas: ["Decision making", "Conflict resolution"],
-      strengths: ["Team building", "Vision setting"]
+      strengths: ["Team building", "Vision setting"],
+      improvementSuggestions: [
+        {
+          area: "Decision making",
+          actions: [
+            "Practice the DECIDE framework for complex decisions",
+            "Seek diverse perspectives before making major decisions",
+            "Set decision deadlines to avoid analysis paralysis",
+            "Document decision rationale to learn from outcomes"
+          ],
+          resources: [
+            "LinkedIn Learning: Decision Making Strategies",
+            "Book: 'Decisive' by Chip Heath and Dan Heath",
+            "Harvard Business Review decision-making articles"
+          ]
+        },
+        {
+          area: "Conflict resolution",
+          actions: [
+            "Learn active listening techniques for heated discussions",
+            "Practice separating people from problems",
+            "Role-play difficult conversations with trusted friends",
+            "Study mediation and negotiation techniques"
+          ],
+          resources: [
+            "Coursera: Conflict Resolution and Mediation",
+            "Book: 'Getting to Yes' by Roger Fisher",
+            "Conflict resolution workshops and seminars"
+          ]
+        }
+      ]
     },
     {
       id: "3",
@@ -48,7 +102,23 @@ export default function SoftSkillsSection() {
       description: "Ability to analyze problems and develop effective solutions",
       peerRating: 8,
       improvementAreas: ["Creative thinking"],
-      strengths: ["Analytical thinking", "Solution implementation"]
+      strengths: ["Analytical thinking", "Solution implementation"],
+      improvementSuggestions: [
+        {
+          area: "Creative thinking",
+          actions: [
+            "Practice brainstorming using mind mapping techniques",
+            "Try the 'Six Thinking Hats' method for different perspectives",
+            "Engage in creative hobbies like drawing or music",
+            "Challenge assumptions by asking 'What if?' questions regularly"
+          ],
+          resources: [
+            "MasterClass: Creativity and Design courses",
+            "Book: 'A Whack on the Side of the Head' by Roger von Oech",
+            "Design thinking workshops and online courses"
+          ]
+        }
+      ]
     },
     {
       id: "4",
@@ -56,7 +126,8 @@ export default function SoftSkillsSection() {
       description: "Ability to work effectively with others in a team setting",
       peerRating: 9,
       improvementAreas: [],
-      strengths: ["Collaboration", "Supporting others", "Conflict resolution"]
+      strengths: ["Collaboration", "Supporting others", "Conflict resolution"],
+      improvementSuggestions: []
     },
     {
       id: "5",
@@ -64,7 +135,23 @@ export default function SoftSkillsSection() {
       description: "Ability to adjust to new situations and changing environments",
       peerRating: 7,
       improvementAreas: ["Stress management"],
-      strengths: ["Flexibility", "Learning agility"]
+      strengths: ["Flexibility", "Learning agility"],
+      improvementSuggestions: [
+        {
+          area: "Stress management",
+          actions: [
+            "Practice daily mindfulness or meditation (10 minutes)",
+            "Learn deep breathing techniques for high-stress moments",
+            "Develop a personal stress response plan",
+            "Regular exercise to build physical resilience"
+          ],
+          resources: [
+            "Headspace or Calm apps for guided meditation",
+            "Coursera: Managing Emotions in Times of Uncertainty",
+            "Book: 'The Stress Solution' by Dr. Russ Morfitt"
+          ]
+        }
+      ]
     },
     {
       id: "6",
@@ -72,46 +159,37 @@ export default function SoftSkillsSection() {
       description: "Ability to prioritize tasks and manage time effectively",
       peerRating: 6,
       improvementAreas: ["Task prioritization", "Deadline management"],
-      strengths: ["Organization", "Planning"]
-    }
-  ];
-
-  const peerReviews: PeerReview[] = [
-    {
-      id: "1",
-      reviewerName: "Sarah Chen",
-      skill: "Communication",
-      rating: 8,
-      comment: "Excellent at explaining complex concepts in simple terms. Always available to help team members understand new ideas.",
-      date: "2024-01-10",
-      isAnonymous: false
-    },
-    {
-      id: "2",
-      reviewerName: "Anonymous",
-      skill: "Leadership",
-      rating: 7,
-      comment: "Shows good leadership potential. Could improve on making quicker decisions during team meetings.",
-      date: "2024-01-08",
-      isAnonymous: true
-    },
-    {
-      id: "3",
-      reviewerName: "Michael Tan",
-      skill: "Problem Solving",
-      rating: 9,
-      comment: "Outstanding problem-solving skills. Always comes up with creative and practical solutions.",
-      date: "2024-01-12",
-      isAnonymous: false
-    },
-    {
-      id: "4",
-      reviewerName: "Lisa Wong",
-      skill: "Teamwork",
-      rating: 9,
-      comment: "A great team player who always supports others and contributes positively to team dynamics.",
-      date: "2024-01-14",
-      isAnonymous: false
+      strengths: ["Organization", "Planning"],
+      improvementSuggestions: [
+        {
+          area: "Task prioritization",
+          actions: [
+            "Use the Eisenhower Matrix to categorize tasks by urgency/importance",
+            "Implement the Pomodoro Technique for focused work sessions",
+            "Create weekly priority lists and review daily",
+            "Learn to say 'no' to non-essential commitments"
+          ],
+          resources: [
+            "LinkedIn Learning: Time Management Fundamentals",
+            "Book: 'Getting Things Done' by David Allen",
+            "Todoist or Asana for task management"
+          ]
+        },
+        {
+          area: "Deadline management",
+          actions: [
+            "Break large projects into smaller, manageable milestones",
+            "Set personal deadlines 2-3 days before actual deadlines",
+            "Use calendar blocking to allocate specific time for tasks",
+            "Track time spent on different activities to identify patterns"
+          ],
+          resources: [
+            "Project management courses (Coursera, edX)",
+            "RescueTime app for time tracking",
+            "Book: 'The 7 Habits of Highly Effective People'"
+          ]
+        }
+      ]
     }
   ];
 
@@ -133,10 +211,6 @@ export default function SoftSkillsSection() {
         ★
       </span>
     ));
-  };
-
-  const getSkillReviews = (skillName: string) => {
-    return peerReviews.filter(review => review.skill === skillName);
   };
 
   return (
@@ -189,8 +263,6 @@ export default function SoftSkillsSection() {
           {(() => {
             const skill = softSkills.find(s => s.id === selectedSkill);
             if (!skill) return null;
-
-            const reviews = getSkillReviews(skill.name);
 
             return (
               <div>
@@ -250,6 +322,70 @@ export default function SoftSkillsSection() {
                     </div>
                   </div>
                 </div>
+
+                {/* AI-Powered Improvement Suggestions */}
+                {skill.improvementSuggestions.length > 0 && (
+                  <div className="mt-8">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                      <div className="flex items-start gap-3 mb-4">
+                        <div className="text-lg">🤖</div>
+                        <div>
+                          <h4 className="font-medium text-blue-900 mb-1">AI-Powered Improvement Recommendations</h4>
+                          <p className="text-blue-700 text-sm">
+                            Based on peer feedback patterns and learning data, here are specific actions to improve your {skill.name.toLowerCase()} skills.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-6">
+                        {skill.improvementSuggestions.map((suggestion, index) => (
+                          <div key={index} className="bg-white rounded-lg p-4 border border-blue-100">
+                            <h5 className="font-medium text-gray-900 mb-3 flex items-center">
+                              <span className="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded mr-2">
+                                Focus Area
+                              </span>
+                              {suggestion.area}
+                            </h5>
+                            
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                              {/* Action Steps */}
+                              <div>
+                                <h6 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                                  <span className="text-green-600 mr-1">📋</span>
+                                  Action Steps
+                                </h6>
+                                <ul className="space-y-1">
+                                  {suggestion.actions.map((action, actionIndex) => (
+                                    <li key={actionIndex} className="text-sm text-gray-600 flex items-start">
+                                      <span className="text-green-500 mr-2 mt-0.5">•</span>
+                                      {action}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                              
+                              {/* Resources */}
+                              <div>
+                                <h6 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                                  <span className="text-blue-600 mr-1">📚</span>
+                                  Recommended Resources
+                                </h6>
+                                <ul className="space-y-1">
+                                  {suggestion.resources.map((resource, resourceIndex) => (
+                                    <li key={resourceIndex} className="text-sm text-gray-600 flex items-start">
+                                      <span className="text-blue-500 mr-2 mt-0.5">•</span>
+                                      {resource}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
 
               </div>
             );

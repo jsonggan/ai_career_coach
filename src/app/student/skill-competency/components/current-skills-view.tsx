@@ -17,55 +17,109 @@ interface CurrentSkillsViewProps {
 }
 
 export default function CurrentSkillsView({ showHardSkillsOnly = false }: CurrentSkillsViewProps) {
-  // Mock data - in real app, this would come from API/database
+  // Skills data based on seeded portfolio - full stack web developer with Gen AI experience
   const [skills] = useState<Skill[]>([
     {
       id: "1",
       name: "JavaScript",
       category: "hard",
-      level: "intermediate",
-      certificates: 2,
-      projects: 5,
-      courses: 3
+      level: "advanced",
+      certificates: 0,
+      projects: 6,
+      courses: 1
     },
     {
       id: "2",
       name: "React",
       category: "hard",
-      level: "intermediate",
-      certificates: 1,
-      projects: 4,
+      level: "advanced",
+      certificates: 0,
+      projects: 6,
       courses: 2
     },
     {
       id: "3",
-      name: "Python",
+      name: "Node.js",
       category: "hard",
-      level: "beginner",
+      level: "intermediate",
       certificates: 0,
-      projects: 2,
+      projects: 5,
       courses: 1
     },
     {
       id: "4",
-      name: "Data Structures",
+      name: "AWS/Cloud Computing",
       category: "hard",
-      level: "advanced",
-      certificates: 1,
-      projects: 3,
-      courses: 4
+      level: "intermediate",
+      certificates: 2,
+      projects: 2,
+      courses: 0
     },
     {
       id: "5",
+      name: "Generative AI & LLMs",
+      category: "hard",
+      level: "intermediate",
+      certificates: 0,
+      projects: 4,
+      courses: 1
+    },
+    {
+      id: "6",
+      name: "MongoDB",
+      category: "hard",
+      level: "intermediate",
+      certificates: 0,
+      projects: 3,
+      courses: 1
+    },
+    {
+      id: "7",
+      name: "Express.js",
+      category: "hard",
+      level: "intermediate",
+      certificates: 0,
+      projects: 4,
+      courses: 1
+    },
+    {
+      id: "8",
+      name: "TypeScript",
+      category: "hard",
+      level: "beginner",
+      certificates: 0,
+      projects: 1,
+      courses: 0
+    },
+    {
+      id: "9",
+      name: "API Integration",
+      category: "hard",
+      level: "intermediate",
+      certificates: 0,
+      projects: 4,
+      courses: 0
+    },
+    {
+      id: "10",
+      name: "Database Design",
+      category: "hard",
+      level: "intermediate",
+      certificates: 0,
+      projects: 4,
+      courses: 1
+    },
+    {
+      id: "11",
       name: "Communication",
       category: "soft",
       level: "intermediate",
       certificates: 0,
-      projects: 0,
-      courses: 2
+      projects: 4,
+      courses: 0
     },
     {
-      id: "6",
+      id: "12",
       name: "Teamwork",
       category: "soft",
       level: "advanced",
@@ -74,22 +128,13 @@ export default function CurrentSkillsView({ showHardSkillsOnly = false }: Curren
       courses: 1
     },
     {
-      id: "7",
+      id: "13",
       name: "Problem Solving",
       category: "soft",
       level: "intermediate",
       certificates: 0,
-      projects: 8,
+      projects: 6,
       courses: 2
-    },
-    {
-      id: "8",
-      name: "Machine Learning",
-      category: "hard",
-      level: "beginner",
-      certificates: 0,
-      projects: 1,
-      courses: 1
     }
   ]);
 
@@ -171,11 +216,11 @@ export default function CurrentSkillsView({ showHardSkillsOnly = false }: Curren
       </div>
 
       {/* Add New Skill Button */}
-      <div className="mt-6 pt-4 border-t">
+      {/* <div className="mt-6 pt-4 border-t">
         <button className="w-full py-2 px-4 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-gray-400 hover:text-gray-600 transition-colors">
           + Add New Skill
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

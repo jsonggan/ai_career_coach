@@ -29,44 +29,44 @@ export default function ProjectIdeaGenerator() {
   const [generatedProjects, setGeneratedProjects] = useState<ProjectIdea[]>([]);
 
   const availableSkills = [
-    "JavaScript", "React", "Python", "Machine Learning", "Data Analysis",
-    "Node.js", "MongoDB", "AWS", "Docker", "GraphQL", "TypeScript",
-    "Vue.js", "Angular", "SQL", "Redis", "Kubernetes"
+    "JavaScript", "React", "Node.js", "MongoDB", "Express.js", "TypeScript",
+    "AWS", "Generative AI", "OpenAI API", "RAG Systems", "Vector Databases",
+    "Docker", "PostgreSQL", "REST API", "Authentication", "Deployment"
   ];
 
   const mockProjectIdeas: ProjectIdea[] = [
     {
       id: "1",
-      title: "Personal Finance Tracker",
-      description: "A web application to track expenses, income, and financial goals with data visualization.",
-      difficulty: "intermediate",
-      duration: "4-6 weeks",
-      skills: ["React", "Node.js", "MongoDB", "Chart.js"],
-      category: "Web Development",
-      resources: ["React Documentation", "MongoDB Atlas", "Chart.js Tutorial"],
-      estimatedTime: "40-60 hours"
+      title: "AI-Powered Content Management System",
+      description: "A CMS with AI-generated content suggestions, automated SEO optimization, and intelligent content categorization using OpenAI APIs.",
+      difficulty: "advanced",
+      duration: "6-8 weeks",
+      skills: ["React", "Node.js", "MongoDB", "OpenAI API", "Express.js"],
+      category: "AI Integration",
+      resources: ["OpenAI API Documentation", "React Advanced Patterns", "Content Management Best Practices"],
+      estimatedTime: "60-80 hours"
     },
     {
       id: "2",
-      title: "AI-Powered Study Assistant",
-      description: "A chatbot that helps students with homework, provides study tips, and tracks learning progress.",
+      title: "Smart Document Chat with RAG",
+      description: "Upload PDFs and documents to create an AI chatbot that can answer questions about the content using Retrieval-Augmented Generation.",
       difficulty: "advanced",
       duration: "8-10 weeks",
-      skills: ["Python", "Machine Learning", "NLP", "React", "FastAPI"],
-      category: "AI/ML",
-      resources: ["OpenAI API", "FastAPI Documentation", "React Hooks Guide"],
+      skills: ["React", "Node.js", "OpenAI API", "Vector Databases", "RAG Systems"],
+      category: "AI Integration",
+      resources: ["LangChain Documentation", "Pinecone Vector DB", "OpenAI Embeddings API"],
       estimatedTime: "80-120 hours"
     },
     {
       id: "3",
-      title: "Task Management Dashboard",
-      description: "A collaborative task management tool with real-time updates and team collaboration features.",
-      difficulty: "intermediate",
-      duration: "6-8 weeks",
-      skills: ["Vue.js", "Node.js", "Socket.io", "PostgreSQL"],
-      category: "Web Development",
-      resources: ["Vue.js Guide", "Socket.io Documentation", "PostgreSQL Tutorial"],
-      estimatedTime: "60-80 hours"
+      title: "Real-time Collaborative Code Editor",
+      description: "A web-based code editor with real-time collaboration, AI code suggestions, and integrated project management.",
+      difficulty: "advanced",
+      duration: "10-12 weeks",
+      skills: ["React", "Node.js", "TypeScript", "WebSocket", "AWS"],
+      category: "Full Stack",
+      resources: ["Monaco Editor", "WebSocket Documentation", "AWS Lambda Guide"],
+      estimatedTime: "100-140 hours"
     }
   ];
 

@@ -31,38 +31,46 @@ interface LearningPath {
 export default function SkillsetAnalysis() {
   const [selectedTimeframe, setSelectedTimeframe] = useState("6months");
 
-  // Mock data - in real app, this would come from AI analysis
+  // Skill analysis based on seeded portfolio - full stack web developer with Gen AI experience
   const skillCategories: SkillCategory[] = [
     {
-      name: "Programming Languages",
-      skills: ["JavaScript", "Python", "TypeScript", "Java"],
-      keyStrengths: ["Strong JavaScript fundamentals", "Good Python syntax knowledge"],
-      keyWeaknesses: ["Limited Java experience", "Need more TypeScript practice"],
+      name: "Frontend Development",
+      skills: ["JavaScript", "React", "HTML/CSS", "TypeScript"],
+      keyStrengths: ["Advanced React component architecture", "Strong JavaScript ES6+ knowledge", "Responsive design principles"],
+      keyWeaknesses: ["Limited TypeScript experience", "Advanced CSS animations", "State management patterns"],
       totalSkills: 4,
       trend: "up"
     },
     {
-      name: "Web Development",
-      skills: ["React", "Node.js", "HTML/CSS", "Express.js"],
-      keyStrengths: ["Solid React component design", "Good HTML/CSS styling"],
-      keyWeaknesses: ["Backend API design", "Advanced React patterns"],
+      name: "Backend Development",
+      skills: ["Node.js", "Express.js", "API Integration", "Database Design"],
+      keyStrengths: ["RESTful API development", "Express middleware patterns", "Database schema design"],
+      keyWeaknesses: ["Advanced authentication patterns", "Microservices architecture", "Performance optimization"],
       totalSkills: 4,
       trend: "up"
     },
     {
-      name: "Data & Analytics",
-      skills: ["SQL", "Data Analysis", "Statistics"],
-      keyStrengths: ["Basic SQL queries", "Data visualization skills"],
-      keyWeaknesses: ["Complex joins and optimization", "Statistical modeling"],
+      name: "Database & Storage",
+      skills: ["MongoDB", "Database Design", "PostgreSQL"],
+      keyStrengths: ["NoSQL document modeling", "Schema design patterns", "Query optimization"],
+      keyWeaknesses: ["Advanced indexing strategies", "Database scaling", "Data migration"],
       totalSkills: 3,
-      trend: "stable"
+      trend: "up"
+    },
+    {
+      name: "AI & Machine Learning",
+      skills: ["Generative AI", "OpenAI API", "LLM Integration", "RAG Systems"],
+      keyStrengths: ["AI API integration", "Prompt engineering", "RAG implementation"],
+      keyWeaknesses: ["Custom model training", "Vector database optimization", "AI ethics"],
+      totalSkills: 4,
+      trend: "up"
     },
     {
       name: "Cloud & DevOps",
-      skills: ["AWS", "Docker", "Git"],
-      keyStrengths: ["Git version control", "Basic containerization"],
-      keyWeaknesses: ["AWS services knowledge", "CI/CD pipeline setup"],
-      totalSkills: 3,
+      skills: ["AWS", "Cloud Architecture", "Git", "Deployment"],
+      keyStrengths: ["AWS foundational services", "Git version control", "Cloud deployment"],
+      keyWeaknesses: ["Advanced AWS services", "CI/CD pipeline setup", "Infrastructure as Code"],
+      totalSkills: 4,
       trend: "up"
     },
     {
@@ -77,23 +85,33 @@ export default function SkillsetAnalysis() {
 
   const capabilityAssessments: CapabilityAssessment[] = [
     {
-      category: "Technical Proficiency",
-      score: 6.8,
-      description: "Strong foundation in programming with room for growth in advanced topics",
+      category: "Full Stack Development",
+      score: 8.1,
+      description: "Strong proficiency in modern web technologies with excellent project portfolio",
       recommendations: [
-        "Focus on system design and architecture",
-        "Learn cloud computing platforms",
-        "Improve database optimization skills"
+        "Explore advanced React patterns and state management",
+        "Learn microservices architecture and containerization",
+        "Implement comprehensive testing strategies"
       ]
     },
     {
-      category: "Problem Solving",
-      score: 8.2,
-      description: "Excellent analytical thinking and solution development capabilities",
+      category: "AI Integration",
+      score: 7.5,
+      description: "Impressive experience with generative AI and modern LLM integration",
       recommendations: [
-        "Practice with complex algorithmic problems",
-        "Work on real-world project challenges",
-        "Mentor others to strengthen skills"
+        "Deepen understanding of vector databases and embeddings",
+        "Explore custom model fine-tuning techniques",
+        "Study AI ethics and responsible AI development"
+      ]
+    },
+    {
+      category: "Cloud Computing",
+      score: 6.8,
+      description: "Good foundation with AWS certifications and practical cloud deployments",
+      recommendations: [
+        "Learn advanced AWS services like Lambda and API Gateway",
+        "Master Infrastructure as Code with CDK or Terraform",
+        "Implement monitoring and logging best practices"
       ]
     },
     {
@@ -268,7 +286,7 @@ export default function SkillsetAnalysis() {
       </div>
 
       {/* Capability Assessment */}
-      <div className="mb-8">
+      {/* <div className="mb-8">
         <h3 className="text-lg font-medium text-gray-900 mb-4">Capability Assessment</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {capabilityAssessments.map((assessment, index) => (
@@ -296,10 +314,10 @@ export default function SkillsetAnalysis() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Learning Paths */}
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <h3 className="text-lg font-medium text-gray-900 mb-4">Recommended Learning Paths</h3>
         <div className="space-y-4">
           {learningPaths.map((path) => (
@@ -336,10 +354,10 @@ export default function SkillsetAnalysis() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* AI Insights */}
-      <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-4">
+      {/* <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-4">
         <div className="flex items-start space-x-3">
           <div className="flex-shrink-0">
             <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
@@ -355,7 +373,7 @@ export default function SkillsetAnalysis() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -21,20 +21,34 @@ interface CareerPath {
 export default function AISkillSuggestions() {
   const [selectedCareerPath, setSelectedCareerPath] = useState<string>("software-engineer");
 
-  // Mock data - in real app, this would come from AI analysis
+  // AI analysis based on full stack developer with Gen AI experience profile
   const skillGaps: SkillGap[] = [
     {
-      skill: "Machine Learning",
+      skill: "Advanced TypeScript",
       importance: "high",
-      demand: 78,
-      reason: "High demand in current job market, especially for fresh graduates in tech roles",
+      demand: 82,
+      reason: "Strong typing increasingly required for scalable React/Node.js applications",
       category: "technical"
     },
     {
-      skill: "Cloud Computing (AWS/Azure)",
+      skill: "Docker & Containerization",
       importance: "high",
-      demand: 85,
-      reason: "Essential for modern software development and deployment",
+      demand: 88,
+      reason: "Essential for modern deployment workflows and microservices architecture",
+      category: "technical"
+    },
+    {
+      skill: "Advanced AWS Services",
+      importance: "high",
+      demand: 79,
+      reason: "Lambda, API Gateway, and serverless architecture in high demand",
+      category: "technical"
+    },
+    {
+      skill: "Testing Frameworks",
+      importance: "medium",
+      demand: 71,
+      reason: "Jest, Cypress, and automated testing critical for production applications",
       category: "technical"
     },
     {
@@ -62,25 +76,32 @@ export default function AISkillSuggestions() {
 
   const careerPaths: CareerPath[] = [
     {
-      id: "software-engineer",
-      name: "Software Engineer",
+      id: "fullstack-engineer",
+      name: "Full Stack Engineer",
+      match: 92,
+      requiredSkills: ["JavaScript", "React", "Node.js", "MongoDB", "Express.js", "AWS"],
+      missingSkills: ["Advanced TypeScript", "Testing Frameworks"]
+    },
+    {
+      id: "ai-engineer",
+      name: "AI Integration Engineer",
+      match: 85,
+      requiredSkills: ["Generative AI", "OpenAI API", "RAG Systems", "JavaScript", "React", "Vector Databases"],
+      missingSkills: ["Vector Database Optimization", "Custom Model Training"]
+    },
+    {
+      id: "cloud-architect",
+      name: "Cloud Solutions Architect",
       match: 75,
-      requiredSkills: ["JavaScript", "React", "Python", "System Design", "Cloud Computing"],
-      missingSkills: ["System Design", "Cloud Computing"]
+      requiredSkills: ["AWS", "System Design", "Cloud Architecture", "Docker", "Infrastructure as Code"],
+      missingSkills: ["Advanced AWS Services", "Infrastructure as Code", "Docker"]
     },
     {
-      id: "data-scientist",
-      name: "Data Scientist",
-      match: 45,
-      requiredSkills: ["Python", "Machine Learning", "Data Analysis", "Statistics", "SQL"],
-      missingSkills: ["Machine Learning", "Statistics", "SQL"]
-    },
-    {
-      id: "product-manager",
-      name: "Product Manager",
-      match: 60,
-      requiredSkills: ["Communication", "Problem Solving", "Leadership", "Data Analysis", "Business Strategy"],
-      missingSkills: ["Leadership", "Business Strategy"]
+      id: "tech-lead",
+      name: "Technical Lead",
+      match: 78,
+      requiredSkills: ["Full Stack Development", "System Design", "Leadership", "Mentoring", "Project Management"],
+      missingSkills: ["System Design", "Leadership", "Project Management"]
     }
   ];
 
