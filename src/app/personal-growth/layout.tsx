@@ -6,6 +6,13 @@ import { SidebarToggle } from "../sidebar-toggle";
 
 const personalGrowthNavItems = [
   {
+    icon: "pi pi-compass",
+    title: "Career Vision",
+    subtitle: "Define your long-term aspirations",
+    role: "Personal Growth",
+    href: "/personal-growth/career-vision",
+  },
+  {
     icon: "pi pi-upload",
     title: "Upload Portfolio",
     subtitle: "Certificates, courses & projects",
