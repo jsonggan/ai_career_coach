@@ -48,6 +48,7 @@ CREATE TABLE "public"."external_courses" (
     "external_course_name" TEXT NOT NULL,
     "external_provider" TEXT NOT NULL,
     "external_course_desc" TEXT NOT NULL,
+    "external_course_link" TEXT,
     "external_ai_tagged_skill" TEXT NOT NULL,
     "is_added_by_user" BOOLEAN NOT NULL DEFAULT false,
 

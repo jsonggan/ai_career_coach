@@ -230,7 +230,8 @@ model users {
   updated_at                   DateTime
   user_id                      Int                            @id
   user_name                    String
-  user_email                   String
+  user_email                   String                         @unique
+  scopes                       String[]                       @default(["user"])
   ai_insights                  ai_insights[]
   community_posts              community_posts[]              @relation("PostAuthor")
   reviewsReceived              peer_reviews[]                 @relation("PeerReviewsReviewee")

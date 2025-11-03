@@ -20,36 +20,9 @@ async function main() {
   console.log('🌱 Starting seed...')
 
   try {
-    // Step 1: Clear all existing data
     await clearDatabase(prisma)
-
-    // Step 2: Seed base entities (entities without foreign key dependencies)
-    console.log('📋 Seeding base entities...')
-    await seedCourses(prisma)
-    await seedCertificates(prisma)
-    await seedExternalCourses(prisma)
-    await seedSpecializations(prisma)
-    await seedCareerPaths(prisma)
-    // await seedJobDescriptions(prisma)
-
-    // Step 3: Seed users (after base entities are ready)
-    console.log('👥 Seeding users...')
     await seedUsers(prisma)
 
-    // Step 4: Seed user-related junction/relationship tables
-    console.log('🔗 Seeding user relationships...')
-    await seedUserCourses(prisma)
-    await seedUserCertificates(prisma)
-    await seedUserExternalCourses(prisma)
-    await seedUserProjects(prisma)
-    await seedUserSpecializations(prisma)
-    await seedUserCareerPaths(prisma)
-
-    console.log('✅ All seeding completed successfully')
-
-    await seedJobDescriptions(prisma)
-    await seedPeerReviews(prisma)
-    await seedCommunityPosts(prisma)
     console.log('✅ All seeding completed successfully')
 
   } catch (error) {
