@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import VisionStatementSection from './components/vision-statement-section';
 import GoalSettingSection from './components/goal-setting-section';
 
@@ -14,6 +15,7 @@ export interface Goal {
   progress: number;
   status: 'Not Started' | 'In Progress' | 'Completed';
   milestones: Milestone[];
+  year: number;
 }
 
 export interface Milestone {
@@ -23,12 +25,50 @@ export interface Milestone {
   completed: boolean;
 }
 
-export default function CareerVisionClient() {
-  const [visionStatement, setVisionStatement] = useState('');
-  const [goals, setGoals] = useState<Goal[]>([]);
+interface CareerVisionClientProps {
+  initialVision?: string;
+  initialGoals?: Goal[];
+}
 
-  const handleVisionChange = (vision: string) => {
-    setVisionStatement(vision);
+export default function CareerVisionClient({ 
+  initialVision = '',
+  initialGoals = []
+}: CareerVisionClientProps) {
+  const [visionStatement, setVisionStatement] = useState(initialVision);
+  const [goals, setGoals] = useState<Goal[]>(initialGoals);
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const userId = 1; // Hardcoded as per requirement
+  const currentYear = new Date().getFullYear();
+
+  const handleVisionChange = async (vision: string) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/v1/career-vision/vision-statement', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          visionText: vision,
+          userId
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to save vision statement');
+      }
+
+      setVisionStatement(vision);
+      toast.success('Vision statement saved successfully!');
+    } catch (error) {
+      console.error('Error saving vision statement:', error);
+      toast.error(error instanceof Error ? error.message : 'Failed to save vision statement');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleGoalUpdate = (updatedGoals: Goal[]) => {
@@ -62,12 +102,15 @@ export default function CareerVisionClient() {
         <VisionStatementSection 
           visionStatement={visionStatement}
           onVisionChange={handleVisionChange}
+          isLoading={isLoading}
         />
 
         {/* Goal Setting Section */}
         <GoalSettingSection 
           goals={goals}
           onGoalsUpdate={handleGoalUpdate}
+          userId={userId}
+          currentYear={currentYear}
         />
       </div>
     </div>

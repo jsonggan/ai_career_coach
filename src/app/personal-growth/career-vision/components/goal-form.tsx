@@ -7,9 +7,10 @@ interface GoalFormProps {
   goal: Goal | null;
   onSave: (goal: Goal) => void;
   onCancel: () => void;
+  isLoading?: boolean;
 }
 
-export default function GoalForm({ goal, onSave, onCancel }: GoalFormProps) {
+export default function GoalForm({ goal, onSave, onCancel, isLoading = false }: GoalFormProps) {
   const [formData, setFormData] = useState<Omit<Goal, 'id'>>({
     title: '',
     description: '',
@@ -18,7 +19,8 @@ export default function GoalForm({ goal, onSave, onCancel }: GoalFormProps) {
     targetDate: '',
     progress: 0,
     status: 'Not Started',
-    milestones: []
+    milestones: [],
+    year: new Date().getFullYear()
   });
 
   const [milestones, setMilestones] = useState<Omit<Milestone, 'id'>[]>([]);
@@ -267,14 +269,22 @@ export default function GoalForm({ goal, onSave, onCancel }: GoalFormProps) {
             <div className="flex gap-4 pt-4">
               <button
                 type="submit"
-                className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                disabled={isLoading}
+                className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
+                {isLoading && (
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                )}
                 {goal ? 'Update Goal' : 'Create Goal'}
               </button>
               <button
                 type="button"
                 onClick={onCancel}
-                className="flex-1 px-4 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium"
+                disabled={isLoading}
+                className="flex-1 px-4 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 Cancel
               </button>

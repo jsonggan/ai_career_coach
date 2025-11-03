@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { Goal, Milestone } from '../career-vision-client';
 import GoalCard from './goal-card';
 import GoalForm from './goal-form';
@@ -8,14 +9,19 @@ import GoalForm from './goal-form';
 interface GoalSettingSectionProps {
   goals: Goal[];
   onGoalsUpdate: (goals: Goal[]) => void;
+  userId: number;
+  currentYear: number;
 }
 
 export default function GoalSettingSection({
   goals,
-  onGoalsUpdate
+  onGoalsUpdate,
+  userId,
+  currentYear
 }: GoalSettingSectionProps) {
   const [showForm, setShowForm] = useState(false);
   const [editingGoal, setEditingGoal] = useState<Goal | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleAddGoal = () => {
     setEditingGoal(null);
@@ -27,26 +33,143 @@ export default function GoalSettingSection({
     setShowForm(true);
   };
 
-  const handleDeleteGoal = (goalId: string) => {
-    const updatedGoals = goals.filter(goal => goal.id !== goalId);
-    onGoalsUpdate(updatedGoals);
+  const handleDeleteGoal = async (goalId: string) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/v1/career-vision/goals', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          goalId: parseInt(goalId),
+          userId
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to delete goal');
+      }
+
+      const updatedGoals = goals.filter(goal => goal.id !== goalId);
+      onGoalsUpdate(updatedGoals);
+      toast.success('Goal deleted successfully!');
+    } catch (error) {
+      console.error('Error deleting goal:', error);
+      toast.error(error instanceof Error ? error.message : 'Failed to delete goal');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleSaveGoal = (goal: Goal) => {
-    if (editingGoal) {
-      // Update existing goal
-      const updatedGoals = goals.map(g => g.id === goal.id ? goal : g);
-      onGoalsUpdate(updatedGoals);
-    } else {
-      // Add new goal
-      const newGoal: Goal = {
-        ...goal,
-        id: Date.now().toString(),
-      };
-      onGoalsUpdate([...goals, newGoal]);
+  const handleSaveGoal = async (goal: Goal) => {
+    setIsLoading(true);
+    try {
+      if (editingGoal) {
+        // Update existing goal
+        const response = await fetch('/api/v1/career-vision/goals', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            goalId: parseInt(goal.id),
+            userId,
+            title: goal.title,
+            description: goal.description,
+            category: goal.category,
+            priority: goal.priority,
+            targetDate: goal.targetDate,
+            progress: goal.progress,
+            status: goal.status,
+            milestones: goal.milestones.map(m => ({
+              title: m.title,
+              targetDate: m.targetDate,
+              completed: m.completed
+            }))
+          }),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to update goal');
+        }
+
+        const updatedGoal = {
+          ...goal,
+          id: result.data.goal_id.toString(),
+          milestones: result.data.milestones?.map((m: any) => ({
+            id: m.milestone_id.toString(),
+            title: m.title,
+            targetDate: new Date(m.target_date).toISOString().split('T')[0],
+            completed: m.completed
+          })) || []
+        };
+
+        const updatedGoals = goals.map(g => g.id === goal.id ? updatedGoal : g);
+        onGoalsUpdate(updatedGoals);
+        toast.success('Goal updated successfully!');
+      } else {
+        // Add new goal
+        const response = await fetch('/api/v1/career-vision/goals', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId,
+            year: currentYear,
+            title: goal.title,
+            description: goal.description,
+            category: goal.category,
+            priority: goal.priority,
+            targetDate: goal.targetDate,
+            milestones: goal.milestones.map(m => ({
+              title: m.title,
+              targetDate: m.targetDate
+            }))
+          }),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to create goal');
+        }
+
+        const newGoal: Goal = {
+          id: result.data.goal_id.toString(),
+          title: result.data.title,
+          description: result.data.description,
+          category: result.data.category,
+          priority: result.data.priority,
+          targetDate: new Date(result.data.target_date).toISOString().split('T')[0],
+          progress: result.data.progress,
+          status: result.data.status,
+          year: result.data.year,
+          milestones: result.data.milestones?.map((m: any) => ({
+            id: m.milestone_id.toString(),
+            title: m.title,
+            targetDate: new Date(m.target_date).toISOString().split('T')[0],
+            completed: m.completed
+          })) || []
+        };
+
+        onGoalsUpdate([...goals, newGoal]);
+        toast.success('Goal created successfully!');
+      }
+      
+      setShowForm(false);
+      setEditingGoal(null);
+    } catch (error) {
+      console.error('Error saving goal:', error);
+      toast.error(error instanceof Error ? error.message : 'Failed to save goal');
+    } finally {
+      setIsLoading(false);
     }
-    setShowForm(false);
-    setEditingGoal(null);
   };
 
   const handleCancelForm = () => {
@@ -54,20 +177,42 @@ export default function GoalSettingSection({
     setEditingGoal(null);
   };
 
-  const handleUpdateProgress = (goalId: string, progress: number) => {
-    const updatedGoals = goals.map(goal => 
-      goal.id === goalId 
-        ? { 
-            ...goal, 
-            progress,
-            status: progress === 100 ? 'Completed' : progress > 0 ? 'In Progress' : 'Not Started'
-          } 
-        : goal
-    );
-    onGoalsUpdate(updatedGoals);
-  };
+  const handleUpdateProgress = async (goalId: string, progress: number) => {
+    try {
+      const response = await fetch('/api/v1/career-vision/goals', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          goalId: parseInt(goalId),
+          userId,
+          progress
+        }),
+      });
 
-  const currentYear = new Date().getFullYear();
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to update progress');
+      }
+
+      const updatedGoals = goals.map(goal => 
+        goal.id === goalId 
+          ? { 
+              ...goal, 
+              progress,
+              status: result.data.status
+            } 
+          : goal
+      );
+      onGoalsUpdate(updatedGoals);
+      toast.success('Progress updated!');
+    } catch (error) {
+      console.error('Error updating progress:', error);
+      toast.error(error instanceof Error ? error.message : 'Failed to update progress');
+    }
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
@@ -78,7 +223,7 @@ export default function GoalSettingSection({
         </div>
         <button
           onClick={handleAddGoal}
-          disabled={goals.length >= 5}
+          disabled={goals.length >= 5 || isLoading}
           className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           Add Goal ({goals.length}/5)
@@ -145,6 +290,7 @@ export default function GoalSettingSection({
           goal={editingGoal}
           onSave={handleSaveGoal}
           onCancel={handleCancelForm}
+          isLoading={isLoading}
         />
       )}
     </div>
