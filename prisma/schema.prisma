@@ -228,7 +228,7 @@ model users {
   password_hash                String
   created_at                   DateTime
   updated_at                   DateTime
-  user_id                      Int                            @id
+  user_id                      Int                            @id @default(autoincrement())
   user_name                    String
   user_email                   String                         @unique
   scopes                       String[]                       @default(["user"])

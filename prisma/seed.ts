@@ -21,7 +21,7 @@ async function main() {
 
   try {
     await clearDatabase(prisma)
-    await seedUsers(prisma)
+    // await seedUsers(prisma)
 
     console.log('✅ All seeding completed successfully')
 
