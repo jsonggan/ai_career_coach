@@ -59,7 +59,7 @@ export default function VisionStatementSection({
             <div className="flex gap-2">
               <button
                 onClick={handleSave}
-                disabled={isLoading}
+                disabled={isLoading || localVision.trim().length < 10}
                 className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {isLoading && (
@@ -145,9 +145,16 @@ export default function VisionStatementSection({
             autoFocus
           />
           
-          <div className="flex justify-between text-sm text-gray-500">
-            <span>Click the prompt cards above to get started</span>
-            <span>{localVision.length} characters</span>
+          <div className="flex justify-between items-center text-sm">
+            <span className="text-gray-500">Click the prompt cards above to get started</span>
+            <div className="flex items-center gap-2">
+              <span className={localVision.trim().length < 10 ? 'text-red-500' : 'text-gray-500'}>
+                {localVision.length} characters
+              </span>
+              {localVision.trim().length > 0 && localVision.trim().length < 10 && (
+                <span className="text-red-500 text-xs">(Minimum 10 characters required)</span>
+              )}
+            </div>
           </div>
         </div>
       )}

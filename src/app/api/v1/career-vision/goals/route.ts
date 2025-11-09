@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import {
   getUserAnnualGoals,
   createAnnualGoal,
@@ -17,7 +19,6 @@ const milestoneSchema = z.object({
 });
 
 const createGoalSchema = z.object({
-  userId: z.number().int().positive().default(1),
   year: z.number().int().min(2020).max(2100),
   title: z.string().min(1, 'Goal title is required'),
   description: z.string().min(1, 'Goal description is required'),
@@ -29,7 +30,6 @@ const createGoalSchema = z.object({
 
 const updateGoalSchema = z.object({
   goalId: z.number().int().positive(),
-  userId: z.number().int().positive().default(1),
   title: z.string().min(1).optional(),
   description: z.string().min(1).optional(),
   category: z.enum(['Career', 'Skills', 'Personal', 'Education', 'Health']).optional(),
@@ -41,29 +41,30 @@ const updateGoalSchema = z.object({
 });
 
 const deleteGoalSchema = z.object({
-  goalId: z.number().int().positive(),
-  userId: z.number().int().positive().default(1)
+  goalId: z.number().int().positive()
 });
 
 const updateProgressSchema = z.object({
   goalId: z.number().int().positive(),
-  userId: z.number().int().positive().default(1),
   progress: z.number().int().min(0).max(100)
 });
 
 // GET - Fetch user's annual goals
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const userId = parseInt(searchParams.get('userId') || '1');
-    const year = searchParams.get('year') ? parseInt(searchParams.get('year')!) : undefined;
+    // Get session from NextAuth
+    const session = await getServerSession(authOptions);
 
-    if (isNaN(userId) || userId <= 0) {
+    if (!session || !session.user?.id) {
       return NextResponse.json(
-        { error: 'Invalid user ID' },
-        { status: 400 }
+        { error: 'Unauthorized' },
+        { status: 401 }
       );
     }
+
+    const userId = session.user.id;
+    const { searchParams } = new URL(request.url);
+    const year = searchParams.get('year') ? parseInt(searchParams.get('year')!) : undefined;
 
     if (year && (isNaN(year) || year < 2020 || year > 2100)) {
       return NextResponse.json(
@@ -90,13 +91,24 @@ export async function GET(request: NextRequest) {
 // POST - Create new goal
 export async function POST(request: NextRequest) {
   try {
+    // Get session from NextAuth
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user?.id) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const userId = session.user.id;
     const body = await request.json();
 
     // Validate request body
     const validatedData = createGoalSchema.parse(body);
 
     const goal = await createAnnualGoal({
-      userId: validatedData.userId,
+      userId,
       year: validatedData.year,
       title: validatedData.title,
       description: validatedData.description,
@@ -136,12 +148,26 @@ export async function POST(request: NextRequest) {
 // PUT - Update existing goal
 export async function PUT(request: NextRequest) {
   try {
+    // Get session from NextAuth
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user?.id) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const userId = session.user.id;
     const body = await request.json();
 
     // Validate request body
     const validatedData = updateGoalSchema.parse(body);
 
-    const goal = await updateAnnualGoal(validatedData);
+    const goal = await updateAnnualGoal({
+      ...validatedData,
+      userId
+    });
 
     return NextResponse.json({
       success: true,
@@ -173,12 +199,23 @@ export async function PUT(request: NextRequest) {
 // DELETE - Remove goal
 export async function DELETE(request: NextRequest) {
   try {
+    // Get session from NextAuth
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user?.id) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const userId = session.user.id;
     const body = await request.json();
 
     // Validate request body
     const validatedData = deleteGoalSchema.parse(body);
 
-    await deleteAnnualGoal(validatedData.goalId, validatedData.userId);
+    await deleteAnnualGoal(validatedData.goalId, userId);
 
     return NextResponse.json({
       success: true,
@@ -209,6 +246,17 @@ export async function DELETE(request: NextRequest) {
 // PATCH - Update goal progress only
 export async function PATCH(request: NextRequest) {
   try {
+    // Get session from NextAuth
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user?.id) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const userId = session.user.id;
     const body = await request.json();
 
     // Validate request body
@@ -216,7 +264,7 @@ export async function PATCH(request: NextRequest) {
 
     const goal = await updateGoalProgress(
       validatedData.goalId,
-      validatedData.userId,
+      userId,
       validatedData.progress
     );
 

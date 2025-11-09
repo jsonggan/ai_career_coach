@@ -38,10 +38,15 @@ export default function CareerVisionClient({
   const [goals, setGoals] = useState<Goal[]>(initialGoals);
   const [isLoading, setIsLoading] = useState(false);
   
-  const userId = 1; // Hardcoded as per requirement
   const currentYear = new Date().getFullYear();
 
   const handleVisionChange = async (vision: string) => {
+    // Validate vision statement has at least 10 characters
+    if (vision.trim().length < 10) {
+      toast.error('Vision statement must be at least 10 characters long');
+      return;
+    }
+
     setIsLoading(true);
     try {
       const response = await fetch('/api/v1/career-vision/vision-statement', {
@@ -50,8 +55,7 @@ export default function CareerVisionClient({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          visionText: vision,
-          userId
+          visionText: vision
         }),
       });
 
@@ -109,7 +113,6 @@ export default function CareerVisionClient({
         <GoalSettingSection 
           goals={goals}
           onGoalsUpdate={handleGoalUpdate}
-          userId={userId}
           currentYear={currentYear}
         />
       </div>

@@ -248,6 +248,8 @@ model users {
   user_skill                   user_skill[]
   users_specialization         users_specialization[]
   projects                     projects[]                     @relation("projectsTousers")
+  vision_statements            vision_statements[]
+  annual_goals                 annual_goals[]
 }
 
 model users_specialization {
@@ -294,4 +296,41 @@ model recommended_projects {
   reason     String
   project    projects @relation(fields: [project_id], references: [project_id])
   user       users    @relation(fields: [user_id], references: [user_id])
+}
+
+model vision_statements {
+  vision_id   Int      @id @default(autoincrement())
+  user_id     Int
+  vision_text String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  user        users    @relation(fields: [user_id], references: [user_id])
+}
+
+model annual_goals {
+  goal_id     Int      @id @default(autoincrement())
+  user_id     Int
+  year        Int
+  title       String
+  description String
+  category    String
+  priority    String
+  target_date DateTime
+  progress    Int      @default(0)
+  status      String   @default("Not Started")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  user        users    @relation(fields: [user_id], references: [user_id])
+  milestones  goal_milestones[]
+}
+
+model goal_milestones {
+  milestone_id Int      @id @default(autoincrement())
+  goal_id      Int
+  title        String
+  target_date  DateTime
+  completed    Boolean  @default(false)
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  goal         annual_goals @relation(fields: [goal_id], references: [goal_id], onDelete: Cascade)
 }

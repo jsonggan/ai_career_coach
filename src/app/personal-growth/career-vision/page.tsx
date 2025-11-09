@@ -1,8 +1,18 @@
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { redirect } from 'next/navigation';
 import CareerVisionClient, { Goal } from './career-vision-client';
 import { getUserVisionStatement, getUserAnnualGoals } from '@/db/career-vision';
 
 export default async function CareerVisionPage() {
-  const userId = 1; // Hardcoded as per requirement
+  // Get session from NextAuth
+  const session = await getServerSession(authOptions);
+
+  if (!session || !session.user?.id) {
+    redirect('/login');
+  }
+
+  const userId = session.user.id;
   const currentYear = new Date().getFullYear();
   
   // Fetch initial data

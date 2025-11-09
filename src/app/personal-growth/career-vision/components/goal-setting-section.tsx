@@ -9,14 +9,12 @@ import GoalForm from './goal-form';
 interface GoalSettingSectionProps {
   goals: Goal[];
   onGoalsUpdate: (goals: Goal[]) => void;
-  userId: number;
   currentYear: number;
 }
 
 export default function GoalSettingSection({
   goals,
   onGoalsUpdate,
-  userId,
   currentYear
 }: GoalSettingSectionProps) {
   const [showForm, setShowForm] = useState(false);
@@ -42,8 +40,7 @@ export default function GoalSettingSection({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          goalId: parseInt(goalId),
-          userId
+          goalId: parseInt(goalId)
         }),
       });
 
@@ -76,7 +73,6 @@ export default function GoalSettingSection({
           },
           body: JSON.stringify({
             goalId: parseInt(goal.id),
-            userId,
             title: goal.title,
             description: goal.description,
             category: goal.category,
@@ -120,7 +116,6 @@ export default function GoalSettingSection({
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            userId,
             year: currentYear,
             title: goal.title,
             description: goal.description,
@@ -186,7 +181,6 @@ export default function GoalSettingSection({
         },
         body: JSON.stringify({
           goalId: parseInt(goalId),
-          userId,
           progress
         }),
       });

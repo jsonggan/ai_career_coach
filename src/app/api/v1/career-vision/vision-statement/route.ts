@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import {
   getUserVisionStatement,
   createOrUpdateVisionStatement
@@ -7,23 +9,23 @@ import {
 
 // Validation schemas
 const visionStatementSchema = z.object({
-  visionText: z.string().min(10, 'Vision statement must be at least 10 characters'),
-  userId: z.number().int().positive().default(1)
+  visionText: z.string().min(10, 'Vision statement must be at least 10 characters')
 });
 
 // GET - Fetch user's vision statement
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const userId = parseInt(searchParams.get('userId') || '1');
+    // Get session from NextAuth
+    const session = await getServerSession(authOptions);
 
-    if (isNaN(userId) || userId <= 0) {
+    if (!session || !session.user?.id) {
       return NextResponse.json(
-        { error: 'Invalid user ID' },
-        { status: 400 }
+        { error: 'Unauthorized' },
+        { status: 401 }
       );
     }
 
+    const userId = session.user.id;
     const visionStatement = await getUserVisionStatement(userId);
 
     return NextResponse.json({
@@ -42,13 +44,24 @@ export async function GET(request: NextRequest) {
 // POST/PUT - Create or update vision statement
 export async function POST(request: NextRequest) {
   try {
+    // Get session from NextAuth
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user?.id) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const userId = session.user.id;
     const body = await request.json();
 
     // Validate request body
     const validatedData = visionStatementSchema.parse(body);
 
     const visionStatement = await createOrUpdateVisionStatement({
-      userId: validatedData.userId,
+      userId,
       visionText: validatedData.visionText
     });
 
